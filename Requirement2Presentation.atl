@@ -65,7 +65,7 @@ rule Requirement2Package {
 		view: Presentation!Property( 
 			name <- 'Views',
 			type <- 'presentationAlternatives',
-			interactiveElms <- Presentation!Class.allInstances()
+			properties <- Presentation!Class.allInstances()
 				->select(x | x.name <> 'Home')
 				->collect(x | thisModule.AddPresentationClass2Views(x))
 		)
@@ -118,12 +118,10 @@ lazy rule DisplayAction2Propery {
 		t : Presentation!Property (
 			name <- s.name,
 			type <- thisModule.displayActionMapping(s.type),
-			interactiveElms <- Sequence {
+			properties <- Sequence {
 				s.interactionPins->select(x | x.type = 'text')->collect(x | thisModule.InteractionPin2TextInput(x)),
 				s.interactionPins->select(x | x.type = 'selection')->collect(x | thisModule.InteractionPin2Selection(x)),
-				s.interactionPins->select(x | x.type = 'file')->collect(x | thisModule.InteractionPin2FileUpload(x))
-			},
-			outputElms <- Sequence {
+				s.interactionPins->select(x | x.type = 'file')->collect(x | thisModule.InteractionPin2FileUpload(x)),
 				s.displayPins->select(x | x.type='text')->collect(x | thisModule.DisplayPin2Text(x)), 
 				s.displayPins->select(x | x.type='image')->collect(x | thisModule.DisplayPin2Image(x)),
 				s.displayPins->select(x | x.type='media')->collect(x | thisModule.DisplayPin2Media(x))
@@ -138,14 +136,12 @@ lazy rule DisplayActionValidated2Propery {
 		t : Presentation!Property (
 			name <- s.name,
 			type <- thisModule.displayActionMapping(s.type),
-			interactiveElms <- Sequence {
+			properties <- Sequence {
 				s.interactionPins->select(x | x.type = 'text')->collect(x | thisModule.InteractionPin2TextInput(x)),
 				s.interactionPins->select(x | x.type = 'selection')->collect(x | thisModule.InteractionPin2Selection(x)),
 				s.interactionPins->select(x | x.type = 'file')->collect(x | thisModule.InteractionPin2FileUpload(x)),
 				confirm,
-				cancel
-			},
-			outputElms <- Sequence {
+				cancel,
 				s.displayPins->select(x | x.type='text')->collect(x | thisModule.DisplayPin2Text(x)), 
 				s.displayPins->select(x | x.type='image')->collect(x | thisModule.DisplayPin2Image(x)),
 				s.displayPins->select(x | x.type='media')->collect(x | thisModule.DisplayPin2Media(x))
