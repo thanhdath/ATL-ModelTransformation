@@ -1,0 +1,239 @@
+module Requirement2Presentation;
+create OUT : Presentation from IN : Requirement;
+
+helper def : displayActionMapping(name : String) : String =
+	if(name = 'form') then
+		'inputForm'
+	else
+		if name = 'group'
+		then
+			'presentationGroup'
+		else
+			if name = 'alternatives'
+			then
+				'presentationAlternatives'
+			else
+				'iteratedPresentationGroup'
+			endif
+		endif
+	endif;
+
+rule Requirement2Package {
+	from
+		s : Requirement!Model 
+	using {
+		activities : Real = s.packagedElement->select(x | x.oclIsTypeOf(Requirement!Activity));
+	}
+	to 
+		t: Presentation!Package (
+			name <- s.name,
+			elements <- Sequence {
+				s.packagedElement->select(x | x.oclIsTypeOf(Requirement!BrowsingUseCase))
+					->iterate(x; res : Set(Requirement!BrowsingUseCase) = Set {} | 
+						if (activities->collect(x | x.name).includes(x.name))
+						then
+							res->including(x)
+						else
+							res
+						endif
+					)
+					->collect(x | thisModule.BrowsingUseCase2PresentationClass(x)),
+				s.packagedElement->select(x | x.oclIsTypeOf(Requirement!ProcessingUseCase))
+					->iterate(x; res : Set(Requirement!ProcessingUseCase) = Set {} | 
+						if (activities->collect(x | x.name).includes(x.name))
+						then
+							res->including(x)
+						else
+							res
+						endif
+					)
+					->collect(x | thisModule.ProcessingUseCase2PresentationClass(x)),
+				home
+			}
+		),
+		home: Presentation!Class(
+			name <- 'Home',
+			type <- 'presentationPage',
+			properties <- Sequence{
+				-- collect all DisplayAction -> convert to button
+				Presentation!Class.allInstances()
+					->select(x | x.name <> 'Home')
+					->collect(x | thisModule.PresentationClass2Button(x)),
+				view
+			}
+		),
+		view: Presentation!Property( 
+			name <- 'Views',
+			type <- 'presentationAlternatives',
+			interactiveElms <- Presentation!Class.allInstances()
+				->select(x | x.name <> 'Home')
+				->collect(x | thisModule.AddPresentationClass2Views(x))
+		)
+}
+
+lazy rule BrowsingUseCase2PresentationClass {
+	from s: Requirement!BrowsingUseCase
+	to t: Presentation!Class (
+		name <- s.name,
+		type <- 'presentationGroup',
+		properties <- Requirement!Model.allInstances().first().packagedElement
+			->select(x | x.oclIsTypeOf(Requirement!Activity))
+			->select(x | x.name = s.name)
+			->iterate(x; res : Set(Requirement!DisplayAction) = Set {} | 
+				res->union(
+					x.elements->select(x | x.oclIsTypeOf(Requirement!DisplayAction))
+				)
+			)
+			->collect(x | 
+				if x.validated then thisModule.DisplayActionValidated2Propery(x)
+				else thisModule.DisplayAction2Propery(x) endif
+			)
+	)
+}
+
+lazy rule ProcessingUseCase2PresentationClass {
+	from s: Requirement!ProcessingUseCase
+	to t: Presentation!Class (
+		name <- s.name,
+		type <- 'inputForm',
+		properties <- Requirement!Model.allInstances().first().packagedElement
+			->select(x | x.oclIsTypeOf(Requirement!Activity))
+			->select(x | x.name = s.name)
+			->iterate(x; res : Set(Requirement!DisplayAction) = Set {} | 
+				res->union(
+					x.elements->select(x | x.oclIsTypeOf(Requirement!DisplayAction))
+				)
+			)
+			->collect(x | 
+				if x.validated then thisModule.DisplayActionValidated2Propery(x)
+				else thisModule.DisplayAction2Propery(x) endif
+			)
+	)
+}
+
+lazy rule DisplayAction2Propery {
+	from
+		s : Requirement!DisplayAction
+	to 
+		t : Presentation!Property (
+			name <- s.name,
+			type <- thisModule.displayActionMapping(s.type),
+			interactiveElms <- Sequence {
+				s.interactionPins->select(x | x.type = 'text')->collect(x | thisModule.InteractionPin2TextInput(x)),
+				s.interactionPins->select(x | x.type = 'selection')->collect(x | thisModule.InteractionPin2Selection(x)),
+				s.interactionPins->select(x | x.type = 'file')->collect(x | thisModule.InteractionPin2FileUpload(x))
+			},
+			outputElms <- Sequence {
+				s.displayPins->select(x | x.type='text')->collect(x | thisModule.DisplayPin2Text(x)), 
+				s.displayPins->select(x | x.type='image')->collect(x | thisModule.DisplayPin2Image(x)),
+				s.displayPins->select(x | x.type='media')->collect(x | thisModule.DisplayPin2Media(x))
+			}
+		)
+}
+
+lazy rule DisplayActionValidated2Propery {
+	from
+		s : Requirement!DisplayAction(s.validated = true)
+	to 
+		t : Presentation!Property (
+			name <- s.name,
+			type <- thisModule.displayActionMapping(s.type),
+			interactiveElms <- Sequence {
+				s.interactionPins->select(x | x.type = 'text')->collect(x | thisModule.InteractionPin2TextInput(x)),
+				s.interactionPins->select(x | x.type = 'selection')->collect(x | thisModule.InteractionPin2Selection(x)),
+				s.interactionPins->select(x | x.type = 'file')->collect(x | thisModule.InteractionPin2FileUpload(x)),
+				confirm,
+				cancel
+			},
+			outputElms <- Sequence {
+				s.displayPins->select(x | x.type='text')->collect(x | thisModule.DisplayPin2Text(x)), 
+				s.displayPins->select(x | x.type='image')->collect(x | thisModule.DisplayPin2Image(x)),
+				s.displayPins->select(x | x.type='media')->collect(x | thisModule.DisplayPin2Media(x))
+			}
+		),
+		confirm: Presentation!Property (
+			name <- 'confirm',
+			type <- 'button'
+		),
+		cancel: Presentation!Property (
+			name <- 'cancel',
+			type <- 'button'
+		)
+}
+  
+lazy rule PresentationClass2Button {
+	from s: Presentation!Class
+	to t: Presentation!Property ( 
+		name <- s.name,
+		type <- 'button'
+	)
+}
+
+lazy rule AddPresentationClass2Views {
+	from s: Presentation!Class
+	to t: Presentation!Property ( 
+		name <- s.name,
+		type <- s.type
+	)
+}
+
+lazy rule DisplayPin2Text {
+	from
+		pin : Requirement!DisplayPin(pin.type = 'text')
+	to 
+		text : Presentation!Property (
+			name <- pin.name,
+			type <- 'text'
+		)
+}
+
+lazy rule DisplayPin2Image {
+	from
+		pin : Requirement!DisplayPin(pin.type = 'image')
+	to 
+		image : Presentation!Property (
+			name <- pin.name,
+			type <- 'picture'
+		)
+}
+
+lazy rule DisplayPin2Media {
+	from
+		pin : Requirement!DisplayPin(pin.type = 'media')
+	to 
+		image : Presentation!Property (
+			name <- pin.name,
+			type <- 'mediaObject'
+		)
+}
+
+
+lazy rule InteractionPin2TextInput {
+	from
+		pin : Requirement!InteractionPin(pin.type = 'text')
+	to 
+		textInput : Presentation!Property (
+			name <- pin.name,
+			type <- 'inputText'
+		)
+}
+
+lazy rule InteractionPin2FileUpload {
+	from
+		pin : Requirement!InteractionPin(pin.type = 'file')
+	to 
+		file : Presentation!Property (
+			name <- pin.name,
+			type <- 'fileUpload'
+		)
+}
+
+lazy rule InteractionPin2Selection {
+	from
+		pin : Requirement!InteractionPin(pin.type = 'selection')
+	to 
+		selection : Presentation!Property (
+			name <- pin.name,
+			type <- 'selection'
+		)
+}

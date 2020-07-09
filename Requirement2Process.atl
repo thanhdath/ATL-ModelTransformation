@@ -1,0 +1,101 @@
+module Requirement2Process;
+
+
+create OUT : Process from IN : Requirement;
+
+helper def : firstToLower(name : String) : String =
+    name.substring(1,1).toLower() + name.substring(2, name.size());
+
+helper def : firstToUpper(name : String) : String =
+    name.substring(1,1).toUpper() + name.substring(2, name.size());
+
+lazy rule OutputPin2Property {
+	from
+		s : Requirement!OutputPin
+	to 
+		t : Process!Property (
+			name <- s.name
+			--type <- s.type
+		)
+}
+
+lazy rule InputPin2Parameter {
+	from
+		pin : Requirement!InputPin
+	to 
+		param : Process!Parameter (
+			name <- pin.name,
+			type <- pin.type
+		)
+}
+
+lazy rule UserAction2ProcessClass{
+	from
+		s : Requirement!UserAction 
+	to 
+		t : Process!ProcessClass (
+			name <- thisModule.firstToUpper(s.name),
+			properties <- s.outputPins->iterate(property; res: Set(Requirement!OutputPin) = Set {} |
+				if(res->collect(p | p.name)->includes(property.name)) then res
+				else
+					res->including(property)
+				endif
+			)->collect(property | thisModule.OutputPin2Property(property))
+		)
+}
+
+lazy rule SystemAction2ProcessClass {
+	from
+		s : Requirement!SystemAction
+	to 
+		t : Process!ProcessClass (
+			name <- thisModule.firstToUpper(s.name),
+			operations <- Sequence { operation}
+		),
+	
+		operation : Process!ProcessOperation(
+			name <- s.name,
+			params <-  s.inputPins->iterate(pin; res: Set(Requirement!InputPin) = Set {} |
+				if(res->collect(p | p.name)->includes(pin.name)) then res
+				else
+					res->including(pin)
+				endif
+			)->collect(pin | thisModule.InputPin2Parameter(pin))
+		)
+}
+
+
+rule Requirement2Process {
+	from s: Requirement!Model
+	to t: Process!Package (
+		name <- s.name,
+		elements <- Sequence {
+			s.packagedElement->select(x | x.oclIsTypeOf(Requirement!Activity))
+				->iterate(e; res : Set(Requirement!UserAction) = Set {} |
+					res->union(
+				   		e.elements->select(x |x.oclIsTypeOf(Requirement!UserAction))
+							->select(x | x.name.indexOf('.') < 0)
+					)
+	            )->iterate(x; res: Set(Requirement!UserAction) = Set {} |
+					if(res->collect(x | x.name)->includes(x.name)) then res
+					else
+						res->including(x)
+					endif
+				)->collect(x | thisModule.UserAction2ProcessClass(x)),
+			s.packagedElement->select(x | x.oclIsTypeOf(Requirement!Activity))
+				->iterate(e; res : Set(Requirement!SystemAction) = Set {} |
+					res->union(
+				   		e.elements->select(x |x.oclIsTypeOf(Requirement!SystemAction))
+							->select(x | x.name.indexOf('.') < 0)
+					)
+	            )->iterate(x; res: Set(Requirement!SystemAction) = Set {} |
+					if(res->collect(x | x.name)->includes(x.name)) then res
+					else
+						res->including(x)
+					endif
+				)->collect(x | thisModule.SystemAction2ProcessClass(x))
+		}
+	)
+}
+
+

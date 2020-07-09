@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model name="AddressBook"
+    xmlns="www.requirement.com" 
+    xmlns:xmi="http://www.omg.org/XMI" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="www.requirement.com ../../Metamodel/UWE/Requirement.ecore">
+    <packagedElement xsi:type="Actor" name="User" xmi:id="user" />
+    <packagedElement xsi:type="BrowsingUseCase" name="SearchContacts" xmi:id="search_contacts" />
+    <packagedElement xsi:type="ProcessingUseCase" name="CreateContact" xmi:id="create_contact" />
+    <packagedElement xsi:type="ProcessingUseCase" name="UpdateContact" xmi:id="update_contact" />
+    <packagedElement xsi:type="ProcessingUseCase" name="DeleteContact" xmi:id="delete_contact" />
+    <packagedElement xsi:type="Association" source="user" target="search_contacts" />
+    <packagedElement xsi:type="Association" source="user" target="create_contact" />
+    <packagedElement xsi:type="Association" source="user" target="update_contact" />
+    <packagedElement xsi:type="Association" source="user" target="delete_contact" />
+    
+    <packagedElement xsi:type="Activity" name="CreateContact" xmi:id="activity_1">
+        <elements xsi:type="DisplayAction" name="CreateForm" type="form" validated="true" xmi:id="create_form">
+            <interactionPins name="name" type="text" xmi:id="pin_1" />
+            <interactionPins name="phoneNumber" type="text" xmi:id="pin_2" />
+            <interactionPins name="gender" type="selection" xmi:id="pin_3" />
+            <interactionPins name="address" type="text" xmi:id="pin_4" />
+            <interactionPins name="nickName" type="text" xmi:id="pin_5" />
+            <interactionPins name="email" type="text" xmi:id="pin_6" />
+            <interactionPins name="avatarImageUpload" type="file" xmi:id="pin_7" />
+            <displayPins name="avatarImageDisplay" type="image" xmi:id="pin_8" />
+            <displayPins name="guide" type="text" xmi:id="pin_9" />
+        </elements>
+        <elements xsi:type="UserAction" name="CreateContactInput" validated="true" xmi:id="create_contact_input">
+            <outputPins name="name" type="String" xmi:id="pin_10" />
+            <outputPins name="phoneNumber" type="text" xmi:id="pin_11" />
+            <outputPins name="gender" type="text" xmi:id="pin_12" />
+            <outputPins name="address" type="text" xmi:id="pin_13" />
+            <outputPins name="nickName" type="text" xmi:id="pin_14" />
+            <outputPins name="email" type="text" xmi:id="pin_15" />
+            <outputPins name="avatarImageUpload" type="file" xmi:id="pin_16" />
+        </elements>
+        <elements xsi:type="SystemAction" name="SaveContact" confirmed="true" xmi:id="save_contact">
+            <inputPins name="name" type="String" xmi:id="pin_17" />
+            <inputPins name="phoneNumber" type="text" xmi:id="pin_18" />
+            <inputPins name="gender" type="text" xmi:id="pin_19" />
+            <inputPins name="address" type="text" xmi:id="pin_20" />
+            <inputPins name="nickName" type="text" xmi:id="pin_21" />
+            <inputPins name="email" type="text" xmi:id="pin_22" />
+            <inputPins name="avatarImageUpload" type="file" xmi:id="pin_23" />
+        </elements>
+        <elements xsi:type="CentralBufferNode" name="Contact" xmi:id="contact">
+        </elements>
+        <elements xsi:type="Association" source="create_form" target="create_contact_input" />
+        <elements xsi:type="Association" source="pin_10" target="pin_17" />
+        <elements xsi:type="Association" source="pin_11" target="pin_18" />
+        <elements xsi:type="Association" source="pin_12" target="pin_19" />
+        <elements xsi:type="Association" source="pin_13" target="pin_20" />
+        <elements xsi:type="Association" source="pin_14" target="pin_21" />
+        <elements xsi:type="Association" source="pin_15" target="pin_22" />
+        <elements xsi:type="Association" source="pin_16" target="pin_23" />
+        <elements xsi:type="Association" source="save_contact" target="contact" />
+    </packagedElement>
+    
+    <packagedElement xsi:type="Activity" name="UpdateContact" xmi:id="activity_2">
+        <elements xsi:type="DisplayAction" name="UpdateForm" type="form" validated="true" xmi:id="update_form">
+            <interactionPins name="name" type="text" xmi:id="pin_1" />
+            <interactionPins name="phoneNumber" type="text" xmi:id="pin_2" />
+            <interactionPins name="gender" type="selection" xmi:id="pin_3" />
+            <interactionPins name="address" type="text" xmi:id="pin_4" />
+            <interactionPins name="nickName" type="text" xmi:id="pin_5" />
+            <interactionPins name="email" type="text" xmi:id="pin_6" />
+            <interactionPins name="avatarImageUpload" type="file" xmi:id="pin_7" />
+            <displayPins name="avatarImageDisplay" type="image" xmi:id="pin_8" />
+            <displayPins name="guide" type="text" xmi:id="pin_9" />
+        </elements>
+        <elements xsi:type="UserAction" name="UpdateContactInput" validated="true" xmi:id="update_contact_input">
+            <outputPins name="name" type="String" xmi:id="pin_10" />
+            <outputPins name="phoneNumber" type="text" xmi:id="pin_11" />
+            <outputPins name="gender" type="text" xmi:id="pin_12" />
+            <outputPins name="address" type="text" xmi:id="pin_13" />
+            <outputPins name="nickName" type="text" xmi:id="pin_14" />
+            <outputPins name="email" type="text" xmi:id="pin_15" />
+            <outputPins name="avatarImageUpload" type="file" xmi:id="pin_16" />
+        </elements>
+        <elements xsi:type="SystemAction" name="UpdateContact" confirmed="true" xmi:id="update_contact">
+            <inputPins name="name" type="String" xmi:id="pin_17" />
+            <inputPins name="phoneNumber" type="text" xmi:id="pin_18" />
+            <inputPins name="gender" type="text" xmi:id="pin_19" />
+            <inputPins name="address" type="text" xmi:id="pin_20" />
+            <inputPins name="nickName" type="text" xmi:id="pin_21" />
+            <inputPins name="email" type="text" xmi:id="pin_22" />
+            <inputPins name="avatarImageUpload" type="file" xmi:id="pin_23" />
+        </elements>
+        <elements xsi:type="CentralBufferNode" name="Contact" xmi:id="contact">
+        </elements>
+        <elements xsi:type="Association" source="update_form" target="update_contact_input" />
+        <elements xsi:type="Association" source="pin_10" target="pin_17" />
+        <elements xsi:type="Association" source="pin_11" target="pin_18" />
+        <elements xsi:type="Association" source="pin_12" target="pin_19" />
+        <elements xsi:type="Association" source="pin_13" target="pin_20" />
+        <elements xsi:type="Association" source="pin_14" target="pin_21" />
+        <elements xsi:type="Association" source="pin_15" target="pin_22" />
+        <elements xsi:type="Association" source="pin_16" target="pin_23" />
+        <elements xsi:type="Association" source="update_contact" target="contact" />
+    </packagedElement>
+</Model>

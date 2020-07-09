@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model name="MusicPortal"
+    xmlns="www.requirement.com" 
+    xmlns:xmi="http://www.omg.org/XMI" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="www.requirement.com ../../Metamodel/UWE/Requirement.ecore">
+	<packagedElement xsi:type="Actor" name="User" xmi:id="user" />
+	<packagedElement xsi:type="Actor" name="RegisteredUser" xmi:id="registed_user" />
+	<packagedElement xsi:type="BrowsingUseCase" name="ViewAlbumDetails" xmi:id="view_album_details" />
+	<packagedElement xsi:type="ProcessingUseCase" name="BuyAlbum" xmi:id="buy_album" />
+	<packagedElement xsi:type="ProcessingUseCase" name="Recharge" xmi:id="recharge" />
+	<packagedElement xsi:type="Association" source="user" target="view_album_details" />
+	<packagedElement xsi:type="Association" source="registed_user" target="buy_album" />
+	<packagedElement xsi:type="Association" source="registed_user" target="recharge" />
+	<packagedElement xsi:type="Extension" source="buy_album" target="view_album_details" />
+	<packagedElement xsi:type="Extension" source="recharge" target="buy_album" />
+	<packagedElement xsi:type="Generalization" owner="registed_user" general="user" />
+	
+	<packagedElement xsi:type="Activity" name="BuyAlbum" xmi:id="activity_1">
+		<elements xsi:type="CentralBufferNode" name="Album" xmi:id="elm_1" owner="activity_1" >
+		</elements>
+		<elements xsi:type="CentralBufferNode" name="User" xmi:id="elm_2"  owner="activity_1" >
+		</elements>
+		<elements xsi:type="SystemAction" name="Session.getCurrentUser()" xmi:id="elm_3" >
+			<inputPins name="target" xmi:id="pin_1"></inputPins>
+		</elements>
+		<elements xsi:type="CentralBufferNode" name="session" xmi:id="elm_4" owner="activity_1" >
+		</elements>
+		<elements xsi:type="DisplayAction" name="BuyAlbumConfirmation" type="form" validated="true" xmi:id="elm_5" >
+		</elements>
+		<elements xsi:type="NavigationAction" name="Recharge" xmi:id="elm_6" owner="activity_1">
+		</elements>
+		<elements xsi:type="UserAction" name="InsufficientCreditsMessage" xmi:id="elm_7" >
+		</elements>
+		<elements xsi:type="SystemAction" name="User.buyAlbum()" xmi:id="elm_8" >
+			<inputPins name="album" xmi:id="pin_2"></inputPins>
+			<inputPins name="target" xmi:id="pin_3"></inputPins>
+		</elements>
+		<elements xsi:type="DecisionNode" xmi:id="elm_9" >
+		</elements>
+		<elements xsi:type="DecisionNode" xmi:id="elm_10" >
+		</elements>
+		<elements xsi:type="DecisionNode" xmi:id="elm_11" >
+		</elements>
+		<elements xsi:type="DecisionNode" xmi:id="elm_12" >
+		</elements>
+
+		<elements xsi:type="Association" source="elm_1" target="pin_2" />
+		<elements xsi:type="Association" source="elm_1" target="elm_3" />
+		<elements xsi:type="Association" source="elm_2" target="pin_3" />
+		<elements xsi:type="Association" source="elm_3" target="elm_2" />
+		<elements xsi:type="Association" source="elm_3" target="elm_9" />
+		<elements xsi:type="Association" source="elm_4" target="pin_1" />
+		<elements xsi:type="Association" source="elm_5" target="elm_11" />
+		<elements xsi:type="Association" source="elm_6" target="elm_10" />
+		<elements xsi:type="Association" source="elm_7" target="elm_12" />
+		<elements xsi:type="Association" source="elm_9" target="elm_10" />
+		<elements xsi:type="Association" source="elm_10" target="elm_5" />
+		<elements xsi:type="Association" source="elm_10" target="elm_7" />
+		<elements xsi:type="Association" source="elm_12" target="elm_6" />
+	</packagedElement>
+</Model>

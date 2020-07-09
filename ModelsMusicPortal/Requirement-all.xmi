@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model name="MusicPortal"
+    xmlns="www.requirement.com" 
+    xmlns:xmi="http://www.omg.org/XMI" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="www.requirement.com ../../Metamodel/UWE/Requirement.ecore">
+	<packagedElement xsi:type="Actor" name="User" xmi:id="user" />
+	<packagedElement xsi:type="Actor" name="RegistedUser" xmi:id="registed_user" />
+	<packagedElement xsi:type="ProcessingUseCase" name="SearchAlbum" xmi:id="search_album" />
+	<packagedElement xsi:type="BrowsingUseCase" name="ViewAlbumDetails" xmi:id="view_album_details" />
+	<packagedElement xsi:type="ProcessingUseCase" name="Login" xmi:id="login" />
+	<packagedElement xsi:type="ProcessingUseCase" name="Register" xmi:id="register" />
+	<packagedElement xsi:type="ProcessingUseCase" name="Logout" xmi:id="logout" />
+	<packagedElement xsi:type="ProcessingUseCase" name="DownloadAlbum" xmi:id="download_album" />
+	<packagedElement xsi:type="ProcessingUseCase" name="BuyAlbum" xmi:id="buy_album" />
+	<packagedElement xsi:type="ProcessingUseCase" name="Recharge" xmi:id="recharge" />
+	<packagedElement xsi:type="BrowsingUseCase" name="ViewAccount" xmi:id="view_account" />
+	<packagedElement xsi:type="BrowsingUseCase" name="ViewOwnedAlbumList" xmi:id="view_owned_album_list" />
+	<packagedElement xsi:type="Association" source="user" target="search_album" />
+	<packagedElement xsi:type="Association" source="user" target="view_album_details" />
+	<packagedElement xsi:type="Association" source="user" target="login" />
+	<packagedElement xsi:type="Association" source="user" target="register" />
+	<packagedElement xsi:type="Association" source="registed_user" target="logout" />
+	<packagedElement xsi:type="Association" source="registed_user" target="download_album" />
+	<packagedElement xsi:type="Association" source="registed_user" target="buy_album" />
+	<packagedElement xsi:type="Association" source="registed_user" target="recharge" />
+	<packagedElement xsi:type="Association" source="registed_user" target="view_account" />
+	<packagedElement xsi:type="Association" source="registed_user" target="view_owned_album_list" />
+	<packagedElement xsi:type="Extension" source="register" target="login" />
+	<packagedElement xsi:type="Extension" source="view_album_details" target="search_album" />
+	<packagedElement xsi:type="Extension" source="download_album" target="view_album_details" />
+	<packagedElement xsi:type="Extension" source="buy_album" target="view_album_details" />
+	<packagedElement xsi:type="Extension" source="view_owned_album_list" target="view_album_details" />
+	<packagedElement xsi:type="Extension" source="recharge" target="buy_album" />
+	<packagedElement xsi:type="Extension" source="recharge" target="view_account" />
+	<packagedElement xsi:type="Generalization" owner="registed_user" general="user" />
+	
+	<packagedElement xsi:type="Activity" name="BuyAlbum" xmi:id="activity_1">
+		<elements xsi:type="ActivityParameterNode" name="albumParameter" xmi:id="elm_1" >
+		</elements>
+		<elements xsi:type="CentralBufferNode" name="user" xmi:id="elm_2"  owner="activity_1" >
+		</elements>
+		<elements xsi:type="SystemAction" name="Session.getCurrentUser()" xmi:id="elm_3" >
+			<inputPins name="target" xmi:id="pin_1"></inputPins>
+		</elements>
+		<elements xsi:type="CentralBufferNode" name="session" xmi:id="elm_4" owner="activity_1" >
+		</elements>
+		<elements xsi:type="UserAction" name="BuyAlbumConfirmation" xmi:id="elm_5" >
+		</elements>
+		<elements xsi:type="NavigationAction" name="Recharge" xmi:id="elm_6" owner="activity_1">
+		</elements>
+		<elements xsi:type="UserAction" name="InsufficientCreditsMessage" xmi:id="elm_7" >
+		</elements>
+		<elements xsi:type="SystemAction" name="User.buyAlbum()" xmi:id="elm_8" >
+			<inputPins name="album" type="String" xmi:id="pin_2"></inputPins>
+			<inputPins name="target" xmi:id="pin_3"></inputPins>
+		</elements>
+		<elements xsi:type="DecisionNode" xmi:id="elm_9" >
+		</elements>
+		<elements xsi:type="DecisionNode" xmi:id="elm_10" >
+		</elements>
+		<elements xsi:type="DecisionNode" xmi:id="elm_11" >
+		</elements>
+		<elements xsi:type="DecisionNode" xmi:id="elm_12" >
+		</elements>
+
+		<elements xsi:type="Association" source="elm_1" target="pin_2" />
+		<elements xsi:type="Association" source="elm_1" target="elm_3" />
+		<elements xsi:type="Association" source="elm_2" target="pin_3" />
+		<elements xsi:type="Association" source="elm_3" target="elm_2" />
+		<elements xsi:type="Association" source="elm_3" target="elm_9" />
+		<elements xsi:type="Association" source="elm_4" target="pin_1" />
+		<elements xsi:type="Association" source="elm_5" target="elm_11" />
+		<elements xsi:type="Association" source="elm_6" target="elm_10" />
+		<elements xsi:type="Association" source="elm_7" target="elm_12" />
+		<elements xsi:type="Association" source="elm_9" target="elm_10" />
+		<elements xsi:type="Association" source="elm_10" target="elm_5" />
+		<elements xsi:type="Association" source="elm_10" target="elm_7" />
+		<elements xsi:type="Association" source="elm_12" target="elm_6" />
+	</packagedElement>
+	<packagedElement xsi:type="Activity" name="Login" xmi:id="activity_2">
+		<elements xsi:type="UserAction" name="Login" xmi:id="elm_1" >
+			<outputPins name="userName" xmi:id="pin_1"></outputPins>
+			<outputPins name="password" xmi:id="pin_2"></outputPins>
+		</elements>
+		<elements xsi:type="SystemAction" name="process.Login.setLoginError()" xmi:id="elm_2" >
+		</elements>
+		<elements xsi:type="CentralBufferNode" name="user" xmi:id="elm_3" owner="activity_2" >
+		</elements>
+		<elements xsi:type="SystemAction" name="User.loadUser()" xmi:id="elm_4" >
+			<inputPins name="name" xmi:id="pin_3"></inputPins>
+		</elements>
+		<elements xsi:type="DecisionNode" xmi:id="elm_5" >
+		</elements>
+		<elements xsi:type="DecisionNode" xmi:id="elm_6" >
+		</elements>
+		<elements xsi:type="SystemAction" name="User.checkPassword()" xmi:id="elm_7" >
+			<inputPins name="target" xmi:id="pin_4"></inputPins>
+			<inputPins name="password" xmi:id="pin_5"></inputPins>
+		</elements>
+		<elements xsi:type="CentralBufferNode" name="passwordOK" xmi:id="elm_8" owner="activity_2" >
+		</elements>
+		<elements xsi:type="DecisionNode" name="Login" xmi:id="elm_9" >
+		</elements>
+		<elements xsi:type="SystemAction" name="Session.setCurrentUser()" xmi:id="elm_10" >
+			<inputPins name="user" xmi:id="pin_6"></inputPins>
+			<inputPins name="target" xmi:id="pin_7"></inputPins>
+		</elements>
+		<elements xsi:type="CentralBufferNode" name="session" xmi:id="elm_11" owner="activity_2" >
+		</elements>
+		<elements xsi:type="Association" source="elm_1" target="elm_4" />
+		<elements xsi:type="Association" source="elm_2" target="elm_1" />
+		<elements xsi:type="Association" source="elm_3" target="pin_4" />
+		<elements xsi:type="Association" source="elm_3" target="pin_6" />
+		<elements xsi:type="Association" source="elm_4" target="elm_5" />
+		<elements xsi:type="Association" source="elm_5" target="elm_6" />
+		<elements xsi:type="Association" source="elm_5" target="elm_7" />
+		<elements xsi:type="Association" source="elm_6" target="elm_2" />
+		<elements xsi:type="Association" source="elm_7" target="elm_8" />
+		<elements xsi:type="Association" source="elm_7" target="elm_9" />
+		<elements xsi:type="Association" source="elm_9" target="elm_10" />
+		<elements xsi:type="Association" source="elm_11" target="pin_7" />
+		<elements xsi:type="Association" source="pin_1" target="pin_3" />
+		<elements xsi:type="Association" source="pin_2" target="pin_5" />
+	</packagedElement>
+	<packagedElement xsi:type="Activity" name="Logout" xmi:id="activity_3">
+		<elements xsi:type="SystemAction" name="Session.logout()" xmi:id="elm_1" >
+			<outputPins name="target" xmi:id="pin_1"></outputPins>
+		</elements>
+		<elements xsi:type="CentralBufferNode" name="session" xmi:id="elm_2" owner="activity_2" >
+		</elements>
+		<elements xsi:type="Association" source="elm_2" target="pin_1" />
+	</packagedElement>
+	<packagedElement xsi:type="Activity" name="Recharge" xmi:id="activity_4">
+		<elements xsi:type="CentralBufferNode" name="user" xmi:id="elm_1" owner="activity_4" >
+		</elements>
+		<elements xsi:type="SystemAction" name="Session.getCurrentUser()" xmi:id="elm_2" >
+			<inputPins name="target" xmi:id="pin_1"></inputPins>
+		</elements>
+		<elements xsi:type="CentralBufferNode" name="session" xmi:id="elm_3"  owner="activity_4">
+		</elements>
+		<elements xsi:type="DecisionNode" xmi:id="elm_4">
+		</elements>
+		<elements xsi:type="SystemAction" name="User.getCredits()" xmi:id="elm_5">
+			<inputPins name="target" xmi:id="pin_2"></inputPins>
+			<outputPins name="credits" xmi:id="pin_3"></outputPins>
+		</elements>
+		<elements xsi:type="CentralBufferNode" name="creditCard" xmi:id="elm_6"  owner="activity_4">
+		</elements>
+		<elements xsi:type="UserAction" name="RechargeDataInput" xmi:id="elm_7">
+			<inputPins name="currentCredits" xmi:id="pin_4"></inputPins>
+			<outputPins name="creditCardNumber" xmi:id="pin_5"></outputPins>
+			<outputPins name="owner" xmi:id="pin_6"></outputPins>
+			<outputPins name="validThrough" xmi:id="pin_7"></outputPins>
+			<outputPins name="controlNumber" xmi:id="pin_8"></outputPins>
+		</elements>
+		<elements xsi:type="SystemAction" name="CreditCard.CreditCard()" xmi:id="elm_8">
+			<inputPins name="number" xmi:id="pin_9"></inputPins>
+			<inputPins name="owner" xmi:id="pin_10"></inputPins>
+			<inputPins name="validThrough" xmi:id="pin_11"></inputPins>
+			<inputPins name="controlNumber" xmi:id="pin_12"></inputPins>
+		</elements>
+		<elements xsi:type="SystemAction" name="CreditCard.validate()" xmi:id="elm_9">
+			<inputPins name="target" xmi:id="pin_13"></inputPins>
+		</elements>
+		<elements xsi:type="CentralBufferNode" name="creditCardValid" xmi:id="elm_10"  owner="activity_4">
+		</elements>
+		<elements xsi:type="DecisionNode" xmi:id="elm_11">
+		</elements>
+		<elements xsi:type="CentralBufferNode" name="amount" xmi:id="elm_12"  owner="activity_4">
+		</elements>
+		<elements xsi:type="UserAction" name="RechargeConfirmationInput" xmi:id="elm_13">
+			<inputPins name="amount" xmi:id="pin_14"></inputPins>
+		</elements>
+		<elements xsi:type="DecisionNode" xmi:id="elm_14">
+		</elements>
+		<elements xsi:type="SystemAction" name="CreditCard.charge()" xmi:id="elm_15">
+			<inputPins name="amount" xmi:id="pin_15"></inputPins>
+			<inputPins name="target" xmi:id="pin_16"></inputPins>
+		</elements>
+		<elements xsi:type="SystemAction" name="User.recharge()" xmi:id="elm_16">
+			<inputPins name="amount" xmi:id="pin_17"></inputPins>
+			<inputPins name="target" xmi:id="pin_18"></inputPins>
+		</elements>
+		
+		<elements xsi:type="Association" source="elm_1" target="pin_2" />
+		<elements xsi:type="Association" source="elm_1" target="pin_18" />
+		<elements xsi:type="Association" source="elm_2" target="elm_4" />
+		<elements xsi:type="Association" source="elm_2" target="elm_1" />
+		<elements xsi:type="Association" source="elm_3" target="pin_1" />
+		<elements xsi:type="Association" source="elm_4" target="elm_5" />
+		<elements xsi:type="Association" source="elm_5" target="elm_7" />
+		<elements xsi:type="Association" source="pin_3" target="pin_4" />
+		<elements xsi:type="Association" source="elm_6" target="pin_13" />
+		<elements xsi:type="Association" source="elm_6" target="pin_16" />
+		<elements xsi:type="Association" source="elm_7" target="elm_8" />
+		<elements xsi:type="Association" source="elm_7" target="elm_12" />
+		<elements xsi:type="Association" source="pin_5" target="pin_9" />
+		<elements xsi:type="Association" source="pin_6" target="pin_10" />
+		<elements xsi:type="Association" source="pin_7" target="pin_11" />
+		<elements xsi:type="Association" source="pin_8" target="pin_12" />
+		<elements xsi:type="Association" source="elm_8" target="elm_6" />
+		<elements xsi:type="Association" source="elm_8" target="elm_9" />
+		<elements xsi:type="Association" source="elm_9" target="elm_10" />
+		<elements xsi:type="Association" source="elm_9" target="elm_11" />
+		<elements xsi:type="Association" source="elm_11" target="elm_13" />
+		<elements xsi:type="Association" source="elm_12" target="pin_14" />
+		<elements xsi:type="Association" source="elm_12" target="pin_15" />
+		<elements xsi:type="Association" source="elm_12" target="pin_17" />
+		<elements xsi:type="Association" source="elm_13" target="elm_14" />
+		<elements xsi:type="Association" source="elm_14" target="elm_15" />
+		<elements xsi:type="Association" source="elm_15" target="elm_16" />
+	</packagedElement>
+	<packagedElement xsi:type="Activity" name="Register" xmi:id="activity_5">
+		<elements xsi:type="UserAction" name="Register" xmi:id="elm_1" >
+			<inputPins name="errorMessage" xmi:id="pin_1"></inputPins>
+			<outputPins name="userName" xmi:id="pin_2"></outputPins>
+			<outputPins name="password" xmi:id="pin_3"></outputPins>
+		</elements>
+		<elements xsi:type="SystemAction" name="User.User()" xmi:id="elm_2">
+			<inputPins name="name" xmi:id="pin_4"></inputPins>
+			<inputPins name="password" xmi:id="pin_5"></inputPins>
+		</elements>
+		<elements xsi:type="CentralBufferNode" name="user" xmi:id="elm_3" owner="activity_5">
+		</elements>
+		<elements xsi:type="SystemAction" name="User.validateRegistrationData()" xmi:id="elm_4">
+			<outputPins name="validationResult" xmi:id="pin_6"></outputPins>
+			<inputPins name="target" xmi:id="pin_7"></inputPins>
+		</elements>
+		<elements xsi:type="DecisionNode" xmi:id="elm_5">
+		</elements>
+		<elements xsi:type="CentralBufferNode" name="session" xmi:id="elm_6" owner="activity_5">
+		</elements>
+		<elements xsi:type="SystemAction" name="User.save()" xmi:id="elm_7">
+			<inputPins name="target" xmi:id="pin_8"></inputPins>
+		</elements>
+		<elements xsi:type="SystemAction" name="Session.setCurrentUser()" xmi:id="elm_8">
+			<inputPins name="target" xmi:id="pin_9"></inputPins>
+			<inputPins name="user" xmi:id="pin_10"></inputPins>
+		</elements>
+		<elements xsi:type="Association" source="elm_1" target="elm_2" />
+		<elements xsi:type="Association" source="pin_2" target="pin_4" />
+		<elements xsi:type="Association" source="pin_3" target="pin_5" />
+		<elements xsi:type="Association" source="elm_2" target="elm_3" />
+		<elements xsi:type="Association" source="elm_2" target="elm_4" />
+		<elements xsi:type="Association" source="elm_3" target="pin_7" />
+		<elements xsi:type="Association" source="elm_3" target="pin_8" />
+		<elements xsi:type="Association" source="elm_3" target="pin_10" />
+		<elements xsi:type="Association" source="elm_4" target="elm_5" />
+		<elements xsi:type="Association" source="pin_6" target="elm_1" />
+		<elements xsi:type="Association" source="elm_5" target="elm_1" />
+		<elements xsi:type="Association" source="elm_5" target="elm_7" />
+		<elements xsi:type="Association" source="elm_6" target="pin_9" />
+		<elements xsi:type="Association" source="elm_7" target="elm_8" />
+	</packagedElement>
+</Model>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model name="BenhCa"
+    xmlns="www.requirement.com" 
+    xmlns:xmi="http://www.omg.org/XMI" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="www.requirement.com ../../Metamodel/UWE/Requirement.ecore">
+	<packagedElement xsi:type="Actor" name="Khach" xmi:id="actor_1" />
+	<packagedElement xsi:type="Actor" name="QuanTri" xmi:id="actor_2" />
+	<packagedElement xsi:type="BrowsingUseCase" name="XemThongTinChiTietVeBenh" xmi:id="usecase_1" />
+	<packagedElement xsi:type="BrowsingUseCase" name="QuanLyThongTinBenh" xmi:id="usecase_2" />
+	<packagedElement xsi:type="ProcessingUseCase" name="ChanDoanBenh" xmi:id="usecase_3" />
+	<packagedElement xsi:type="ProcessingUseCase" name="DangNhap" xmi:id="usecase_4" />
+	<packagedElement xsi:type="ProcessingUseCase" name="DanhXuat" xmi:id="usecase_5" />
+	<packagedElement xsi:type="ProcessingUseCase" name="ThemBenh" xmi:id="usecase_6" />
+	<packagedElement xsi:type="ProcessingUseCase" name="SuaBenh" xmi:id="usecase_7" />
+	<packagedElement xsi:type="ProcessingUseCase" name="XoaBenh" xmi:id="usecase_8" />
+	<packagedElement xsi:type="ProcessingUseCase" name="QuanLyBenh" xmi:id="usecase_9" />
+	<packagedElement xsi:type="BrowsingUseCase" name="ABC" xmi:id="usecase_10" />
+	<packagedElement xsi:type="Association" source="actor_1" target="usecase_1" />
+	<packagedElement xsi:type="Association" source="actor_1" target="usecase_3" />
+	<packagedElement xsi:type="Association" source="actor_2" target="usecase_2" />
+	<packagedElement xsi:type="Association" source="actor_2" target="usecase_4" />
+	<packagedElement xsi:type="Association" source="actor_2" target="usecase_5" />
+	<packagedElement xsi:type="Association" source="actor_2" target="usecase_9" />
+	<packagedElement xsi:type="Extension" source="usecase_6" target="usecase_9" />
+	<packagedElement xsi:type="Extension" source="usecase_7" target="usecase_9" />
+	<packagedElement xsi:type="Extension" source="usecase_8" target="usecase_9" />
+	<packagedElement xsi:type="Include" source="usecase_4" target="usecase_10" />
+	<packagedElement xsi:type="Generalization" owner="actor_2" general="actor_1" />
+	<packagedElement xsi:type="Activity" name="ChanDoanBenh" xmi:id="activity_1">
+		<elements xsi:type="UserAction" name="ChonCa" xmi:id="action_1" >
+			<outputPins name="result" type="String" xmi:id="pin1"></outputPins>
+		</elements>
+		<elements xsi:type="UserAction" name="ChonDacDiemBenh" xmi:id="action_2" >
+			<outputPins name="TenDacDiem" type="String" xmi:id="pin2"></outputPins>
+		</elements>
+		<elements xsi:type="SystemAction" name="ChanDoanBenh" xmi:id="action_3" >
+			<inputPins name="MaLoaiThuySan" type="String" xmi:id="pin4"></inputPins>
+			<inputPins name="MaGiaTri" type="String" xmi:id="pin5"></inputPins>
+		</elements>
+		<elements xsi:type="SystemAction" name="XacDinhDacDiemBenh" xmi:id="action_4" >
+			<inputPins name="MaDacDiem" type="String"  xmi:id="pin3"></inputPins>
+		</elements>
+		<elements xsi:type="CentralBufferNode" name="DanhMucLoaiThuySan" owner="activity_1" xmi:id="node_1" />
+		<elements xsi:type="CentralBufferNode" name="ChanDoanBenh" owner="activity_1" xmi:id="node_2" />
+		<elements xsi:type="CentralBufferNode" name="DanhMucDacDiem" owner="activity_1" xmi:id="node_3" >
+		</elements>
+		<elements xsi:type="CentralBufferNode" name="DanhMucGiaTriDacDiem" owner="activity_1" xmi:id="node_4" />
+		<elements xsi:type="Association" source="pin1" target="node_1" />
+		<elements xsi:type="Association" source="action_1" target="action_2" />
+		<elements xsi:type="Association" source="action_2" target="action_3" />
+		<elements xsi:type="Association" source="node_1" target="pin4" />
+		<elements xsi:type="Association" source="action_3" target="node_2" />
+		<elements xsi:type="Association" source="pin2" target="node_3" />
+		<elements xsi:type="Association" source="node_3" target="pin3" />
+		<elements xsi:type="Association" source="action_4" target="node_4" />
+		<elements xsi:type="Association" source="node_4" target="pin5" />
+	</packagedElement>
+</Model>

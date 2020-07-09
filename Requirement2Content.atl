@@ -1,0 +1,136 @@
+-- @path Req=/UWE2JAVA/Transformations/Model2Model/Requirement.ecore
+-- @path UWE=/UWE2JAVA/Metamodels/UWE/uml.ecore
+
+module Requirement2Content;
+
+create OUT: Content from IN: Requirement;
+
+helper def : firstToLower(name : String) : String =
+    name.substring(1,1).toLower() + name.substring(2, name.size());
+
+helper def : firstToUpper(name : String) : String =
+    name.substring(1,1).toUpper() + name.substring(2, name.size());
+
+lazy rule UseCase2Operation {
+    from s: Requirement!UseCase 
+    to t: Content!Operation (
+        name <- thisModule.firstToLower(s.name)
+    )
+}
+
+
+lazy rule Actor2Class {
+	from s: Requirement!Actor
+	to t: Content!Class (
+		name <- s.name,
+		operations <- Requirement!Model.allInstances().first().packagedElement
+			->select(x | x.oclIsKindOf(Requirement!Association))
+			->select(x | x.source.name = s.name)
+			->collect(x | x.target)
+			->collect(x | thisModule.UseCase2Operation(x))
+	)
+}
+
+lazy rule Pin2Property {
+	from s: Requirement!Pin
+	to t: Content!Property (
+		type <- s.type,
+		name <- s.name,
+		defaultValue <- s.defaultValue,
+		upperValue <- s.upperValue,
+		lowerValue <- s.lowerValue
+	)	
+}
+
+lazy rule CentralBufferNode2Class {
+	from s: Requirement!CentralBufferNode
+	to t: Content!Class (
+		name <- thisModule.firstToUpper(s.name),
+		-- pin 2 attribute,  
+		-- search for centralbuffernode name = this class name
+		-- its own input pins
+		-- input pins of the action which has directed edge to this centralbuffernode
+		-- its own output pins
+		properties <- s.inputPins->union(s.outputPins) -- its own inputPins and outputPins
+			->union( -- collect all inputPins of the action that connect to this centralBufferNode
+				s.owner.elements->select(x | x.oclIsTypeOf(Requirement!Association))
+				->select(x | x.source.oclIsKindOf(Requirement!Action))
+				->iterate(e; res : Set(Requirement!Association) = Set {} | 
+					if (e.target.name = s.name or s.inputPins->collect(f | f.name)->includes(e.target.name)) then
+	                	res->including(e)
+	           		else
+	                	res
+            		endif	
+				)
+				->collect(x | x.source)
+				->iterate(e; res : Set(Requirement!InputPin) = Set {} |
+					res->union(e.inputPins)
+				)
+			)
+			->union( --collect all outputPins that connect to this centralBufferNode
+				s.owner.elements->select(x | x.oclIsTypeOf(Requirement!Association))
+				->select(x | x.source.oclIsKindOf(Requirement!OutputPin))
+				->iterate(e; res : Set(Requirement!Association) = Set {} | 
+					if (e.target.name = s.name or s.inputPins->collect(f | f.name)->includes(e.target.name)) then
+	                	res->including(e)
+	           		else
+	                	res
+            		endif	
+				)
+				->collect(x | x.source)
+			)
+			
+			->union( --collect all inputPins of the action that current CentralBufferNode connect to 
+				s.owner.elements->select(x | x.oclIsTypeOf(Requirement!Association))
+				->select(x | x.target.oclIsKindOf(Requirement!InputPin) and x.source.name = s.name)
+				->collect(x | x.target)
+			)
+			-- unique name
+			->iterate(pin; res: Set(Requirement!Pin) = Set {} |
+				if(res->collect(pin | pin.name)->includes(pin.name)) then res
+				else
+					res->including(pin)
+				endif
+			)
+			->collect(x | thisModule.Pin2Property(x))
+	)
+}
+
+lazy rule GeneralizationTransform {
+	from s: Requirement!Generalization
+	to t: Content!Generalization (
+		owner <- Content!Class.allInstances()->select(e | e.name = s.owner.name).first(),
+		general <- Content!Class.allInstances()->select(e | e.name = s.general.name).first()
+	)
+}
+
+rule Requirement2Content {
+	from s: Requirement!Model
+	to 
+	t: Content!Package (
+		name <- s.name,
+		elements <- Sequence {
+			-- transform actor
+			s.packagedElement->select(x | x.oclIsTypeOf(Requirement!Actor))->collect(x | thisModule.Actor2Class(x)),
+			-- transform centralbuffernode
+			s.packagedElement->select(x | x.oclIsTypeOf(Requirement!Activity))
+				->iterate(e; res : Set(Requirement!CentralBufferNode) = Set {} |
+					res->union(
+				   		e.elements->select(x |x.oclIsTypeOf(Requirement!CentralBufferNode))
+					)
+	            )->iterate(pin; res: Set(Requirement!CentralBufferNode) = Set {} |
+					if(res->collect(pin | pin.name)->includes(pin.name)) then res
+					else
+						res->including(pin)
+					endif
+				)
+				->collect(x | thisModule.CentralBufferNode2Class(x)),
+			-- transform generalization
+			s.packagedElement->select(x | x.oclIsTypeOf(Requirement!Generalization))
+				->collect(x |  thisModule.GeneralizationTransform(x))
+		}
+	)
+}
+
+
+ 

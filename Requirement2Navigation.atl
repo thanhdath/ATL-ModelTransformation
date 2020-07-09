@@ -1,0 +1,141 @@
+module Requirement2Navigation;
+
+
+create OUT: Navigation from IN: Requirement;
+
+helper def : firstToLower(name : String) : String =
+	name.substring(1,1).toLower() + name.substring(2, name.size());
+
+lazy rule BrowsingUseCase2NavigationClass {
+	from s: Requirement!BrowsingUseCase
+	to t: Navigation!NavigationClass ( 
+		name <- s.name
+	)	
+}
+
+lazy rule ProcessingUseCase2ProcessClass {
+	from s: Requirement!ProcessingUseCase
+	to t: Navigation!ProcessClass ( 
+		name <- s.name
+	)	
+}
+
+lazy rule NonExtendOrIncludedUseCase2Assocication {
+	from s: Requirement!UseCase
+	to t: Navigation!Association (
+		owner <- Navigation!Class.allInstances()->select(e | e.name = s.name).first(),
+		target <- Navigation!Menu.allInstances().first()
+	)	
+}
+
+lazy rule Extend2Assocication {
+	from s: Requirement!Extension
+	to t: Navigation!Association (
+		owner <-  Navigation!Class.allInstances()->select(e | e.name = s.target.name).first(),
+		target <- Navigation!Class.allInstances()->select(e | e.name = s.source.name).first()
+	)	
+}
+
+lazy rule Include2Association {
+	from s: Requirement!Include
+	to t: Navigation!Association (
+		owner <-  Navigation!Class.allInstances()->select(e | e.name = s.source.name).first(),
+		target <- Navigation!Class.allInstances()->select(e | e.name = s.target.name).first()
+	)	
+}
+
+lazy rule CreateSubMenu {
+	from s: Requirement!Activity
+	to 
+	t: Navigation!Menu ( 
+		name <- s.name + 'Menu'	
+	),
+	associationActivity: Navigation!Association (
+		owner <- t,
+		target <- s
+	)
+}
+
+lazy rule NavigationAction2AssociationWithMenu {
+	from s: Requirement!NavigationAction
+	to t: Navigation!Association (
+		owner <- Navigation!Menu->allInstances()->select(x | x.name + 'Menu' = s.owner.name).first(),
+		target <- Navigation!Class->allInstances()->select(x | x.name = s.name).first()
+	)
+}
+
+lazy rule NavigationAction2AssociationWithoutMenu {
+	from s: Requirement!NavigationAction
+	to t: Navigation!Association (
+		owner <- Navigation!Class->allInstances()->select(x | x.name = s.owner.name).first(),
+		target <- Navigation!Class->allInstances()->select(x | x.name = s.name).first()
+	)
+}
+
+
+rule Model2Package {
+	from s: Requirement!Model
+	to 
+	t: Navigation!Package (
+		name <- s.name,
+		elements <- Sequence {
+			home, 
+			menu,
+			s.packagedElement->select(x | x.oclIsTypeOf(Requirement!BrowsingUseCase))
+				->collect(e | thisModule.BrowsingUseCase2NavigationClass(e)),
+			s.packagedElement->select(x | x.oclIsTypeOf(Requirement!ProcessingUseCase))
+				->collect(e | thisModule.ProcessingUseCase2ProcessClass(e)),
+			associationHome,
+			-- activity with > 1 navigation actions -> create activityMenu -> add associations from activityMenu -> navigationActions.behavior.name
+			s.packagedElement->select(x | x.oclIsTypeOf(Requirement!Activity))
+				->select(x | x.elements->select(y | y.oclIsTypeOf(Requirement!NavigationAction))->size() > 1)
+				->collect(x | thisModule.CreateSubMenu(x)),
+			-- add associations to navigationActions, 
+			s.packagedElement->select(x | x.oclIsTypeOf(Requirement!Activity))
+				->select(x | x.elements->select(y | y.oclIsTypeOf(Requirement!NavigationAction))->size() > 1)
+				->iterate(activity; res : Set(Requirement!Association) = Set {} |
+					--iterate through activity.navigationActions
+					res->union(
+						activity.elements->select(x | x.oclIsTypeOf(Requirement!NavigationAction))
+							->collect(x | thisModule.NavigationAction2AssociationWithMenu(x))
+					)
+	            ),
+			s.packagedElement->select(x | x.oclIsTypeOf(Requirement!Activity))
+				->select(x | x.elements->select(x | x.oclIsTypeOf(Requirement!NavigationAction))->size() = 1)
+				->iterate(activity; res : Set(Requirement!Association) = Set {} |
+					--iterate through activity.navigationActions
+					res->union(
+						activity.elements->select(x | x.oclIsTypeOf(Requirement!NavigationAction))
+						->collect(x | thisModule.NavigationAction2AssociationWithoutMenu(x))
+					)
+	            ),
+			-- extend 2 association
+			s.packagedElement->select(x | x.oclIsTypeOf(Requirement!Extension))
+				->collect(x | thisModule.Extend2Assocication(x)),
+			-- included usecases 2 association 
+			s.packagedElement->select(x | x.oclIsTypeOf(Requirement!Include))
+				->collect(x | thisModule.Include2Association(x)),
+			-- non-extend usecases and non-included usecases 2 association, connect to menu
+			s.packagedElement->select(x | x.oclIsKindOf(Requirement!UseCase))
+				->iterate(usecase; res : Set(Requirement!UseCase) = Set {} | 
+					if s.packagedElement->select(x | x.oclIsTypeOf(Requirement!Extension) or x.oclIsTypeOf(Requirement!Include))
+						->collect(x | x.source.name)->includes(usecase.name)
+					then
+						res
+					else
+						res->including(usecase)
+					endif
+				)->collect(x | thisModule.NonExtendOrIncludedUseCase2Assocication(x))
+		}
+	),
+	home: Navigation!Home (
+		name <- 'Home'
+	),
+	menu: Navigation!Menu (
+		name <- 'HomeMenu'	
+	),
+	associationHome: Navigation!Association (
+		owner <- menu,
+		target <- home
+	)	
+}
