@@ -18,7 +18,7 @@ helper def : displayActionMapping(name : String) : String =
 		endif
 	endif;
 
-rule Requirement2Package {
+rule Model2Package {
 	from
 		s : Requirement!Model 
 	using {
@@ -85,8 +85,8 @@ lazy rule BrowsingUseCase2PresentationClass {
 				)
 			)
 			->collect(x | 
-				if x.validated then thisModule.DisplayActionValidated2Propery(x)
-				else thisModule.DisplayAction2Propery(x) endif
+				if x.validated then thisModule.DisplayActionValidated2Property(x)
+				else thisModule.DisplayAction2Property(x) endif
 			)
 	)
 }
@@ -105,14 +105,14 @@ lazy rule ProcessingUseCase2PresentationClass {
 				)
 			)
 			->collect(x | 
-				if x.validated then thisModule.DisplayActionValidated2Propery(x)
-				else thisModule.DisplayAction2Propery(x) endif
+				if x.validated then thisModule.DisplayActionValidated2Property(x)
+				else thisModule.DisplayAction2Property(x) endif
 			)
 	)
 }
 
-lazy rule DisplayAction2Propery {
-	from
+lazy rule  {
+	from DisplayAction2Property
 		s : Requirement!DisplayAction
 	to 
 		t : Presentation!Property (
@@ -129,7 +129,7 @@ lazy rule DisplayAction2Propery {
 		)
 }
 
-lazy rule DisplayActionValidated2Propery {
+lazy rule DisplayActionValidated2Property {
 	from
 		s : Requirement!DisplayAction(s.validated = true)
 	to 
