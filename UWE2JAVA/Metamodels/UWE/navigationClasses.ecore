@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="navigationClasses" nsURI="http:///navigationClasses.ecore" nsPrefix="navigationClasses">
+  <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <details key="originalName" value="NavigationClasses"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalNode" eSuperTypes="#//NavigationNode">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="externalNode"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span style=&quot;font-style:normal;&quot;>An &lt;/span>&lt;i>&lt;span lang=&quot;en-GB&quot;>external &#xA;      node &lt;/span>&lt;/i>&lt;span style=&quot;font-style:normal;&quot;>denotes a node that &#xA;      does not belong to the structure of the current application&lt;/span>&lt;i>&lt;span lang=&quot;en-GB&quot;>.&lt;/span>&lt;/i>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//NavigationNode/baseClass"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="locationExpression" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    An expression that is used to get the location of the &lt;i>external node&lt;/i>.&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationModel" eSuperTypes="patterns.ecore#//UweModel">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="navigationModel"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseModel" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Model">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Model"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="patterns.ecore#//UweModel/baseModel"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Menu" eSuperTypes="#//NavigationNode">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="menu"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>A &lt;i>menu &lt;/i>is used to handle alternative &#xA;      navigation paths. Note that a &lt;i>menu &lt;/i>in the navigation model is not &#xA;      always rendered as a menu in the sense of user interfaces. This is &#xA;      because two &lt;i>nodes &lt;/i>that are connected through a menu could be &#xA;      defined to be rendered simultaneously in the presentation model. In this &#xA;      case, the user does not have to do anything in order to follow the &#xA;      navigation path, which would be the essential behavior for a menu in any &#xA;      user interface.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>The &lt;i>navigation class&lt;/i> that is the origin of all &#xA;      navigation paths through the menu. &lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//NavigationNode/baseClass"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Index" eSuperTypes="#//AccessPrimitive">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="index"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>An &lt;i>index &lt;/i>allows selecting one content class &#xA;      instance from a set of instances that has been compiled during previous &#xA;      navigation. This means that a set of content class instances is taken &#xA;      from the context of the predecessor in the navigation path and the user &#xA;      is allowed to choose one of them. The chosen instance then becomes the &#xA;      content object for the navigation class that succeeds the index in the &#xA;      navigation path. &lt;/span>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>The input set of content class instances is &#xA;      determined by the incoming &lt;i>navigation link&lt;/i>. There are three &#xA;      different cases:&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;    &lt;ol>&#xA;      &lt;li>&#xA;        &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;          &lt;span lang=&quot;en-GB&quot;>The predecessor is a &lt;i>query&lt;/i>. In this case, &#xA;          the set of instances is just the result of the query. &lt;/span>&#xA;        &lt;/p>&#xA;&#xA;      &lt;/li>&#xA;&#xA;      &lt;li>&#xA;        &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;          &lt;a name=&quot;_Ref190334080&quot;> &lt;/a>&lt;span lang=&quot;en-GB&quot;>The predecessor is a &lt;i>navigation &#xA;          class&lt;/i>. The set of instances is then taken from a collection &#xA;          property of the corresponding content class. To specify which &#xA;          property is used, the target role name of the navigation link can be &#xA;          set equal to the property’s name.&lt;/span>&#xA;        &lt;/p>&#xA;&#xA;      &lt;/li>&#xA;&#xA;      &lt;li>&#xA;        &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;          &lt;span lang=&quot;en-GB&quot;>The predecessor is a &lt;i>menu&lt;/i>. In this case, &#xA;          the context of the menu’s preceding navigation class is used just as &#xA;          if it is connected directly.&lt;/span>&#xA;        &lt;/p>&#xA;&#xA;      &lt;/li>&#xA;&#xA;    &lt;/ol>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//NavigationNode/baseClass #//AccessPrimitive/%duplicates%/baseClass"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemType" ordered="false"
+        eType="ecore:EClass uml.ecore#//Class">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Type specification of the index elements.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AccessPrimitive" abstract="true" eSuperTypes="#//NavigationNode">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="accessPrimitive"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;i>&lt;span lang=&quot;en-GB&quot;>Access primitives &lt;/span>&lt;/i>&lt;span lang=&quot;en-GB&quot;>are &#xA;      used to select the instances of content classes that make up the content &#xA;      of &lt;i>navigation classes&lt;/i>.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//NavigationNode/baseClass"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accessedAttributes" ordered="false"
+        lowerBound="1" eType="#//NavigationProperty">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>A collection of &lt;i>navigation properties &lt;/i>that are &#xA;      used to select the content class instance.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationProperty">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="navigationProperty"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>The attributes of a &lt;i>navigation class &lt;/i>are &#xA;      called &lt;i>navigation properties&lt;/i>. They define the content of &lt;i>UI &#xA;      elements&lt;/i>. The value of a navigation property is either directly &#xA;      taken from an associated property of a content class or derived using a &#xA;      selection expression. At the moment, UWE does not specify any special &#xA;      syntax or semantics or which languages can be used for the selection &#xA;      expression. &lt;/span>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      It is common practice in navigation diagrams to leave out navigation &#xA;      properties that are connected to properties of the content class. &#xA;      Although, they can also be specified explicitly to point out what &#xA;      information is relevant. If a navigation class has no navigation &#xA;      properties at all, then each property of the content class is implicitly &#xA;      mirrored by a “virtual” navigation property with the same name.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionExpression" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>An expression that has the same type as the &lt;i>navigation &#xA;      property&lt;/i> and that is used to derive a value from the currently &#xA;      available set of content class instances. The context of the expression &#xA;      (self in OCL) is the content class that is associated with the &#xA;      navigation class. &lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseProperty" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Property">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Property"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationLink" eSuperTypes="#//Link">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="navigationLink"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>A &lt;i>navigation link&lt;/i> is a &lt;i>link &lt;/i>that &#xA;      connects any kind of &lt;i>nodes &lt;/i>except &lt;i>process classes&lt;/i>. If &#xA;      either source or target of a link is &lt;i>a process class&lt;/i> then a &lt;i>process &#xA;      link&lt;/i> is used.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseAssociation" ordered="false"
+          lowerBound="1" eType="ecore:EClass uml.ecore#//Association">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Association"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//Link/baseAssociation"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Link" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="link"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>A &lt;i>link &lt;/i>is an edge of the navigation graph and &#xA;      therefore connects two &lt;i>nodes&lt;/i>. Note remember that just as a &lt;i>node &#xA;      &lt;/i>does not always represent a page, a &lt;i>link &lt;/i>does not have to &#xA;      represent a page transition that is triggered by a user action. The &#xA;      presentation model defines whether the information of two &lt;i>nodes &lt;/i>that &#xA;      are connected by a &lt;i>link &lt;/i>is shown at the same time or if the user &#xA;      has to click on an anchor to navigate from one node to the other.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAutomatic" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      This attribute allows specifying explicitly that no decision by the user &#xA;      is required for following the link.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="guard" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The condition for navigating this edge.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionExpression" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      An expression that is used to describe the selection of the target node.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseAssociation" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Association">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Association"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Query" eSuperTypes="#//AccessPrimitive">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="query"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>A &lt;i>query &lt;/i>is used to retrieve content from a &#xA;      data source. Unlike an &lt;i>index&lt;/i>, a &lt;i>query &lt;/i>does not get its set &#xA;      of content class instances from a predecessor of the navigation path, &#xA;      but rather from a database or any other kind of data source that &#xA;      supports queries. A query may require search parameters, like e.g. for &#xA;      searching movies by title. In this case, the presentation model must &#xA;      contain elements that provide a user interface for filling in values for &#xA;      the parameters. &lt;/span>If the query does not require parameters, it is &#xA;      executed automatically when it is reached in the navigation graph.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//NavigationNode/baseClass #//AccessPrimitive/%duplicates%/baseClass"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      An expression that describes the semantics of the query.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GuidedTour" eSuperTypes="#//AccessPrimitive">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="guidedTour"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>A &lt;i>guided tour&lt;/i> provides sequential process to &#xA;      instances of a &lt;i>navigation class&lt;/i>. It is given an ordered set of &#xA;      content class instances as input and has an outgoing &lt;i>navigation link &lt;/i>to &#xA;      a &lt;i>navigation class&lt;/i>. The user is allowed to browse back and forth &#xA;      through the input collection selecting one instance at a time as content &#xA;      for the target &lt;i>navigation class&lt;/i>. The order in which the instances &#xA;      are visited is specified using a filter expression.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//NavigationNode/baseClass #//AccessPrimitive/%duplicates%/baseClass"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sortExpression" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      An expression that is used to calculate the order in which the &#xA;      navigation class instances are visited.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IndexRowProperty" eSuperTypes="#//NavigationProperty">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="indexRowProperty"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span style=&quot;background-repeat:repeat;background-attachment:scroll;&quot;>Navigation &#xA;      properties used to define the elements of a index class are called index &#xA;      row properties.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//NavigationProperty/baseProperty"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessLink" eSuperTypes="#//Link">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="processLink"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Process links are used to connect process classes to other navigation &#xA;      nodes.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseAssociation" ordered="false"
+          lowerBound="1" eType="ecore:EClass uml.ecore#//Association">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Association"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//Link/baseAssociation"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processClass" ordered="false"
+        lowerBound="1" upperBound="-1" eType="ecore:EClass presentation.ecore#//ProcessClass">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The target node(s) of the process link.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="asynchronous" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Defines whether this connection is asynchronous.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationClass" eSuperTypes="#//NavigationNode">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="navigationClass"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;span style=&quot;font-style:normal;&quot;>A &lt;/span>&lt;i>&lt;span lang=&quot;en-GB&quot;>navigation &#xA;    class &lt;/span>&lt;/i>&lt;span lang=&quot;en-GB&quot;>represents a navigable node of the &#xA;    hypertext structure and establish the connection between the navigation &#xA;    model and the content model. A &lt;i>navigation class &lt;/i>that is associated &#xA;    with a class from the content model is meant to represent the content of &#xA;    one instance of that class.&lt;/span>&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//NavigationNode/baseClass"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contentClass" ordered="false"
+        eType="ecore:EClass uml.ecore#//Class">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>The class of the content model that specifies the &#xA;      content of the &lt;i>navigation class&lt;/i>&lt;/span>&lt;span style=&quot;font-style:normal;&quot;>.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationNode" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="navigationNode"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>Abstractly spoken, a &lt;i>navigation n&lt;/i>&lt;/span>&lt;span style=&quot;font-style:normal;&quot;>ode&lt;/span>&lt;span lang=&quot;en-GB&quot;>can &#xA;      be any kind of node in a navigation graph. This generally means that &#xA;      when the node is reached during navigation, the user is provided with &#xA;      some information and is optionally offered the possibility to carry out &#xA;      one or more actions. &lt;/span>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>A&lt;i>NavigationN&lt;/i>&lt;/span>&lt;span style=&quot;font-style:normal;&quot;>ode&lt;/span>&lt;span lang=&quot;en-GB&quot;>does &#xA;      not necessarily represent a page of the web application, although it may &#xA;      do so. What is shown on a page is defined in the presentation model.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isHome" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      If this attribute is set to true, the node becomes the origin of the &#xA;      navigation graph.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isLandmark" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Specifies whether the node is a landmark, which means that it is &#xA;      reachable from every other node of the navigation graph.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="guard" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The condition for entering this node.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataExpression" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      An expression that describes the data used in this node.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseClass" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Class">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Class"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

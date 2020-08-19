@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<java:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http:///java.ecore" xsi:schemaLocation="http:///java.ecore ../../Metamodels/JAVA/java.ecore" name="addressbook.controller">
+  <classes name="AddressBookController" annotation="@Controller" isPublic="true">
+    <members xsi:type="java:Method" name="addressbook" annotation="@GetMapping(&quot;/addressbook&quot;)" isPublic="true" type="String" body="return &quot;&quot;;">
+      <parameters name="model" type="Model"/>
+    </members>
+  </classes>
+  <classes name="ContactController" annotation="@Controller" isPublic="true">
+    <members xsi:type="java:Method" name="contact" annotation="@GetMapping(&quot;/contact&quot;)" isPublic="true" type="String" body="return &quot;&quot;;">
+      <parameters name="model" type="Model"/>
+    </members>
+  </classes>
+</java:Package>

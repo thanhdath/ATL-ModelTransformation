@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Class xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="www.process.com">
+  <processClass name="CreateContact">
+    <properties name="gender" type="String"/>
+    <properties name="name" type="String"/>
+    <properties name="avatarImage" type="String"/>
+    <properties name="phoneNumber" type="String"/>
+    <properties name="email" type="String"/>
+    <operations name="validateData" isPublic="true" return="SUCCESS">
+      <params name="gender" type="String"/>
+      <params name="name" type="String"/>
+      <params name="avatarImage" type="String"/>
+      <params name="phoneNumber" type="String"/>
+      <params name="email" type="String"/>
+    </operations>
+  </processClass>
+  <processClass name="UpdateContact">
+    <properties name="phoneNumber" type="String"/>
+    <properties name="name" type="String"/>
+    <properties name="avatarImage" type="String"/>
+    <properties name="gender" type="String"/>
+    <properties name="email" type="String"/>
+    <operations name="validateData" isPublic="true" return="SUCCESS">
+      <params name="phoneNumber" type="String"/>
+      <params name="name" type="String"/>
+      <params name="avatarImage" type="String"/>
+      <params name="gender" type="String"/>
+      <params name="email" type="String"/>
+    </operations>
+  </processClass>
+  <processClass name="SaveContact">
+    <operations name="SaveContact" isPublic="true" return="SUCCESS">
+      <params name="avatarImage" type="String"/>
+      <params name="email" type="String"/>
+      <params name="name" type="String"/>
+      <params name="phoneNumber" type="String"/>
+      <params name="gender" type="String"/>
+    </operations>
+    <operations name="confirm" isPublic="true" return="SUCCESS">
+      <params name="avatarImage" type="String"/>
+      <params name="email" type="String"/>
+      <params name="name" type="String"/>
+      <params name="phoneNumber" type="String"/>
+      <params name="gender" type="String"/>
+    </operations>
+  </processClass>
+  <processClass name="UpdateContactConfirm">
+    <operations name="UpdateContactConfirm" isPublic="true" return="SUCCESS">
+      <params name="phoneNumber" type="String"/>
+      <params name="gender" type="String"/>
+      <params name="name" type="String"/>
+      <params name="email" type="String"/>
+      <params name="avatarImage" type="String"/>
+    </operations>
+    <operations name="confirm" isPublic="true" return="SUCCESS">
+      <params name="phoneNumber" type="String"/>
+      <params name="gender" type="String"/>
+      <params name="name" type="String"/>
+      <params name="email" type="String"/>
+      <params name="avatarImage" type="String"/>
+    </operations>
+  </processClass>
+</Class>

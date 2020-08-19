@@ -1,0 +1,102 @@
+Requirement2Process:
+    for each A in Req.Activity:
+        p = CreateProcess()
+        p.processClass = []
+        for each node in Req.nodes:
+            if node.oclIsTypeOf(MM!UserAction):
+                if node.validate:
+                    p.processClass.append(UserAction2ProcessClassValidate(node))
+                else:
+                    p.processClass.append(UserAction2ProcessClass(node))
+            elif node.oclIsTypeOf(MM!SystemAction):
+                if node.confirm:
+                    p.processClass.append(SystemAction2processClass(node))
+                else:
+                    p.processClass.append(systemAction2processClassNotConfirm(node))
+
+UserAction2ProcessClassValidate:
+    for each userAction in Req!UserAction:
+        valid = Process!processOperation
+        valid.name = 'validateData'
+        valid.params = []
+        for each outputPin in userAction.outputs:
+            param = createParameter(outputPin)
+            valid.params.append(param)
+        valid.isPublic = true
+        valid.isStatic = false
+        valid.return = SUCCESS
+
+        processClass = CreateProcess()
+        processClass.name = userAction.name
+        processClass.properties = []
+        for each outputPin in userAction.outputs:
+            property = createProperty(outputPin)
+            processClass.properties.append(property)
+        processClass.operations = [valid]
+
+UserAction2ProcessClass:
+    for each userAction in Req!UserAction if not userAction.validate:
+       processClass = createProcessClass()
+       processClass.name = userAction.name 
+       processClass.properties = []
+       for each outputPin in userAction.outputs:
+            property = createProperty(outputPin)
+            processClass.properties.append(property)
+    
+SystemAction2processClass:
+    for each systemAction in Req!SystemAction if systemAction.confirm:
+        operation = createProcessOperation()
+        operation.name = systemAction.name
+        operation.params = []
+        for each inputPin in systemAction.inputs:
+            operation.params.append(createSysParam(inputPin))
+        operation.isPublic = true
+        operation.isStatic = false 
+        operation.return = SUCCESS
+
+        confirm = createProcessOperation
+        confirm.name = 'confirm'
+        confirm.params = []
+        for each inputPin in systemAction.inputs:
+            confirm.params.append(createSysParam(inputPin))
+        confirm.isPublic = true 
+        confirm.isStatic = false
+        confirm.return = SUCCESS
+
+        processClass = createProcessClass()
+        processClass.name = systemAction.name
+        processClass.operations = [operation, confirm]
+
+systemAction2processClassNotConfirm:
+    for each systemAction in Req!SystemAction if systemAction.confirm:
+        operation = createProcessOperation()
+        operation.name = systemAction.name
+        operation.params = []
+        for each inputPin in systemAction.inputs:
+            operation.params.append(createSysParam(inputPin))
+        operation.isPublic = true
+        operation.isStatic = false 
+        operation.return = SUCCESS
+
+        processClass = createProcessClass()
+        processClass.name = systemAction.name
+        processClass.operations = [operation]
+
+SysParam:
+    for each pin in Req!InputPin:
+        param = CreateParameter()
+        param.name = pin.name
+        param.type = pin.type
+
+Property:
+    for each outputPin in Req!InputPin:
+        property = createProcessProperty
+        property.name = outputPin.name
+        property.type = outputPin.type
+
+Parameter:
+    for each outputPin in Req!OutputPin:
+        param = CreateParameter
+        param.name = outputPin.name
+        param.type = outputPin.type
+        

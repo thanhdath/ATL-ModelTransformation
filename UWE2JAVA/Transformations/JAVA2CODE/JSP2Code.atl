@@ -1,0 +1,19 @@
+-- @path JSP=/UWE2JAVA/Metamodels/JAVA/JSP.ecore
+
+
+query JSP2Code = JSP!Root.allInstances() -> collect(n | n.getChildren() -> iterate(n;
+		acc: String = '' | acc + n.toCode()).writeTo('/UWE2JAVA/Output/resources/jsp/' + n.documentName));
+
+helper context JSP!Element def: getAttributes(): Sequence(JSP!Attribute) =
+	self.children -> select(cn | cn.oclIsKindOf(JSP!Attribute));
+
+helper context JSP!Element def: getChildren(): Sequence(JSP!Node) =
+	self.children -> select(cn | not cn.oclIsKindOf(JSP!Attribute));
+
+helper context JSP!Element def: toCode(): String =
+	'<' + self.name + self.getAttributes() -> iterate(n; acc: String = '' | acc + ' ' + n.
+			name + '=\"' + n.value + '\"') + '>\n' + self.getChildren() -> iterate(n;
+			acc: String = '' | acc + n.toCode()) + '\n</' + self.name + '>\n';
+
+helper context JSP!TextNode def: toCode(): String =
+	self.value;

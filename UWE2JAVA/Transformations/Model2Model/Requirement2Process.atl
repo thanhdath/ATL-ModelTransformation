@@ -1,0 +1,150 @@
+module Requirement2Process;
+
+-- @path MM=Requirement.ecore
+-- @path MM1=Process.ecore
+
+create OUT : MM1 from IN : MM;
+
+rule Requirement2Process {
+	from
+		requirement : MM!Activity
+	to 
+		process : MM1!Class (
+			processClass <- Sequence{requirement.nodes->select(node |node.oclIsTypeOf(MM!UserAction))->collect(node | if node.validate=true then thisModule.UserAction2ProcessClassValidate(node) else thisModule.UserAction2ProcessClass(node) endif),
+									 requirement.nodes->select(node |node.oclIsTypeOf(MM!SystemAction))->collect(node | if node.confirm=true then thisModule.SystemAction2processClass(node) else thisModule.systemAction2processClassNotConfirm(node) endif)
+			}
+		)
+}
+lazy rule UserAction2ProcessClassValidate {
+	from
+		userAction : MM!UserAction(userAction.validate=true)
+	to 
+		processClass : MM1!processClass (
+			name <- userAction.name,
+			properties <- userAction.outputs->iterate(property; res: Set(MM!OutputPin) = Set {} |
+			if(res->collect(p | p.name)->includes(property.name)) then res
+			else
+				res->including(property)
+			endif
+			)->collect(property | thisModule.Property(property)),
+			operations <- Sequence {valid}
+		),
+		
+		valid : MM1!processOperation (
+			name <- 'validateData',
+			params <- userAction.outputs->iterate(param; res: Set(MM!OutputPin) = Set {} |
+			if(res->collect(p | p.name)->includes(param.name)) then res
+			else
+				res->including(param)
+			endif
+			)->collect(param | thisModule.Parameter(param)),
+			
+			isPublic <- true,
+			isStatic <- false,
+			return <- 'SUCCESS'
+		)
+}
+
+lazy rule UserAction2ProcessClass{
+	from
+		userAction : MM!UserAction(userAction.validate=false)
+	to 
+		processClass : MM1!processClass (
+			name <- userAction.name,
+			properties <- userAction.outputs->iterate(property; res: Set(MM!OutputPin) = Set {} |
+			if(res->collect(p | p.name)->includes(property.name)) then res
+			else
+				res->including(property)
+			endif
+			)->collect(property | thisModule.Property(property))
+		)
+}
+
+lazy rule SystemAction2processClass {
+	from
+		systemAction : MM!SystemAction (systemAction.confirm = true)
+	to 
+		processClass : MM1!processClass (
+			name <- systemAction.name,
+			operations <- Sequence { operation, confirm }
+		),
+		
+		operation : MM1!processOperation(
+			name <- systemAction.name,
+			params <-  systemAction.inputs->iterate(param; res: Set(MM!InputPin) = Set {} |
+							if(res->collect(p | p.name)->includes(param.name)) then res
+							else
+								res->including(param)
+							endif
+			)->collect(param | thisModule.SysParam(param)),
+			isPublic <- true,
+			isStatic <- false,
+			return <- 'SUCCESS'
+		),
+		
+		confirm : MM1!processOperation (
+			name <- 'confirm',
+			params <- systemAction.inputs->iterate(param; res: Set(MM!InputPin) = Set {} |
+							if(res->collect(p | p.name)->includes(param.name)) then res
+							else
+								res->including(param)
+							endif
+			)->collect(param | thisModule.SysParam(param)),
+			isPublic <- true,
+			isStatic <- false,
+			return <- 'SUCCESS'
+		)
+}
+
+lazy rule systemAction2processClassNotConfirm {
+	from
+		systemAction : MM!SystemAction (systemAction.confirm = false)
+	to 
+		processClass : MM1!processClass (
+			name <- systemAction.name,
+			operations <- Sequence { operation}
+		),
+		
+		operation : MM1!processOperation(
+			name <- systemAction.name,
+			params <-  systemAction.inputs->iterate(pin; res: Set(MM!InputPin) = Set {} |
+							if(res->collect(p | p.name)->includes(pin.name)) then res
+							else
+								res->including(pin)
+							endif
+			)->collect(pin | thisModule.SysParam(pin)),
+			isPublic <- true,
+			isStatic <- false,
+			return <- 'SUCCESS'
+		)
+}
+
+lazy rule SysParam {
+	from
+		pin : MM!InputPin
+	to 
+		param : MM1!Parameter (
+			name <- pin.name,
+			type <- pin.type
+		)
+}
+
+lazy rule Property {
+	from
+		outputPin : MM!OutputPin
+	to 
+		property : MM1!processProperty (
+			name <- outputPin.name,
+			type <- outputPin.type
+		)
+}
+
+lazy rule Parameter {
+	from
+		outputPin : MM!OutputPin
+	to 
+		param : MM1!Parameter (
+			name <- outputPin.name,
+			type <- outputPin.type
+		)
+}

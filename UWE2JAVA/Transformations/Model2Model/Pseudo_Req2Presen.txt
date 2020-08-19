@@ -1,0 +1,145 @@
+Requirement2Presentation:
+    for each requirement in Req!Activity:
+        presentation = Presentation!Class 
+        presentation.presentations = []
+        for each node in requirement.nodes:
+            if node.oclIsTypeOf(MM!DisplayAction):
+                if node.type.name='inputForm':
+                    presentation.presentations.append(Display2Form(node) )
+                else:
+                    presentation.presentations.append(Display2Page(node))
+
+Display2Form:
+    for each display in Req!DisplayAction if display.type.name='inputForm':
+        button1 = MM1!button
+        button1.name = 'Confirm'
+        button2 = MM!button
+        button2.name = 'Cancel'
+
+        form = MM1!inputForm
+        form.name = display.name
+        form.interactiveElms = [button1, button2]
+        for each pin in display.interactionPins:
+            if pin.type ='textInput':
+                form.interactiveElms.append(InteractionPin2TextInput(pin))
+            elif pin.type = 'file':
+                form.interactiveElms.append(InteractionPin2FileUpload(pin))
+            elif pin.type = 'selection':
+                form.interactiveElms.append(InteractionPin2Selection(pin))
+        form.outputElms = []
+        for each pin in display.displayPins:
+            if pin.type='text':
+                form.outputElms.append(DisplayPin2Text(pin))
+            elif pin.type='image':
+                form.outputElms.append(DisplayPin2Image(pin))
+            elif pin.type='media':
+                form.outputElms.append(DisplayPin2Media(pin))   
+        form.type = display.type.name
+
+Display2IteratedGroup:
+    for display in MM!DisplayAction if display.type.name='iteratedGroup':
+        iteratedGroup = MM1!iteratedPresentationGroup
+        iteratedGroup.name = display.name
+        iteratedGroup.interactiveElms = []
+        for each pin in display.interactionPins:
+            if pin.type ='textInput':
+                iteratedGroup.interactiveElms.append(InteractionPin2TextInput(pin))
+            elif pin.type = 'file':
+                iteratedGroup.interactiveElms.append(InteractionPin2FileUpload(pin))
+            elif pin.type = 'selection':
+                iteratedGroup.interactiveElms.append(InteractionPin2Selection(pin))
+        iteratedGroup.outputElms = []
+        for each pin in display.displayPins:
+            if pin.type='text':
+                iteratedGroup.outputElms.append(DisplayPin2Text(pin))
+            elif pin.type='image':
+                iteratedGroup.outputElms.append(DisplayPin2Image(pin))
+            elif pin.type='media':
+                iteratedGroup.outputElms.append(DisplayPin2Media(pin))   
+        iteratedGroup.type = display.type.name
+
+Display2Page:
+    for display in MM!DisplayAction if display.type.name='page':
+        page = MM1!iteratedPresentationGroup
+        page.name = display.name
+        page.interactiveElms = []
+        for each pin in display.interactionPins:
+            if pin.type ='textInput':
+                page.interactiveElms.append(InteractionPin2TextInput(pin))
+            elif pin.type = 'file':
+                page.interactiveElms.append(InteractionPin2FileUpload(pin))
+            elif pin.type = 'selection':
+                page.interactiveElms.append(InteractionPin2Selection(pin))
+        page.outputElms = []
+        for each pin in display.displayPins:
+            if pin.type='text':
+                page.outputElms.append(DisplayPin2Text(pin))
+            elif pin.type='image':
+                page.outputElms.append(DisplayPin2Image(pin))
+            elif pin.type='media':
+                page.outputElms.append(DisplayPin2Media(pin))   
+        page.type = display.type.name
+
+Display2PresentationAlternatives:
+    for display in MM!DisplayAction if display.type.name='alternatives':
+        t = MM1!presentationAlternatives
+        t.name = display.name
+
+Display2PresentationGroup:
+    for display in MM!DisplayAction if display.type.name='group':
+        t = MM1!presentationGroup
+        t.name = display.name
+        t.interactiveElms = []
+        for each pin in display.interactionPins:
+            if pin.type ='textInput':
+                t.interactiveElms.append(InteractionPin2TextInput(pin))
+            elif pin.type = 'file':
+                t.interactiveElms.append(InteractionPin2FileUpload(pin))
+            elif pin.type = 'selection':
+                t.interactiveElms.append(InteractionPin2Selection(pin))
+        t.outputElms = []
+        for each pin in display.displayPins:
+            if pin.type='text':
+                t.outputElms.append(DisplayPin2Text(pin))
+            elif pin.type='image':
+                t.outputElms.append(DisplayPin2Image(pin))
+            elif pin.type='media':
+                t.outputElms.append(DisplayPin2Media(pin))   
+        t.type = display.type.name
+
+DisplayPin2Image:
+    for pin in MM!DisplayPin if pin.type='image':
+        t = MM1!image
+        t.name = pin.name
+        t.type = pin.type
+
+DisplayPin2Media:
+    for pin in MM!DisplayPin if pin.type='media':
+        t = MM1!mediaObject
+        t.name = pin.name
+        t.type = pin.type
+
+DisplayPin2Text:
+    for pin in MM!DisplayPin if pin.type='text':
+        t = MM1!text
+        t.name = pin.name
+        t.type = pin.type
+
+InteractionPin2FileUpload:
+    for pin in MM!interactionPin if pin.type='file':
+        t = MM1!fileUpload
+        t.name = pin.name
+        t.type = pin.type
+
+InteractionPin2TextInput:
+    for pin in MM!interactionPin if pin.type='textinput':
+        t = MM1!textInput
+        t.name = pin.name
+        t.type = pin.type
+
+InteractionPin2Selection:
+    for pin in MM!interactionPin if pin.type='selection':
+        t = MM1!selection
+        t.name = pin.name
+        t.multiple = true
+        t.type = pin.type

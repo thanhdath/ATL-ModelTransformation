@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<java:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http:///java.ecore" xsi:schemaLocation="http:///java.ecore ../../Metamodels/JAVA/java.ecore" name="addressbook.model">
+  <classes name="AddressBook" isPublic="true">
+    <members xsi:type="java:Field" name="introduction" type="java.lang.String"/>
+    <members xsi:type="java:Field" name="contacts" type="List&lt;Contact>"/>
+    <members xsi:type="java:Method" name="getIntroduction" isPublic="true" type="java.lang.String" body="return introduction;"/>
+    <members xsi:type="java:Method" name="getContacts" isPublic="true" type="java.util.List&lt;Contact>" body="return contacts;"/>
+    <members xsi:type="java:Method" name="setIntroduction" isPublic="true" body="this.introduction = introduction;">
+      <parameters name="introduction" type="java.lang.String"/>
+    </members>
+    <members xsi:type="java:Method" name="setContacts" isPublic="true" body="this.contacts = contacts;">
+      <parameters name="contacts" type="java.util.List&lt;Contact>"/>
+    </members>
+  </classes>
+  <classes name="Contact" isPublic="true">
+    <members xsi:type="java:Field" name="name" type="java.lang.String"/>
+    <members xsi:type="java:Field" name="email" type="java.lang.String"/>
+    <members xsi:type="java:Field" name="addressBook" type="AddressBook"/>
+    <members xsi:type="java:Field" name="postalAddrMain" type="Address"/>
+    <members xsi:type="java:Field" name="postalAddrAlternative" type="Address"/>
+    <members xsi:type="java:Field" name="phoneMain" type="Phone"/>
+    <members xsi:type="java:Field" name="phoneAlternative" type="Phone"/>
+    <members xsi:type="java:Field" name="picture" type="Picture"/>
+    <members xsi:type="java:Method" name="getName" isPublic="true" type="java.lang.String" body="return name;"/>
+    <members xsi:type="java:Method" name="getEmail" isPublic="true" type="java.lang.String" body="return email;"/>
+    <members xsi:type="java:Method" name="getAddressBook" isPublic="true" type="AddressBook" body="return addressBook;"/>
+    <members xsi:type="java:Method" name="getPostalAddrMain" isPublic="true" type="Address" body="return postalAddrMain;"/>
+    <members xsi:type="java:Method" name="getPostalAddrAlternative" isPublic="true" type="Address" body="return postalAddrAlternative;"/>
+    <members xsi:type="java:Method" name="getPhoneMain" isPublic="true" type="Phone" body="return phoneMain;"/>
+    <members xsi:type="java:Method" name="getPhoneAlternative" isPublic="true" type="Phone" body="return phoneAlternative;"/>
+    <members xsi:type="java:Method" name="getPicture" isPublic="true" type="Picture" body="return picture;"/>
+    <members xsi:type="java:Method" name="setName" isPublic="true" body="this.name = name;">
+      <parameters name="name" type="java.lang.String"/>
+    </members>
+    <members xsi:type="java:Method" name="setEmail" isPublic="true" body="this.email = email;">
+      <parameters name="email" type="java.lang.String"/>
+    </members>
+    <members xsi:type="java:Method" name="setAddressBook" isPublic="true" body="this.addressBook = addressBook;">
+      <parameters name="addressBook" type="AddressBook"/>
+    </members>
+    <members xsi:type="java:Method" name="setPostalAddrMain" isPublic="true" body="this.postalAddrMain = postalAddrMain;">
+      <parameters name="postalAddrMain" type="Address"/>
+    </members>
+    <members xsi:type="java:Method" name="setPostalAddrAlternative" isPublic="true" body="this.postalAddrAlternative = postalAddrAlternative;">
+      <parameters name="postalAddrAlternative" type="Address"/>
+    </members>
+    <members xsi:type="java:Method" name="setPhoneMain" isPublic="true" body="this.phoneMain = phoneMain;">
+      <parameters name="phoneMain" type="Phone"/>
+    </members>
+    <members xsi:type="java:Method" name="setPhoneAlternative" isPublic="true" body="this.phoneAlternative = phoneAlternative;">
+      <parameters name="phoneAlternative" type="Phone"/>
+    </members>
+    <members xsi:type="java:Method" name="setPicture" isPublic="true" body="this.picture = picture;">
+      <parameters name="picture" type="Picture"/>
+    </members>
+  </classes>
+  <classes name="Address" isPublic="true">
+    <members xsi:type="java:Field" name="name" type="java.lang.String"/>
+    <members xsi:type="java:Field" name="postalCode" type="int"/>
+    <members xsi:type="java:Field" name="city" type="java.lang.String"/>
+    <members xsi:type="java:Field" name="country" type="java.lang.String"/>
+    <members xsi:type="java:Method" name="getName" isPublic="true" type="java.lang.String" body="return name;"/>
+    <members xsi:type="java:Method" name="getPostalCode" isPublic="true" type="int" body="return postalCode;"/>
+    <members xsi:type="java:Method" name="getCity" isPublic="true" type="java.lang.String" body="return city;"/>
+    <members xsi:type="java:Method" name="getCountry" isPublic="true" type="java.lang.String" body="return country;"/>
+    <members xsi:type="java:Method" name="setName" isPublic="true" body="this.name = name;">
+      <parameters name="name" type="java.lang.String"/>
+    </members>
+    <members xsi:type="java:Method" name="setPostalCode" isPublic="true" body="this.postalCode = postalCode;">
+      <parameters name="postalCode" type="int"/>
+    </members>
+    <members xsi:type="java:Method" name="setCity" isPublic="true" body="this.city = city;">
+      <parameters name="city" type="java.lang.String"/>
+    </members>
+    <members xsi:type="java:Method" name="setCountry" isPublic="true" body="this.country = country;">
+      <parameters name="country" type="java.lang.String"/>
+    </members>
+  </classes>
+  <classes name="Phone" isPublic="true">
+    <members xsi:type="java:Field" name="internationalAreaCode" type="int"/>
+    <members xsi:type="java:Field" name="prefix" type="int"/>
+    <members xsi:type="java:Field" name="number" type="int"/>
+    <members xsi:type="java:Method" name="getInternationalAreaCode" isPublic="true" type="int" body="return internationalAreaCode;"/>
+    <members xsi:type="java:Method" name="getPrefix" isPublic="true" type="int" body="return prefix;"/>
+    <members xsi:type="java:Method" name="getNumber" isPublic="true" type="int" body="return number;"/>
+    <members xsi:type="java:Method" name="setInternationalAreaCode" isPublic="true" body="this.internationalAreaCode = internationalAreaCode;">
+      <parameters name="internationalAreaCode" type="int"/>
+    </members>
+    <members xsi:type="java:Method" name="setPrefix" isPublic="true" body="this.prefix = prefix;">
+      <parameters name="prefix" type="int"/>
+    </members>
+    <members xsi:type="java:Method" name="setNumber" isPublic="true" body="this.number = number;">
+      <parameters name="number" type="int"/>
+    </members>
+  </classes>
+  <classes name="Picture" isPublic="true">
+    <members xsi:type="java:Field" name="width" type="int"/>
+    <members xsi:type="java:Field" name="height" type="int"/>
+    <members xsi:type="java:Field" name="contact" type="Contact"/>
+    <members xsi:type="java:Method" name="getWidth" isPublic="true" type="int" body="return width;"/>
+    <members xsi:type="java:Method" name="getHeight" isPublic="true" type="int" body="return height;"/>
+    <members xsi:type="java:Method" name="getContact" isPublic="true" type="Contact" body="return contact;"/>
+    <members xsi:type="java:Method" name="setWidth" isPublic="true" body="this.width = width;">
+      <parameters name="width" type="int"/>
+    </members>
+    <members xsi:type="java:Method" name="setHeight" isPublic="true" body="this.height = height;">
+      <parameters name="height" type="int"/>
+    </members>
+    <members xsi:type="java:Method" name="setContact" isPublic="true" body="this.contact = contact;">
+      <parameters name="contact" type="Contact"/>
+    </members>
+  </classes>
+</java:Package>

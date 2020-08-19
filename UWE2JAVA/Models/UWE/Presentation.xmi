@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:presentation="http:///presentation.ecore"
+    xsi:schemaLocation="http:///presentation.ecore ../../Metamodels/UWE/presentation.ecore">
+  <presentation:PresentationPage
+      name="HomePage"
+      id="HomePage"/>
+  <presentation:Text
+      name="Introduction"/>
+  <presentation:Anchor
+      name="Anchor"/>
+  <presentation:Image/>
+  <presentation:Button
+      name="Button"/>
+  <presentation:TextInput
+      name="TextInput"/>
+  <presentation:FileUpload
+      name="FileUpload"/>
+</xmi:XMI>

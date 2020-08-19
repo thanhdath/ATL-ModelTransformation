@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<jsp:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jsp="http:///java.ecore" documentName="HomePage.jsp">
+  <children xsi:type="jsp:Element" name="html">
+    <children xsi:type="jsp:Element" name="head">
+      <children xsi:type="jsp:Element" name="title">
+        <children xsi:type="jsp:TextNode" value="HomePage"/>
+      </children>
+    </children>
+    <children xsi:type="jsp:Element" name="p">
+      <children xsi:type="jsp:TextNode" value="Introduction"/>
+    </children>
+    <children xsi:type="jsp:Element" name="a">
+      <children xsi:type="jsp:Attribute" name="href" value="#"/>
+      <children xsi:type="jsp:TextNode" value="Anchor"/>
+    </children>
+    <children xsi:type="jsp:Element" name="img">
+      <children xsi:type="jsp:Attribute" name="src" value="#"/>
+      <children xsi:type="jsp:Attribute" name="alt" value="#"/>
+    </children>
+    <children xsi:type="jsp:Element" name="button">
+      <children xsi:type="jsp:TextNode" value="Button"/>
+    </children>
+    <children xsi:type="jsp:Element" name="input">
+      <children xsi:type="jsp:Attribute" name="type" value="text"/>
+      <children xsi:type="jsp:Attribute" name="value" value="TextInput"/>
+    </children>
+    <children xsi:type="jsp:Element" name="input">
+      <children xsi:type="jsp:Attribute" name="type" value="file"/>
+      <children xsi:type="jsp:Attribute" name="value" value="FileUpload"/>
+    </children>
+  </children>
+</jsp:Root>

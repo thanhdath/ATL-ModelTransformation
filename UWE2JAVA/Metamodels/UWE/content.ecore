@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="content" nsURI="http:///content.ecore" nsPrefix="content">
+  <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <details key="originalName" value="Content"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ContentModel" eSuperTypes="patterns.ecore#//UweModel">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="contentModel"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    The content model represents the domain of the web application.&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseModel" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Model">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Model"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="patterns.ecore#//UweModel/baseModel"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CsrFprevention">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="CSRFprevention"/>
+    </eAnnotations>
+    <eLiterals name="synchronizerTokenPattern">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="SynchronizerTokenPattern"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="captcha" value="1">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="CAPTCHA"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="onetimeToken" value="2">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="One-timeToken"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="reAuthentication" value="3">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="Re-Authentication"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="checkingReferrerHeader" value="4"/>
+    <eLiterals name="checkingOriginHeader" value="5"/>
+    <eLiterals name="xframeoptions" value="6">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="x-frame-options"/>
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="InputValidationType">
+    <eLiterals name="blacklisting"/>
+    <eLiterals name="whitelisting" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="XsSprevention">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="XSSprevention"/>
+    </eAnnotations>
+    <eLiterals name="inputValidationLibraries">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="input validation libraries"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="contentSecurityPolicy" value="1">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="content security policy"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="xxssProtectionHeader" value="2">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="x-xss protection header"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="httponlyFlagForCookies" value="3">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="http-only flag for cookies"/>
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SqLinjectionPrevention">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="SQLinjectionPrevention"/>
+    </eAnnotations>
+    <eLiterals name="parameterizedPreparedStatements">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="parameterized prepared statements"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="parameterizedStoredProcedures" value="1">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="parameterized stored procedures"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="escapingUserSuppliedInput" value="2">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="escaping user supplied input"/>
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Key">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="key"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      An attribute of a domain element can be distinguished as a key. The &#xA;      metaclass Key provides a facility to make this distinction.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseProperty" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Property">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Property"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AppPart"/>
+  <eClassifiers xsi:type="ecore:EClass" name="File">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="file"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseClass" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Class">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Class"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStream" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isDownloadable" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="secureTransportOnly" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="downloadVerification" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Verification"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="drm" ordered="false" lowerBound="1"
+        upperBound="-1" eType="#//Drm"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Verification">
+    <eLiterals name="signature"/>
+    <eLiterals name="hash" value="1"/>
+    <eLiterals name="transportSecurity" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Drm">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="DRM"/>
+    </eAnnotations>
+    <eLiterals name="view"/>
+    <eLiterals name="delete" value="1"/>
+    <eLiterals name="copy" value="2"/>
+    <eLiterals name="share" value="3"/>
+    <eLiterals name="print" value="4"/>
+    <eLiterals name="save" value="5"/>
+    <eLiterals name="extractContents" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Storage">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="storage"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseComment" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Comment">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Comment"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidentiality" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidentialityStrategy"
+        ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="integrity" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="integrityStrategy" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="availability" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="retention" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="backupStrategy" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TrustedThirdParty">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="trustedThirdParty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseNode" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Node">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Node"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Nonrepudiation">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="non-repudiation"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseOperation" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Operation">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Operation"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trustedThirdParty" ordered="false"
+        lowerBound="1" eType="#//TrustedThirdParty"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementA"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="ecore:EDataType ecore.ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

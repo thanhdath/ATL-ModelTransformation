@@ -1,0 +1,159 @@
+-- @path JAVA=/UWE2JAVA/Metamodels/JAVA/java.ecore
+-- @path UWE=/UWE2JAVA/Metamodels/UWE/uml.ecore
+
+
+module Content2Java;
+create OUT: JAVA from IN: UWE;
+
+helper context String def: firstCharUpperCase(): String =
+	self.substring(1, 1).toUpper() + self.substring(2, self.size());
+
+helper def: getModelName(): String =
+	UWE!Model.allInstances().first().name;
+
+rule Package2Package {
+	from
+		p: UWE!Package
+	to
+		jp: JAVA!Package (
+			-- name <- thisModule.getModelName().toLower() + '.model'
+			name <- p.name + '.model',
+			classes <- p.packagedElement -> select(e | e.oclIsTypeOf(UWE!Class)) ->
+					collect(e | thisModule.Class2Class(e))
+		)
+}
+
+lazy rule Class2Class {
+	from
+		c: UWE!Class (
+			c.oclIsTypeOf(UWE!Class)
+		)
+	to
+		jc: JAVA!JavaClass (
+			name <- c.name,
+			isAbstract <- c.isAbstract,
+			isPublic <- true,
+			isInterface <- false,
+			members <- c.ownedAttribute -> collect(m | if m.isDerived then
+								thisModule.CollectionProperty2Field(m)
+							else
+								thisModule.Property2Field(m)
+							endif).append(c.ownedAttribute -> collect(m | if m.isDerived
+									then
+								thisModule.CollectionProperty2GetterMethod(m)
+							else
+								thisModule.Property2GetterMethod(m)
+							endif)).append(c.ownedAttribute -> collect(m | if m.isDerived
+									then
+							thisModule.CollectionProperty2SetterMethod(m)
+						else
+							thisModule.Property2SetterMethod(m)
+						endif))
+		)
+}
+
+lazy rule Property2Field {
+	from
+		p: UWE!Property
+	to
+		field: JAVA!Field (
+			owner <- p.class,
+			name <- p.name,
+			type <- p.type.name,
+			isPublic <- false,
+			isStatic <- false
+		)
+}
+
+lazy rule Property2GetterMethod {
+	from
+		p: UWE!Property
+	to
+		getter: JAVA!Method (
+			owner <- p.class,
+			name <- 'get' + p.name.firstCharUpperCase(),
+			type <- p.type.name,
+			isPublic <- true,
+			isStatic <- false,
+			body <- 'return ' + p.name + ';'
+		)
+}
+
+lazy rule Property2SetterMethod {
+	from
+		p: UWE!Property
+	to
+		setter: JAVA!Method (
+			owner <- p.class,
+			name <- 'set' + p.name.firstCharUpperCase(),
+			isPublic <- true,
+			isStatic <- false,
+			parameters <- Sequence{parameter},
+			body <- 'this.' + p.name + ' = ' + p.name + ';'
+		),
+		parameter: JAVA!MethodParameter (
+			name <- p.name,
+			type <- p.type.name
+		)
+}
+
+lazy rule CollectionProperty2Field {
+	from
+		p: UWE!Property
+	to
+		field: JAVA!Field (
+			owner <- p.class,
+			name <- p.name,
+			type <- if p.isOrdered.oclIsUndefined() then
+					'List<' + p.type.name + '>'
+				else
+					if p.isOrdered then
+						'List<' + p.type.name + '>'
+					else
+						'Set<' + p.type.name + '>'
+					endif
+				endif,
+			isPublic <- false,
+			isStatic <- false
+		)
+}
+
+lazy rule CollectionProperty2GetterMethod {
+	from
+		p: UWE!Property
+	to
+		getter: JAVA!Method (
+			owner <- p.class,
+			name <- 'get' + p.name.firstCharUpperCase(),
+			type <- if p.isOrdered then
+					'java.util.List<' + p.type.name + '>'
+				else
+					'java.util.Set<' + p.type.name + '>'
+				endif,
+			isPublic <- true,
+			isStatic <- false,
+			body <- 'return ' + p.name + ';'
+		)
+}
+
+lazy rule CollectionProperty2SetterMethod {
+	from
+		p: UWE!Property
+	to
+		setter: JAVA!Method (
+			owner <- p.class,
+			name <- 'set' + p.name.firstCharUpperCase(),
+			isPublic <- true,
+			isStatic <- false,
+			parameters <- Sequence{setterParameter},
+			body <- 'this.' + p.name + ' = ' + p.name + ';'
+		),
+		setterParameter: JAVA!MethodParameter (
+			name <- p.name,
+			type <- if p.isOrdered then
+					'java.util.List<' + p.type.name + '>'
+				else
+					'java.util.Set<' + p.type.name + '>'
+				endif
+		)
+}

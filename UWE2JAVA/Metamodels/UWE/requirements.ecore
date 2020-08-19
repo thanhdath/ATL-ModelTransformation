@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Requirement" nsURI="www.requirement.com">
+  <eClassifiers xsi:type="ecore:EClass" name="Model"/>
+  <eClassifiers xsi:type="ecore:EClass" name="requirementsModel" eSuperTypes="#//Model"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UseCase"/>
+  <eClassifiers xsi:type="ecore:EClass" name="webUseCase" eSuperTypes="#//UseCase #//Package">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transmissionType" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isLandmark" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="guard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="availability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Package"/>
+  <eClassifiers xsi:type="ecore:EClass" name="browsing" eSuperTypes="#//webUseCase"/>
+  <eClassifiers xsi:type="ecore:EClass" name="processing" eSuperTypes="#//webUseCase"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Pin"/>
+  <eClassifiers xsi:type="ecore:EClass" name="presentationPin" eSuperTypes="#//Pin">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dynamicDisplay" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="interactionPin" eSuperTypes="#//presentationPin">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="submitChange" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="liveValidation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoCompletion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoSuggestion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multipleSelection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interactionPinType" eType="#//interactionPinTypeEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="displayPin" eSuperTypes="#//presentationPin">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="periodicRefresh" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dragDrop" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayPinType" eType="#//displayPinTypeEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="interactionPinTypeEnum">
+    <eLiterals name="text"/>
+    <eLiterals name="image" value="1"/>
+    <eLiterals name="selection" value="2"/>
+    <eLiterals name="file" value="3"/>
+    <eLiterals name="custom" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="displayPinTypeEnum">
+    <eLiterals name="text"/>
+    <eLiterals name="image" value="1"/>
+    <eLiterals name="media" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="requirementsAction" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dynamicDisplay" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="navigationAction" eSuperTypes="#//requirementsAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="guard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="asynchronous" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="navigationActionType" eType="#//navigationActionTypeEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="displayAction" eSuperTypes="#//requirementsAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="collapse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lightbox" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="liveReport" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="richEditor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gallery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayActionType" eType="#//displayActionTypeEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="navigationActionTypeEnum">
+    <eLiterals name="anchor"/>
+    <eLiterals name="tab" value="1"/>
+    <eLiterals name="button" value="2"/>
+    <eLiterals name="automatic" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="displayActionTypeEnum">
+    <eLiterals name="group"/>
+    <eLiterals name="form" value="1"/>
+    <eLiterals name="iteration" value="2"/>
+    <eLiterals name="alternatives" value="3"/>
+  </eClassifiers>
+</ecore:EPackage>

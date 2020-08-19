@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<uml:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:content="http:///content.ecore" xmlns:uml="http:///uml.ecore" name="AddressBook">
+  <packagedElement xsi:type="uml:Class" name="user">
+    <ownedAttribute xsi:type="content:Attribute" name="name" type="String" visibility="public"/>
+    <ownedAttribute xsi:type="content:Attribute" name="email" type="String" visibility="private"/>
+    <ownedOperation name="createContact"/>
+    <ownedOperation name="updateContact"/>
+  </packagedElement>
+  <packagedElement xsi:type="uml:PrimitiveType" name="String"/>
+</uml:Package>

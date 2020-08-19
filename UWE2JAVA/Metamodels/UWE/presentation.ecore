@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="presentation" nsURI="http:///presentation.ecore" nsPrefix="presentation">
+  <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <details key="originalName" value="Presentation"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="PresentationAlternatives" eSuperTypes="#//PresentationElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="presentationAlternatives"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Presentation alternatives are used to model a set of presentation groups &#xA;      that are presented inside the same group. However, only one of the &#xA;      presentation groups is visible simultaneously.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PresentationElement" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="presentationElement"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span style=&quot;font-style:normal;&quot;>A &lt;/span>&lt;i>&lt;span lang=&quot;en-GB&quot;>presentation &#xA;      element &lt;/span>&lt;/i>&lt;span lang=&quot;en-GB&quot;>is the abstract super class of all &#xA;      model elements of the presentation package.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseClass" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Class">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Class"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseProperty" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Property">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Property"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dynamicDisplay" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>Indicates whether the content of this element should &#xA;      change without the complete reload of the element.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputElement" abstract="true" eSuperTypes="#//ValuedElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="outputElement"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;i>&lt;span style=&quot;background-repeat:repeat;background-attachment:scroll;&quot;>OutputElement &#xA;      &lt;/span>&lt;/i>&lt;span style=&quot;background-repeat:repeat;background-attachment:scroll;&quot;>comprise &#xA;      static elements, such as Image or Text, that are used to display &#xA;      content. Alternatively, they can be used to provide values for query &#xA;      parameters.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//ValuedElement/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//ValuedElement/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="periodicRefresh" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Defines whether the information presented by this element is updated &#xA;      periodically by the application.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dragDrop" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Shows if the element is movable by dragging or dropping it to a new &#xA;      location.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValuedElement" abstract="true" eSuperTypes="#//UiElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="valuedElement"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;i>&lt;span lang=&quot;en-GB&quot;>ValueElement &lt;/span>&lt;/i>&lt;span lang=&quot;en-GB&quot;>is the &#xA;      abstract super class for presentation elements that are responsible for &#xA;      presenting or editing content. Every &lt;i>ValueElement &lt;/i>has to be &#xA;      included in a presentation group that is associated with a navigation &#xA;      node. The subclasses of &lt;i>ValueElement &lt;/i>can be divided into &#xA;      interactive elements and output elements.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueExpression" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The expression describing how the value of this element is derived.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiElement" abstract="true" eSuperTypes="#//PresentationElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="uiElement"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;i>&lt;span lang=&quot;en-GB&quot;>UIElement &lt;/span>&lt;/i>&lt;span lang=&quot;en-GB&quot;>is the &#xA;      abstract super class for presentation elements that are responsible for &#xA;      presenting or editing content or groups of these elements. Every &lt;i>UIElement &#xA;      &lt;/i>has to be included in a presentation group that is associated with a &#xA;      navigation node. The subclasses of &lt;i>UIElement &lt;/i>can be divided into &#xA;      following groups: &lt;/span>&#xA;    &lt;/p>&#xA;&#xA;    &lt;ul>&#xA;      &lt;li>&#xA;        &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;          &lt;i>&lt;span lang=&quot;en-GB&quot;>PresentationGroups&lt;/span>&lt;/i>&lt;span lang=&quot;en-GB&quot;> &#xA;          like forms can contain other UI elements.&lt;/span>&#xA;        &lt;/p>&#xA;&#xA;      &lt;/li>&#xA;&#xA;      &lt;li>&#xA;        &lt;i>&lt;span lang=&quot;en-GB&quot;>ValueElements &lt;/span>&lt;/i>&lt;span style=&quot;font-style:normal;&quot;>which &#xA;        include both types, interactive elements allowing input and output &#xA;        elements.&lt;/span>&#xA;      &lt;/li>&#xA;&#xA;    &lt;/ul>&#xA;&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>It is important to remember that the UWE presentation &#xA;      model does not specify concretely how an UI element is rendered in terms &#xA;      of which element of the used presentation technology is used. For &#xA;      example, a UWE choice that allows selection of one element could be &#xA;      rendered by an HTML &lt;font size=&quot;3&quot;>&amp;lt;select&amp;gt; &lt;/font>element as well &#xA;      as by a group of radio buttons&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="disablingCondition" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The condition for disabling the element.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enablingCondition" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The condition for enabling the element.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      A string used to identify this element.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="styleClass" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The name of the this elements style class.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="styleClassExpression" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The expression defining the style class.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibilityCondition" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Defines the circumstances under which this element is visible to the &#xA;      user.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="liveSearchCondition" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Describes the relationship between the presentation elements and the search parameters."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomComponent" eSuperTypes="#//InputElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="customComponent"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      A custom component is used to combine some other elements to form a new &#xA;      type of presentation element.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//ValuedElement/%duplicates%/baseClass #//InteractiveElement/%duplicates%/baseClass #//InputElement/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//ValuedElement/%duplicates%/baseProperty #//InteractiveElement/%duplicates%/baseProperty #//InputElement/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//UiElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The elements combined in this custom component.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputElement" abstract="true" eSuperTypes="#//InteractiveElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="inputElement"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;i>InputElement&lt;/i> is the abstract super class for elements that handle &#xA;      user input like text input or selection.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//ValuedElement/%duplicates%/baseClass #//InteractiveElement/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//ValuedElement/%duplicates%/baseProperty #//InteractiveElement/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="submitChange" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Defines whether the change of the elements content leads automatically &#xA;      to its submission.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataProperty" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Property">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The data associated with this element.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InteractiveElement" abstract="true"
+      eSuperTypes="#//ValuedElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="interactiveElement"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;i>InteractiveElement&lt;/i> is the abstract super class for elements that &#xA;      handle user input like text input or selection and elements that trigger &#xA;      transitions on the navigation model and process model like anchor and &#xA;      button. They can be connected with a navigation- or process property in &#xA;      order to specify how the user input is handled.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//ValuedElement/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//ValuedElement/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetPage" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The page that is opened by this element.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//InteractiveElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="button"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>A button in general is an element that enables the &#xA;      user to initiate some action of the web application. The most common &#xA;      usage is in conjunction with input elements to submit data and execute a &#xA;      query or a process. UWE does not specify how a button is rendered. If &#xA;      HTML is used as presentation technology, an &lt;font size=&quot;3&quot;>&amp;lt;input&amp;gt;&lt;/font>&lt;font size=&quot;2&quot; face=&quot;Courier New&quot;> &#xA;      &lt;/font>element with type &lt;font size=&quot;3&quot;>“button”&lt;/font>&lt;font size=&quot;2&quot; face=&quot;Courier New&quot;> &#xA;      &lt;/font>could be used as well as an &lt;font size=&quot;3&quot;>&amp;lt;a&amp;gt;&lt;/font>&lt;font size=&quot;2&quot; face=&quot;Courier New&quot;> &#xA;      &lt;/font>element or even an image, (given that JavaScript is enabled). &lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//ValuedElement/%duplicates%/baseClass #//InteractiveElement/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//ValuedElement/%duplicates%/baseProperty #//InteractiveElement/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConcreteUiElementConfiguration">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="concreteUIElementConfiguration"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="holdsValue" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="holdsAction" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="holdsChildren" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wrapsEachChild" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inheritsDefaults" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="holdsOptions" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseInstanceSpecification"
+        ordered="false" lowerBound="1" eType="ecore:EClass uml.ecore#//InstanceSpecification">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_InstanceSpecification"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PresentationModel" eSuperTypes="patterns.ecore#//UweModel">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="presentationModel"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseModel" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Model">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Model"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="patterns.ecore#//UweModel/baseModel"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FileUpload" eSuperTypes="#//InputElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="fileUpload"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      This presentation element is used to model the users possibility to &#xA;      upload files.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//ValuedElement/%duplicates%/baseClass #//InteractiveElement/%duplicates%/baseClass #//InputElement/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//ValuedElement/%duplicates%/baseProperty #//InteractiveElement/%duplicates%/baseProperty #//InputElement/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IteratedPresentationGroup" eSuperTypes="#//PresentationGroup">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="iteratedPresentationGroup"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>An iterated presentation group is an &lt;i>PresentationGroup &#xA;      &lt;/i>that contains various items. It can be used to model the &#xA;      presentation of a menu or an index.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//PresentationGroup/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//PresentationGroup/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="itemVarName" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The name of the items presented in this group.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PresentationGroup" eSuperTypes="#//UiElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="presentationGroup"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>A &lt;i>presentation group&lt;/i> is used to define a set &#xA;      of presentation elements whose contents are shown alternatively on the &#xA;      same area of the page, depending on navigation. If a navigation node is &#xA;      reached that is associated with one of the alternatives, the content of &#xA;      this presentation group replaces the content of the presentation group &#xA;      that is shown at that moment. One of the presentation groups can be &#xA;      defined as the default, which is selected if none of the associated &#xA;      navigation nodes has been reached yet.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The inclusion of alternatives works just like the inclusion of &#xA;      presentation elements in normal presentation classes, so each &#xA;      alternative presentation class is used as the type of a presentation &#xA;      property that is owned by the presentation group.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="collapse" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Animated removal of the presentation group.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="navigationNode" ordered="false"
+        eType="ecore:EClass navigationClasses.ecore#//NavigationNode">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The &lt;i>navigation node&lt;/i> associated with this &lt;i>presentation group&lt;/i>.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lightbox" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Enabling an associated box, which is activated until user interaction &#xA;      happens; in the meantime, the element is deactivated.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="liveReport" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Additional informations that are presented to the user when he focuses &#xA;      on this group.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="richEditor" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Incorporates a widget with an editing area which usually allows for any &#xA;      HTML content rather than pure text.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Provides selection facilities letting the user choose a value within a &#xA;      range.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gallery" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Presents a set of elements in a enlarged and easily navigable form when &#xA;      enabled.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inLink" ordered="false"
+        lowerBound="1" eType="ecore:EClass navigationClasses.ecore#//Link">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Indicates which link has to be navigated to reach this class.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessClass" eSuperTypes="navigationClasses.ecore#//NavigationNode">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="processClass"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Process classes are used to integrate business processes into the &#xA;      navigation model and to define the data that is exchanged with the user &#xA;      during the process.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>In the navigation model, process classes can be &#xA;      connected to other navigation nodes using process links. This defines &#xA;      how a process can be reached through navigation. If a process involves &#xA;      several steps with different user interfaces, each step has to be backed &#xA;      up by a process class that is associated with a user action. The user &#xA;      interface of each step is defined by a presentation class that is &#xA;      associated with the process class using the “node” role. However, only &#xA;      one class is integrated in the navigation model. This class becomes the &#xA;      “main process class” and has to be associated with the activity that &#xA;      defines the process flow.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="navigationClasses.ecore#//NavigationNode/baseClass"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processProperty" ordered="false"
+        upperBound="-1" eType="ecore:EClass process.ecore#//ProcessProperty">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      A collection of properties that are each connected to a UI element and &#xA;      are used to define how input from these UI elements is handled by the &#xA;      process.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definedProcess" ordered="false"
+        eType="ecore:EClass uml.ecore#//Activity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The UML activity that defines the process flow. This is only used for &#xA;      the main process class of a business process (the one that’s used as a &#xA;      node in the navigation model). As an abbreviation, the activity can be &#xA;      encapsulated in the process class using the &lt;code class=&quot;western&quot;>ownedBehavior&lt;/code> &#xA;      feature.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contentClass" ordered="false"
+        eType="ecore:EClass uml.ecore#//Class">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>The class of the content model that specifies the &#xA;      content of the &lt;i>process class&lt;/i>&lt;/span>&lt;span style=&quot;font-style:normal;&quot;>.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" ordered="false"
+        lowerBound="1" eType="ecore:EClass patterns.ecore#//Workflow">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      The pattern of the process modeled by this class.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Slider" eSuperTypes="#//Selection">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="slider"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span style=&quot;background-repeat:repeat;background-attachment:scroll;&quot;>This &#xA;      is a specialized selection element allowing the user to make his &#xA;      selection by moving a handle.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//ValuedElement/%duplicates%/baseClass #//InteractiveElement/%duplicates%/baseClass #//InputElement/%duplicates%/baseClass #//Selection/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//ValuedElement/%duplicates%/baseProperty #//InteractiveElement/%duplicates%/baseProperty #//InputElement/%duplicates%/baseProperty #//Selection/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Selection" eSuperTypes="#//InputElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="selection"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      A selection allows selecting one or more values from a set of &#xA;      possibilities. In a web application, there are several different ways &#xA;      how this functionality could be realized by concrete HTML elements, e.g.:&#xA;    &lt;/p>&#xA;&#xA;    &lt;ul>&#xA;      &lt;li>&#xA;        &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;          By a &amp;lt;select&amp;gt; element&#xA;        &lt;/p>&#xA;&#xA;      &lt;/li>&#xA;&#xA;      &lt;li>&#xA;        &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;          By a group of radio buttons to select one value out of several values&#xA;        &lt;/p>&#xA;&#xA;      &lt;/li>&#xA;&#xA;      &lt;li>&#xA;        &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;          By a group of checkboxes to select multiple values&#xA;        &lt;/p>&#xA;&#xA;      &lt;/li>&#xA;&#xA;      &lt;li>&#xA;        &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;          By one checkbox if the edited property is of type Boolean&#xA;        &lt;/p>&#xA;&#xA;      &lt;/li>&#xA;&#xA;    &lt;/ul>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//ValuedElement/%duplicates%/baseClass #//InteractiveElement/%duplicates%/baseClass #//InputElement/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//ValuedElement/%duplicates%/baseProperty #//InteractiveElement/%duplicates%/baseProperty #//InputElement/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiple" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Defines whether the choice allows selecting more than one value.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImageInput" eSuperTypes="#//Input">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="imageInput"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      A image input element represents a image that is used to enter some data &#xA;      by clicking on a different point in this image.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//ValuedElement/%duplicates%/baseClass #//InteractiveElement/%duplicates%/baseClass #//InputElement/%duplicates%/baseClass #//Input/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//ValuedElement/%duplicates%/baseProperty #//InteractiveElement/%duplicates%/baseProperty #//InputElement/%duplicates%/baseProperty #//Input/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Input" abstract="true" eSuperTypes="#//InputElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="input"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span style=&quot;background-repeat:repeat;background-attachment:scroll;&quot;>This &#xA;      abstract class is the super class for presentation elements, which allow &#xA;      the user to enter data.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//ValuedElement/%duplicates%/baseClass #//InteractiveElement/%duplicates%/baseClass #//InputElement/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//ValuedElement/%duplicates%/baseProperty #//InteractiveElement/%duplicates%/baseProperty #//InputElement/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Anchor" eSuperTypes="#//InteractiveElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="anchor"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>An anchor allows the user to trigger a transition in &#xA;      the navigation model alongside a specified link. Note that the UWE &#xA;      presentation model does not specify how an anchor is rendered. In HTML, &#xA;      for example, both an anchor element (&lt;font size=&quot;3&quot;>&amp;lt;a&amp;gt;&lt;/font>) as &#xA;      well as a button may be used. &lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//ValuedElement/%duplicates%/baseClass #//InteractiveElement/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//ValuedElement/%duplicates%/baseProperty #//InteractiveElement/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" ordered="false" eType="ecore:EClass navigationClasses.ecore#//Link">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The link that is followed when the anchor is clicked.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetNode" ordered="false"
+        eType="ecore:EClass navigationClasses.ecore#//NavigationNode">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>The node (target) which is reached when the anchor is &#xA;      clicked.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//OutputElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="image"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>An image element is used to display a static image. &#xA;      The content provided by the corresponding navigation property could be &#xA;      interpreted as an URL specifying the location of an image file or &#xA;      directly as image data in any format.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//ValuedElement/%duplicates%/baseClass #//OutputElement/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//ValuedElement/%duplicates%/baseProperty #//OutputElement/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentLibrary">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="componentLibrary"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nsUri" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="nsURI"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nsPrefix" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseModel" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Model">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Model"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tab" eSuperTypes="#//InteractiveElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="tab"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      Tabs are used to organize the information and input fields on several &#xA;      successive presentation groups, while one presentation group is always &#xA;      in the foreground.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//ValuedElement/%duplicates%/baseProperty #//InteractiveElement/%duplicates%/baseProperty"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//ValuedElement/%duplicates%/baseClass #//InteractiveElement/%duplicates%/baseClass"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tabPane" ordered="false"
+        lowerBound="1" eType="#//PresentationGroup">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The presentation group that is shown by selecting this tab.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UiElementConcretion">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="uiElementConcretion"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="basePackageableElement"
+        ordered="false" lowerBound="1" eType="ecore:EClass uml.ecore#//PackageableElement">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_PackageableElement"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PresentationPage" eSuperTypes="#//PresentationGroup">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="presentationPage"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>A &lt;i>presentation page&lt;/i> has the same semantics as &#xA;      a presentation group, with the exception that it may not be included &#xA;      inside another presentation group. This means that a page always defines &#xA;      the root of an inclusion tree of presentation classes. Unlike a &#xA;      presentation group, a page does not have to be associated with a &#xA;      navigation node, as long as it includes at least one presentation group &#xA;      that provides the reference to the navigation model.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//PresentationGroup/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//PresentationGroup/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="liveFeedback" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    Defines whether the consequences of the users input should be presented &#xA;    before he commits them.&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextInput" eSuperTypes="#//Input">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="textInput"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      A text input element allows the user to enter text.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//ValuedElement/%duplicates%/baseClass #//InteractiveElement/%duplicates%/baseClass #//InputElement/%duplicates%/baseClass #//Input/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//ValuedElement/%duplicates%/baseProperty #//InteractiveElement/%duplicates%/baseProperty #//InputElement/%duplicates%/baseProperty #//Input/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoCompletion" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Defines whether the input is completed automatically by the application.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoSuggestion" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Represents the systems ability to show some suggestions on how to &#xA;      complete the input of this element.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="liveValidation" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Shows if the text in this element is validated parallel to its input.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//OutputElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="text"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      A text element is used to displays static text.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//ValuedElement/%duplicates%/baseClass #//OutputElement/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//ValuedElement/%duplicates%/baseProperty #//OutputElement/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConcreteUiElementType">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="concreteUIElementType"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tagName" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseClass" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Class">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Class"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MediaObject" eSuperTypes="#//OutputElement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="mediaObject"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      Media objects are output elements representing informations like videos, &#xA;      music or applications running inside a page of the web application.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//ValuedElement/%duplicates%/baseClass #//OutputElement/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//ValuedElement/%duplicates%/baseProperty #//OutputElement/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DefaultElementConfiguration" eSuperTypes="#//ConcreteUiElementConfiguration">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="defaultElementConfiguration"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseInstanceSpecification" ordered="false"
+          lowerBound="1" eType="ecore:EClass uml.ecore#//InstanceSpecification">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_InstanceSpecification"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//ConcreteUiElementConfiguration/baseInstanceSpecification"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metacalssName" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputForm" eSuperTypes="#//PresentationGroup">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="inputForm"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      A form groups user interface elements that are used to provide data for &#xA;      a process.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseClass" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Class">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Class"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseClass #//UiElement/%duplicates%/baseClass #//PresentationGroup/%duplicates%/baseClass"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//PresentationElement/baseProperty #//UiElement/%duplicates%/baseProperty #//PresentationGroup/%duplicates%/baseProperty"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+</ecore:EPackage>

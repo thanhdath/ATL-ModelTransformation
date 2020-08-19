@@ -1,0 +1,112 @@
+-- @path JAVA=/UWE2JAVA/Metamodels/JAVA/java.ecore
+
+
+query Java2Code = JAVA!Type.allInstances() -> select(e | e.oclIsTypeOf(JAVA!JavaClass) or
+		e.oclIsTypeOf(JAVA!Enumeration)) -> collect(x | x.toString().
+		writeTo('/UWE2JAVA/Output/java/' + thisModule.getPackageName().replaceAll('.', '/') + '/' + x.name + '.java'));
+
+helper def: getPackageName(): String =
+	JAVA!Package.allInstances().first().name;
+
+helper context JAVA!ClassMember def: visibility(): String =
+	if self.isPublic then
+		'public '
+	else
+		'private '
+	endif;
+
+helper context JAVA!JavaClass def: visibility(): String =
+	if self.isPublic then
+		'public '
+	else
+		'private '
+	endif;
+
+helper context JAVA!ClassMember def: scope(): String =
+	if self.isStatic then
+		'static '
+	else
+		''
+	endif;
+
+helper context JAVA!JavaClass def: modifierAbstract(): String =
+	if self.isAbstract then
+		'abstract '
+	else
+		''
+	endif;
+
+helper context JAVA!Type def: fullName(): String =
+	self.name;
+
+helper context JAVA!JavaClass def: fullName(): String =
+	if self.package.oclIsUndefined() then
+		self.name
+	else
+		self.package.name + '.' + self.name
+	endif + if self.actualTypeParameters -> isEmpty() then
+		''
+	else
+		'<' + self.actualTypeParameters -> iterate(tp; acc: String = '' | acc + if acc =
+				'' then '' else ',' endif + tp.fullName()) + '>'
+	endif;
+
+helper context JAVA!Package def: toString(): String =
+	'package ' + self.name + ';\n\n';
+
+helper context JAVA!JavaClass def: toString(): String =
+	self.package.toString() + if not self.annotation.oclIsUndefined()
+	then self.annotation
+	else ''
+	endif
+	+ '\n' + self.visibility() + self.
+			modifierAbstract() + if self.isInterface then
+		'interface '
+	else
+		'class '
+	endif + self.name + self.superClasses -> select(sc | not sc.isInterface or self.
+			isInterface) -> iterate(sc; acc: String = '' | acc + if acc = '' then
+			' extends '
+		else
+			', '
+		endif + sc.fullName()) + self.superClasses -> select(sc | not self.isInterface
+				and sc.isInterface) -> iterate(sc; acc: String = '' | acc + if acc = ''
+				then
+			' implements '
+		else
+			', '
+		endif + sc.fullName()) + ' {\n' + self.members -> iterate(i; acc: String = '' |
+				acc + i.toString()) + '}\n';
+
+helper context JAVA!Field def: toString(): String =
+	'\t' + self.visibility() + self.scope() + if self.type.oclIsUndefined() then
+		'???'
+	else
+		self.type
+	endif + ' ' + self.name + if self.initializer.oclIsUndefined() then
+		''
+	else
+		' = ' + self.initializer
+	endif + ';\n';
+
+helper context JAVA!Method def: toString(): String =
+	if not self.annotation.oclIsUndefined()
+	then '\t' + self.annotation
+	else ''
+	endif + '\n\t' + self.visibility() + self.scope() + if self.type.oclIsUndefined() then
+		'void'
+	else
+		self.type
+	endif + ' ' + self.name + '(' + self.parameters -> iterate(i; acc: String = '' | acc
+			+ if acc = '' then
+''
+else
+', '
+endif + i.toString()) + ')' + if self.body.oclIsUndefined() then
+		';\n'
+	else
+		' {\n\t\t' + self.body + '\n\t}\n'
+	endif;
+
+helper context JAVA!MethodParameter def: toString(): String =
+	self.type + ' ' + self.name;

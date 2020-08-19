@@ -1,0 +1,3 @@
+1. Fix a little bit at model2model transformations
+2. UWE2JAVA, process2java, navigation2java not work
+3. content2java: input attribute, dont care about operation, requirement2content cares only about operation -> transform to blank java class

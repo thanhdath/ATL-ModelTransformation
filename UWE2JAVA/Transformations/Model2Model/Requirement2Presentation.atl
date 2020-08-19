@@ -1,0 +1,165 @@
+-- @path MM=/DATN_ATLProject/Metamodel/UWE/Requirement.ecore
+-- @path MM1=/DATN_ATLProject/Metamodel/UWE/Presentation.ecore
+
+module Requirement2Presentation;
+create OUT : MM1 from IN : MM;
+
+rule Requirement2Presentation {
+	from
+		requirement : MM!Activity 
+	to 
+		presentation : MM1!Class (
+			presentations <- Sequence{requirement.nodes->select(node | node.oclIsTypeOf(MM!DisplayAction))->collect(node | if node.type.name='inputForm' then thisModule.Display2Form(node) 
+							else thisModule.Display2Page(node)
+							endif)
+			}
+		)
+}
+lazy rule Display2Form {
+	from
+		display : MM!DisplayAction(display.type.name='inputForm')
+	to 
+		form : MM1!inputForm (
+			name <- display.name,
+			interactiveElms <- Sequence {display.interactionPins->select(pin | pin.type='textInput')->collect(pin | thisModule.InteractionPin2TextInput(pin)), 
+										display.interactionPins->select(pin | pin.type='file')->collect(pin | thisModule.InteractionPin2FileUpload(pin)),
+										display.interactionPins->select(pin | pin.type='selection')->collect(pin | thisModule.InteractionPin2Selection(pin)), button1, button2
+										},
+			outputElms <- Sequence {display.displayPins->select(pin | pin.type='text')->collect(pin | thisModule.DisplayPin2Text(pin)), 
+									display.displayPins->select(pin | pin.type='image')->collect(pin | thisModule.DisplayPin2Image(pin)),
+									display.displayPins->select(pin | pin.type='media')->collect(pin | thisModule.DisplayPin2Media(pin))
+									},
+			type <- display.type.name
+		),
+		button1 : MM1!button(
+			name <- 'Confirm'	
+		),
+		button2 : MM1!button (
+			name <- 'Cancel'	
+		)
+}
+
+lazy rule Display2IteratedGroup {
+	from
+		display : MM!DisplayAction(display.type.name='iteratedGroup')
+	to 
+		iteratedGroup : MM1!iteratedPresentationGroup (
+			name <- display.name,
+			interactiveElms <- Sequence {display.interactionPins->select(pin | pin.type='textInput')->collect(pin | thisModule.InteractionPin2TextInput(pin)), 
+										display.interactionPins->select(pin | pin.type='file')->collect(pin | thisModule.InteractionPin2FileUpload(pin)),
+										display.interactionPins->select(pin | pin.type='selection')->collect(pin | thisModule.InteractionPin2Selection(pin))
+										},
+			outputElms <- Sequence {display.displayPins->select(pin | pin.type='text')->collect(pin | thisModule.DisplayPin2Text(pin)), 
+									display.displayPins->select(pin | pin.type='image')->collect(pin | thisModule.DisplayPin2Image(pin)),
+									display.displayPins->select(pin | pin.type='media')->collect(pin | thisModule.DisplayPin2Media(pin))
+									},
+			type <- display.type.name
+		)
+}
+
+lazy rule Display2Page {
+	from
+		display : MM!DisplayAction(display.type.name='page')
+	to 
+		page : MM1!presentationPage(
+			name <- display.name,
+			interactiveElms <- Sequence {display.interactionPins->select(pin | pin.type='textInput')->collect(pin | thisModule.InteractionPin2TextInput(pin)), 
+										display.interactionPins->select(pin | pin.type='file')->collect(pin | thisModule.InteractionPin2FileUpload(pin)),
+										display.interactionPins->select(pin | pin.type='selection')->collect(pin | thisModule.InteractionPin2Selection(pin))
+										},
+			outputElms <- Sequence {display.displayPins->select(pin | pin.type='text')->collect(pin | thisModule.DisplayPin2Text(pin)), 
+									display.displayPins->select(pin | pin.type='image')->collect(pin | thisModule.DisplayPin2Image(pin)),
+									display.displayPins->select(pin | pin.type='media')->collect(pin | thisModule.DisplayPin2Media(pin))
+									},
+									
+			type <- display.type.name
+		)
+}
+
+lazy rule Display2PresentationAlternatives {
+	from
+		display : MM!DisplayAction(display.type.name='alternatives')
+	to 
+		alternatives :MM1!presentationAlternatives (
+			name <- display.name
+		)
+}
+
+lazy rule Display2PresentationGroup {
+	from
+		display : MM!DisplayAction(display.type.name='group')
+	to 
+		group : MM1!presentationGroup (
+			name <- display.name,
+			interactiveElms <- Sequence {display.interactionPins->select(pin | pin.type='textInput')->collect(pin | thisModule.InteractionPin2TextInput(pin)), 
+										display.interactionPins->select(pin | pin.type='file')->collect(pin | thisModule.InteractionPin2FileUpload(pin)),
+										display.interactionPins->select(pin | pin.type='selection')->collect(pin | thisModule.InteractionPin2Selection(pin))
+										},
+			outputElms <- Sequence {display.displayPins->select(pin | pin.type='text')->collect(pin | thisModule.DisplayPin2Text(pin)), 
+									display.displayPins->select(pin | pin.type='image')->collect(pin | thisModule.DisplayPin2Image(pin)),
+									display.displayPins->select(pin | pin.type='media')->collect(pin | thisModule.DisplayPin2Media(pin))
+									},
+			type <- display.type.name
+		)
+}
+
+lazy rule DisplayPin2Image {
+	from
+		pin : MM!DisplayPin(pin.type='image')
+	to 
+		image : MM1!image (
+			name <- pin.name,
+			type <- pin.type
+		)
+}
+
+lazy rule DisplayPin2Media {
+	from
+		pin : MM!DisplayPin(pin.type='media')
+	to 
+		image : MM1!mediaObject (
+			name <- pin.name,
+			type <- pin.type
+		)
+}
+
+lazy rule DisplayPin2Text {
+	from
+		pin : MM!DisplayPin(pin.type='text')
+	to 
+		text : MM1!text (
+			name <- pin.name,
+			type <- pin.type
+		)
+}
+
+lazy rule InteractionPin2FileUpload {
+	from
+		pin : MM!interactionPin(pin.type='file')
+	to 
+		file : MM1!fileUpload (
+			name <- pin.name,
+			type <- pin.type
+		)
+}
+
+lazy rule InteractionPin2TextInput {
+	from
+		pin : MM!interactionPin(pin.type='textinput')
+	to 
+		textInput : MM1!textInput (
+			name <- pin.name,
+			type <- pin.type
+		)
+}
+
+lazy rule InteractionPin2Selection {
+	from
+		pin : MM!interactionPin(pin.type='selection')
+	to 
+		selection : MM1!selection (
+			name <- pin.name,
+			multiple <- true,
+			type <- pin.type
+		)
+}

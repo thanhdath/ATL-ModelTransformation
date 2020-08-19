@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="process" nsURI="http:///process.ecore" nsPrefix="process">
+  <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <details key="originalName" value="Process"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessModel" eSuperTypes="patterns.ecore#//UweModel">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="processModel"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseModel" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Model">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Model"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="patterns.ecore#//UweModel/baseModel"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UserAction">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="userAction"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p style=&quot;margin-bottom:0cm;&quot;>&#xA;      &lt;span lang=&quot;en-GB&quot;>A &lt;i>user action&lt;/i> defines a point in the process &#xA;      flow when the user is asked to input data. It is associated to a process &#xA;      class that in turn is referenced by a presentation class. When the user &#xA;      action is reached in the control flow of the process activity, the &lt;i>UI &#xA;      elements &lt;/i>of the corresponding presentation class are shown. After &#xA;      the user has submitted data, the process flow is continued. The data &#xA;      that has been entered in the user interface elements is available via &#xA;      output pins of the user action that are named equal to the process &#xA;      properties that back up the &lt;i>UI elements&lt;/i>. Analogically, input pins &#xA;      can be used to define that data from the activity’s object flow should &#xA;      be displayed by the corresponding UI elements.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="processClass" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      A process class that is referenced by a presentation class and that &#xA;      provides process properties that are on their part referenced by UI &#xA;      elements.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseAction" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Action">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Action"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseActivityPartition"
+        ordered="false" lowerBound="1" eType="ecore:EClass uml.ecore#//ActivityPartition">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_ActivityPartition"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validated" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemAction">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="systemAction"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      A system action defines a step of the process flow where the application &#xA;      is processing some data.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseCallAction" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//CallAction">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_CallAction"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseActivityPartition"
+        ordered="false" lowerBound="1" eType="ecore:EClass uml.ecore#//ActivityPartition">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_ActivityPartition"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confirmed" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessProperty" eSuperTypes="navigationClasses.ecore#//NavigationProperty">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="processProperty"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;span lang=&quot;en-GB&quot;>A &lt;i>process property&lt;/i> is owned by a process and is &#xA;    used to define how data retrieved from a &lt;i>UI element&lt;/i> is used within &#xA;    the process flow. The relation to the &lt;i>UI element &lt;/i>is established by &#xA;    the feature &lt;code class=&quot;western&quot;>navigationProperty &lt;/code>of &lt;i>PresentationProperty&lt;/i>.&lt;/span>&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseProperty" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//Property">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Property"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="navigationClasses.ecore#//NavigationProperty/baseProperty"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rangeExpression" ordered="false"
+        eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      An expression that describes the range of this property.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processClass" ordered="false"
+        lowerBound="1" eType="ecore:EClass presentation.ecore#//ProcessClass">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      The process class owning this property.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="indicatedProgress" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom:0cm;&quot;>&#xA;      Should the user get some kind of feedback of the process during its &#xA;      execution.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

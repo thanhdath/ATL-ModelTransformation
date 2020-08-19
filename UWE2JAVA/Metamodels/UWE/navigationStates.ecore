@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="navigationStates" nsURI="http:///navigationStates.ecore" nsPrefix="navigationStates">
+  <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <details key="originalName" value="NavigationStates"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationStatesModel">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="navigationStatesModel"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseModel" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Model">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Model"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Session" eSuperTypes="#//NavigationalNode">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="session"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>s. &lt;b>navigationNodeAsDefault&lt;/b> &lt;/font>&lt;font size=&quot;2&quot;>specification&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      and example&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;&#xD;&#xA;&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&lt;font size=&quot;2&quot;>&amp;#171;session&amp;#187; &lt;/font>&lt;font size=&quot;2&quot;>{sessionData}&lt;/font>&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>allows the modeler to explicitly specify session classes &#xA;      &amp;#171;sessionClas&amp;#187; that are available during the session. Can be used to &#xA;      store session variables.&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;&#xD;&#xA;&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&lt;font size=&quot;2&quot;>&amp;#171;&lt;/font>&lt;font size=&quot;2&quot;>session&lt;/font>&lt;font size=&quot;2&quot;>&amp;#187;&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      &lt;/font>&lt;font size=&quot;2&quot;>{transmissionType} &lt;/font>&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>specifies the type of data transmission between &#xA;      interacting instances, such as the client and the server. The value c&lt;/font>&lt;font size=&quot;2&quot;>an &#xA;      e.g. be set to &amp;quot;cif&amp;quot; for confidentiality, integrity and freshness. &lt;/font>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>(May &lt;/font>&lt;font size=&quot;2&quot;>later&lt;/font>&lt;font size=&quot;2&quot;> be &#xA;      implemented as SSL/TLS connection.)&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;&#xD;&#xA;&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&lt;font size=&quot;2&quot;>&amp;#171;session&amp;#187; &lt;/font>&lt;font size=&quot;2&quot;>{sessionData}&lt;/font>&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>allows the modeler to explicitly specify session classes &#xA;      &amp;#171;sessionClas&amp;#187; that are available during the session. Can be used to &#xA;      store session variables.&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;&#xD;&#xA;&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>Default stereotype navigationalNode within other &amp;#171;navigationalNode&amp;#187; &#xA;      states&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      Per default, every state which is nested within a state denoted by the &#xA;      stereotype &amp;#171;navigationalNode&amp;#187; (or inherited stereotypes) is assumed to &#xA;      represent a &amp;#171;navigationalNode&amp;#187;. State machines can contain outermost &#xA;      states without stereotypes, if they are always used as submachine states &#xA;      in a valid context, i.e. a &amp;#171;navigationalNode&amp;#187; stereotype is set to the &#xA;      submachine state or to parent states of the submachine state.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      This avoids overfull state diagrams, because stereotypes only have to be &#xA;      set when they represent a new information, such as a substate, which &#xA;      redefines the {unauthorizedAccess} behavior or a state that is the &#xA;      target &amp;#171;navigationalNode&amp;#187; of this tag.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;&#xD;&#xA;&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&lt;font size=&quot;2&quot;>&amp;#171;session&amp;#187; &lt;/font>&lt;font size=&quot;2&quot;>{sessionData}&lt;/font>&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>allows the modeler to explicitly specify session classes &#xA;      &amp;#171;sessionClas&amp;#187; that are available during the session. Can be used to &#xA;      store session variables.&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseState" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//State">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_State"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//NavigationalNode/baseState"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseStateMachine" ordered="false"
+          lowerBound="1" eType="ecore:EClass uml.ecore#//StateMachine">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_StateMachine"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//NavigationalNode/baseStateMachine"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" ordered="false"
+        lowerBound="1" upperBound="-1" eType="ecore:EClass uml.ecore#//InstanceSpecification">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;  &lt;body>&#xA;    &lt;p>&#xA;&lt;span style=&quot;font-size:8.0pt;&quot;>&lt;b>&amp;#171;session&amp;#187; {roles}&lt;/b>&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;&lt;span style=&quot;font-size:8.0pt;&quot;>To access a node, the users must have at least one role in their assigned roles that also exists in the set of the {roles} tag. &lt;/span>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;&amp;#160;&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;&lt;span style=&quot;font-size:8.0pt;&quot;>&lt;b>Constraint&lt;/b>&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;&lt;span style=&quot;font-size:8.0pt;&quot;>The user model contains a User class and a Role class or enumeration. Usually, a User class is connected with a Role (multiplicity *, role name &amp;quot;roles&amp;quot;) as used for this definition. &lt;/span>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;&amp;#160;&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;&lt;span style=&quot;font-size:8.0pt;&quot;>&lt;b>Definition&lt;/b> for RBAC (Role Based Access Control) &lt;/span>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;&lt;span style=&quot;font-size:8.0pt;&quot;>R = (user.roles-&amp;gt;includes(r1) |...| user.roles-&amp;gt;includes(rn)) (r1, ... , rn are the role values for {roles}).&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;&amp;#160;&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;&lt;span style=&quot;font-size:8.0pt;&quot;>For the behavior in the case of unauthorized access, see the specification of {unauthorizedAccess}&lt;/span>&#xA;&#xA;    &lt;/p>&#xA;&#xA;&lt;/body>&#xA;&lt;/html>"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sessionData" ordered="false"
+        lowerBound="1" upperBound="-1" eType="ecore:EClass userModel.ecore#//SessionClass">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&lt;font size=&quot;2&quot;>&amp;#171;session&amp;#187; &lt;/font>&lt;font size=&quot;2&quot;>{sessionData}&lt;/font>&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>allows the modeler to explicitly specify session classes &#xA;      &amp;#171;sessionClas&amp;#187; that are available during the session. Can be used to &#xA;      store session variables.&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;&#xD;&#xA;&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&lt;font size=&quot;2&quot;>&amp;#171;session&amp;#187; &lt;/font>&lt;font size=&quot;2&quot;>{sessionData}&lt;/font>&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>allows the modeler to explicitly specify session classes &#xA;      &amp;#171;sessionClas&amp;#187; that are available during the session. Can be used to &#xA;      store session variables.&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;&#xD;&#xA;&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&lt;font size=&quot;2&quot;>&amp;#171;session&amp;#187; &lt;/font>&lt;font size=&quot;2&quot;>{sessionData}&lt;/font>&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>allows the modeler to explicitly specify session classes &#xA;      &amp;#171;sessionClas&amp;#187; that are available during the session. Can be used to &#xA;      store session variables.&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reauthIf" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reauth" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="csrfPrevention" ordered="false"
+        lowerBound="1" upperBound="-1" eType="ecore:EEnum content.ecore#//CsrFprevention"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="newSessionId" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="newSessionID"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationalNode">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="navigationalNode"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>s. &lt;b>navigationNodeAsDefault&lt;/b> &lt;/font>&lt;font size=&quot;2&quot;>specification&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      and example&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;&#xD;&#xA;&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&lt;font size=&quot;2&quot;>&amp;#171;navigationalNode&amp;#187; &lt;/font>&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>Some states (or state machine configurations) can be &#xA;      accessed directly. This is necessary for direct access of a special &#xA;      state via a URL. Usually the assignment between a navigation state &#xA;      configuration and URLs is not modeled explicitly in order to keep the &#xA;      diagrams clear. Nevertheless it is possible to represent this behavior &#xA;      by adding a choice between the initial node and the {isHome} state and &#xA;      add a variable called &amp;quot;location&amp;quot;. With guards, effects and choice, the &#xA;      location variable can not only be used for direct access, but also for &#xA;      changing the location path according to the current state of the web &#xA;      application.&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseState" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//State">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_State"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseStateMachine" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//StateMachine">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_StateMachine"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isHome" ordered="false"
+        eType="ecore:EDataType types.ecore#//Boolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&lt;font size=&quot;2&quot;>&amp;#171;navigationalNode&amp;#187; {isHome}&lt;/font>&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>s&lt;/font>&lt;font size=&quot;2&quot;>pecifies that this is the main &#xA;      node the users go to when accessing the &lt;/font>&lt;font size=&quot;2&quot;>web &lt;/font>&lt;font size=&quot;2&quot;>application. &#xA;      &lt;/font>&lt;font size=&quot;2&quot;>Usually&lt;/font>&lt;font size=&quot;2&quot;> it is&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      related &lt;/font>&lt;font size=&quot;2&quot;>to&lt;/font>&lt;font size=&quot;2&quot;> the home page of &#xA;      the &lt;/font>&lt;font size=&quot;2&quot;>whole &lt;/font>&lt;font size=&quot;2&quot;>application.&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;b>&lt;font size=&quot;2&quot;>Constraint&lt;/font>&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>Exactly one &amp;#171;navigationalNode&amp;#187; has the {isHome=true} tag &lt;/font>&lt;font size=&quot;2&quot;>with&lt;/font>&lt;font size=&quot;2&quot;>in &#xA;      one&lt;/font>&lt;font size=&quot;2&quot;> web&lt;/font>&lt;font size=&quot;2&quot;> application.&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="navigationMenu" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//NavigationMenu"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isModal" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>s. &lt;b>isModal&lt;/b> &lt;/font>&lt;font size=&quot;2&quot;>specification&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      and abbreviation example&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;&#xD;&#xA;&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>s. &lt;b>isModal&lt;/b> &lt;/font>&lt;font size=&quot;2&quot;>specification&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      and abbreviation example&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;&#xD;&#xA;&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&amp;#171;NavigationalNode&amp;#187; {isModal=true}&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      guarantees that only this node is active and that it can only be left by &#xA;      a transition that goes back to the previously active state. All parallel &#xA;      regions are restored after having left the modal state. This represents &#xA;      the navigational behavior of a modal dialog.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;b>Constraints&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      1 Exactly one transition targets the modal state, with a unique action., &#xA;      i.e. an action that cannot occur elsewhere at the same time.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      2 Exactly one transition goes back from the modal state to the previous &#xA;      state.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      3 These two transitions are the only ones that are connected with the &#xA;      modal state.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;b>Definition &lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      A new composite state z is added that includes the outermost state &#xA;      machine of the web application, i.e. the state with the tag &#xA;      {isHome=true} and connected states.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      A new initial state is added, which is connected with z.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      The modal state m is moved outside of z and the transition that comes &#xA;      from m targets a new history state in z, instead of the state before m.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      For transitions that cross state machine borders, entry and exit points &#xA;      are used.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accessibleInAppModes" ordered="false"
+        lowerBound="1" upperBound="-1" eType="ecore:EClass applicationMode.ecore#//AppMode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="notAccessibleInAppModes"
+        ordered="false" lowerBound="1" upperBound="-1" eType="ecore:EClass applicationMode.ecore#//AppMode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unauthorizedAccess" ordered="false"
+        eType="#//NavigationalNode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessPrecondition" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transmissionType" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&lt;font size=&quot;2&quot;>&amp;#171;&lt;/font>&lt;font size=&quot;2&quot;>session&lt;/font>&lt;font size=&quot;2&quot;>&amp;#187;&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      &lt;/font>&lt;font size=&quot;2&quot;>{transmissionType} &lt;/font>&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>specifies the type of data transmission between &#xA;      interacting instances, such as the client and the server. The value c&lt;/font>&lt;font size=&quot;2&quot;>an &#xA;      e.g. be set to &amp;quot;cif&amp;quot; for confidentiality, integrity and freshness. &lt;/font>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>(May &lt;/font>&lt;font size=&quot;2&quot;>later&lt;/font>&lt;font size=&quot;2&quot;> be &#xA;      implemented as SSL/TLS connection.)&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enforceNavigationFlow"
+        ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixedParam" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationMenu">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="navigationMenu"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&lt;font size=&quot;2&quot;>&amp;#171;navigationMenu&amp;#187;&lt;/font>&lt;/b>&lt;font size=&quot;2&quot;>&#xA;&lt;/font>    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>A class with operations that specify the functionality of &#xA;      navigation menus.&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseClass" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Class">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Class"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Search">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="search"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;b>&lt;font size=&quot;2&quot;>&amp;#171;search&amp;#187;&lt;/font>&lt;/b>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>denotes that the output (usually a &amp;#171;collection&amp;#187;) is &#xA;      determined by a search operation. The tag {expression} can be used to &#xA;      specify a kind of search expression in a formal or informal way.&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;b>&lt;font size=&quot;2&quot;>Constraint&lt;/font>&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>A trigger or effect such as searchByName(name:String) has &#xA;      to be added to specify the parameters of the search.&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseTransition" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Transition">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Transition"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" ordered="false"
+        eType="ecore:EDataType types.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Collection" eSuperTypes="#//NavigationalNode">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="collection"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>s. &lt;b>collection&lt;/b> &lt;/font>&lt;font size=&quot;2&quot;>specification&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      and abbreviation example&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;&#xD;&#xA;&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>s. &lt;b>collection&lt;/b> &lt;/font>&lt;font size=&quot;2&quot;>specification&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      and abbreviation example&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;&#xD;&#xA;&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&amp;#171;collection&amp;#187; {itemType} and &amp;#171;allItems&amp;#187;&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;i>&amp;#171;collection&amp;#187;&lt;/i>&lt;b> &lt;/b>is used to simplify the &#xA;      presentation of collections e.g. lists with several items, which are &#xA;      typical for the web. The tag {itemType} targets a content class.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      The &amp;#171;collection&amp;#187; stereotype is defined on&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      - a submachine (state) to denote that it contains one or more states &#xA;      with the &amp;#171;collection&amp;#187; stereotype.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      - a state in order to specify the meaning of the outgoing transitions:&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &amp;#160;&amp;#160;- Per default, outgoing transitions are thought to come from a &#xA;      particular item of the collection. Typically, trigger (or effects) on &#xA;      outgoing transitions have a first parameter i:itemTypeClass. To avoid &#xA;      repetitions, an underscore '_' can be used instead of i:itemTypeClass.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &amp;#160;&amp;#160;- Outgoing transitions with the stereotype &amp;#171;allItems&amp;#187; are intended to &#xA;      come from the whole collection, not from single elements.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;b>Constraints&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      1 &amp;#171;allItems&amp;#187; can only occur on an outgoing transition of a state that is &#xA;      stereotyped by &amp;#171;collection&amp;#187;.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      2 All outgoing transitions of a state that is stereotyped by &#xA;      &amp;#171;collection&amp;#187; either must have an trigger with a parameter that refers to &#xA;      an element of the collection (explicitly or implicitly by using the &#xA;      underscore), or must be denoted by the stereotype &amp;#171;allItems&amp;#187;.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="baseState" ordered="false" lowerBound="1"
+          eType="ecore:EClass uml.ecore#//State">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_State"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//NavigationalNode/baseState"/>
+      </contents>
+      <contents xsi:type="ecore:EReference" name="baseStateMachine" ordered="false"
+          lowerBound="1" eType="ecore:EClass uml.ecore#//StateMachine">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_StateMachine"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//NavigationalNode/baseStateMachine"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemType" ordered="false"
+        eType="ecore:EClass uml.ecore#//Classifier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegratedMenu">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="integratedMenu"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>s. &lt;b>integratedMenu&lt;/b> &lt;/font>&lt;font size=&quot;2&quot;>specification&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      and abbreviation example&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;&#xD;&#xA;&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&amp;#171;integratedMenu&amp;#187;&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      allows the modeler to split one menu into several submachine states &#xA;      without using entry points for each menu. This comes in handy if many &#xA;      roles and many menus are used.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;b>Constraint&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      A composite state s contains m submachine states pi \in P (i=1,...,m). P &#xA;      is the set of submachine states, where transitions stereotyped by &#xA;      &amp;#171;integratedMenu&amp;#187; end. Transitions in the set T are typed by &#xA;      &amp;#171;integratedMenu&amp;#187; with the guard expressions gi and no other properties &#xA;      (like effects or triggers) and each ti \in Ti connects s or an initial &#xA;      node &amp;#8211; see also the paragraph below &amp;#8211; with pi. Each pi refers to a state &#xA;      machine p'i. Each p'i contains oi transitions t'ij \in T'i (j=1,...,oi) &#xA;      from a composite state s'i (which is the target of an initial state) in &#xA;      p'i to a substate s''ij in s'i.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      An initial state can exist in s. If no other transition is connected &#xA;      with a submachine state pi that includes menu transitions, which should &#xA;      be integrated, the transition coming from the initial node, pointing to &#xA;      pi has to be stereotyped by &amp;#171;integratedMenu&amp;#187;.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;b>Definition&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      For each t'i , the transition ti that targets pi is copied, which &#xA;      results in the transformed transitions &amp;#710;tij with the guards gij. Each &#xA;      &amp;#710;tij targets a new entry point eij of pi with the corresponding &#xA;      representation e'ij in p'i. All t'ij are transformed to &amp;#710;t'ij that start &#xA;      at e'ij instead of s'i . For all transitions &amp;#710;tij, all properties of &#xA;      &amp;#710;t'ij are added. The guard gi is added with &amp;#8217;&amp;amp;&amp;#8217; to the guards gij (for &#xA;      j=1,...,oi). If one guard is empty, the '&amp;amp;' is left out. If a ti starts &#xA;      at an initial node, the &amp;#171;integratedMenu&amp;#187; stereotyped is removed, if not, &#xA;      ti is deleted itself. All transitions without the &amp;#171;integratedMenu&amp;#187; &#xA;      stereotype remain unchanged.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseTransition" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Transition">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Transition"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceCall">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="serviceCall"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseTransition" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Transition">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Transition"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Target">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="target"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>s. &lt;b>targetNode&lt;/b> &lt;/font>&lt;font size=&quot;2&quot;>specification&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      and abbreviation example&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;&#xD;&#xA;&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>s. &lt;b>targetGoBack&lt;/b> &lt;/font>&lt;font size=&quot;2&quot;>specification&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      and abbreviation example&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;&#xD;&#xA;&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&amp;#171;target&amp;#187; {goBack}, {goBackDefault} and {node}&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      allows the modeler to use a shortcut for:&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;b>-&lt;/b> either going back to the previous state, which is defined as &#xA;      the state &lt;i>before&lt;/i> the state that has a transition to the state &#xA;      with the {goBack} tag.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      (The {goBackDefault} tag specifies an alternative node, in case the &#xA;      state was accessed directly and not from previous states.)&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;b>-&lt;/b> or going to a another {node}.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;b>Constraints&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      1 Only one transition can lead to a state stereotyped by &amp;#171;target&amp;#187;. If &#xA;      there are more transitions, the state typed by &amp;#171;target&amp;#187; has to be copied &#xA;      before the definition of the transformation can be applied&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      2 If the tag {goBack} or the tag {goBackDefault} are set, the tag {node} &#xA;      cannot be set at the same state. If only {goBackDefault} is specified, &#xA;      {goBack} is added before the definition is applied.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      3 {goBack} only: If there is a case where it is not possible to go back &#xA;      (because no variable x is set, cf. definition), the tag {goBackDefault} &#xA;      has to be defined.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;b>Definition of {goBack}&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      Let s be the state before the &amp;#171;target&amp;#187; state r. t is the transition from &#xA;      s to r.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      Let x be a variable, which was not in the set of all variables before.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      To all outermost states (no pseudostates) Q that can be left by a &#xA;      transition which leads to s, exit/x=q' is added (q' is a unique state &#xA;      identifier of q and q is a member of Q).&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      The guard [x==q'] is added to t.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      t is copied for each q and the copy of t targets:&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;i>Case 1&lt;/i>: a new deep history in a region of q, if q is a composite &#xA;      or orthogonal state *&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;i>Case 2&lt;/i>: q, else.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      A transition can cross state machine borders using entry and exit points.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      Afterwards, r is deleted.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      * This is thought to recover the previous state of &lt;i>all&lt;/i> regions of &#xA;      q.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      If the variable x can be null, because of any kind of direct access, &#xA;      then the {goBackDefault=p} tag is used. This means the tag {node=p} is &#xA;      set and the tags {goBack} and {goBackDefault} are deleted.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;b>Definition of&lt;/b> {&lt;b>node=p&lt;/b>}&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      (use it with caution, it is mainly defined to handle the aspect of &#xA;      unauthorized access!)&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      Transition(s) and exit/entry points - if required - are added to connect &#xA;      the state before the &amp;#171;target&amp;#187; state with p.&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      At the end of the transformation the state typed by &amp;#171;target&amp;#187; is deleted.&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" ordered="false" eType="#//NavigationalNode">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>s. &lt;b>targetNode&lt;/b> &lt;/font>&lt;font size=&quot;2&quot;>specification&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      and abbreviation example&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="goBack" ordered="false"
+        eType="ecore:EDataType types.ecore#//Boolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>s. &lt;b>targetGoBack&lt;/b> &lt;/font>&lt;font size=&quot;2&quot;>specification&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      and abbreviation example&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseState" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//State">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_State"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="goBackDefault" ordered="false"
+        eType="#//NavigationalNode">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>s. &lt;b>targetGoBack&lt;/b> &lt;/font>&lt;font size=&quot;2&quot;>specification&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      and abbreviation example&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AllItems">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="allItems"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>s. &lt;b>collection&lt;/b> &lt;/font>&lt;font size=&quot;2&quot;>specification&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      and abbreviation example&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;&#xD;&#xA;&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>s. &lt;b>collection&lt;/b> &lt;/font>&lt;font size=&quot;2&quot;>specification&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      and abbreviation example&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseTransition" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Transition">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Transition"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BrowserDependent">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="browserDependent"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&lt;font size=&quot;2&quot;>&amp;#171;browserDependent&amp;#187;&lt;/font>&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>means that a behavior depends on the implementation of &#xA;      the browser. &lt;/font>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>For example, an &lt;b>&amp;#171;externalLink&amp;#187;&lt;/b> can on &#xA;      the one hand be opened in a new window or tab&lt;/font>&lt;font size=&quot;2&quot;>;&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      in this case the pseudostate terminate is not activated. On the other &#xA;      hand it is possible to navigate to the external node by terminating the &#xA;      current web application.&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="basePseudostate" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Pseudostate">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Pseudostate"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalLink" eSuperTypes="#//BrowserDependent">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="externalLink"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;  &lt;body>&#xA;    &lt;p>&#xA;      &lt;b>&lt;font size=&quot;2&quot;>&amp;#171;browserDependent&amp;#187;&lt;/font>&lt;/b>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>means that a behavior depends on the implementation of &#xA;      the browser. &lt;/font>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;      &lt;font size=&quot;2&quot;>For example, an &lt;b>&amp;#171;externalLink&amp;#187;&lt;/b> can on &#xA;      the one hand be opened in a new window or tab&lt;/font>&lt;font size=&quot;2&quot;>;&lt;/font>&lt;font size=&quot;2&quot;> &#xA;      in this case the pseudostate terminate is not activated. On the other &#xA;      hand it is possible to navigate to the external node by terminating the &#xA;      current web application.&lt;/font>&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&#xA;&lt;/html>&#xA;&#xA;"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EReference" name="basePseudostate" ordered="false"
+          lowerBound="1" eType="ecore:EClass uml.ecore#//Pseudostate">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="base_Pseudostate"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//BrowserDependent/basePseudostate"/>
+      </contents>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="locationExpression" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="newTab" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DefSessionManagement">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="defSessionManagement"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DefNavigationalAccessControl">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="defNavigationalAccessControl"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnauthorizedAccess">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="unauthorizedAccess"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseTransition" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Transition">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Transition"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LogicalLink">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="logicalLink"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseTransition" ordered="false"
+        lowerBound="1" eType="ecore:EClass uml.ecore#//Transition">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="base_Transition"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eSubpackages name="linksToSpecs" nsURI="http:///navigationStates/linksToSpecs.ecore"
+      nsPrefix="navigationStates.linksToSpecs">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="LinksToSpecs"/>
+    </eAnnotations>
+  </eSubpackages>
+  <eSubpackages name="specificationsAndExamples" nsURI="http:///navigationStates/specificationsAndExamples.ecore"
+      nsPrefix="navigationStates.specificationsAndExamples">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="SpecificationsAndExamples"/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="TargetNode">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="targetNode"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NavigationalNodeAsDefault">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="navigationalNodeAsDefault"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Collection">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="collection"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IntegratedMenu">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="integratedMenu"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TargetGoBack">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="targetGoBack"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IsModal">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="isModal"/>
+      </eAnnotations>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

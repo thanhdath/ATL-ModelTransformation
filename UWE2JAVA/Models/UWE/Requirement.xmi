@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package name="MusicPortal"
+xmlns="www.requirement.com" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="www.requirement.com ../../Metamodel/UWE/Requirement.ecore">
+  <activities name="user" xsi:type="Activity">
+    <nodes name="Register" xsi:type="UserAction"/>
+    <nodes name="SearchAlbum" xsi:type="UserAction"/>
+    <nodes name="ViewAlbumDetails" xsi:type="UserAction"/>
+    <nodes name="Login" xsi:type="UserAction"/>
+  </activities>
+  <activities name="RegisteredUser" xsi:type="Activity">
+    <nodes name="BuyAlbum" xsi:type="UserAction"/>
+    <nodes name="DownloadAlbum" xsi:type="UserAction"/>
+    <nodes name="ViewAccount" xsi:type="UserAction"/>
+    <nodes name="Recharge" xsi:type="UserAction"/>
+    <nodes name="ViewOwnedAlbumList" xsi:type="UserAction"/>
+    <nodes name="Logout" xsi:type="UserAction"/>
+  </activities>
+</Package>

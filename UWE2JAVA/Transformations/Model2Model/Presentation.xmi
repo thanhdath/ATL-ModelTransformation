@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Class xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="www.presentation.com">
+  <presentations xsi:type="inputForm" name="CreateContactForm" type="inputForm">
+    <interactiveElms xsi:type="textInput" name="name" type="textInput"/>
+    <interactiveElms xsi:type="textInput" name="email" type="textInput"/>
+    <interactiveElms xsi:type="textInput" name="phoneNumber" type="textInput"/>
+    <interactiveElms xsi:type="fileUpload" name="avatarImage" type="file"/>
+    <interactiveElms xsi:type="selection" name="gender" multiple="true" type="selection"/>
+    <interactiveElms xsi:type="button" name="Confirm"/>
+    <interactiveElms xsi:type="button" name="Cancel"/>
+  </presentations>
+  <presentations xsi:type="inputForm" name="UpdateContactForm" type="inputForm">
+    <interactiveElms xsi:type="textInput" name="name" type="textInput"/>
+    <interactiveElms xsi:type="textInput" name="email" type="textInput"/>
+    <interactiveElms xsi:type="textInput" name="phoneNumber" type="textInput"/>
+    <interactiveElms xsi:type="fileUpload" name="avatarImage" type="file"/>
+    <interactiveElms xsi:type="selection" name="gender" multiple="true" type="selection"/>
+    <interactiveElms xsi:type="button" name="Confirm"/>
+    <interactiveElms xsi:type="button" name="Cancel"/>
+  </presentations>
+</Class>

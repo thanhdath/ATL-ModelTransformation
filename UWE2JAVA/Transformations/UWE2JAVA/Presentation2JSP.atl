@@ -1,0 +1,226 @@
+-- @path UWE=/UWE2JAVA/Metamodels/UWE/presentation.ecore
+-- @path JSP=/UWE2JAVA/Metamodels/JAVA/jsp.ecore
+
+
+module Presentation2JSPNew;
+create OUT: JSP from IN: UWE;
+
+rule PresentationPage2JSP {
+	from
+		pp: UWE!PresentationPage
+	to
+		root: JSP!Root (
+			documentName <- pp.name + '.jsp',
+			children <- Sequence{htmlNode}
+		),
+		htmlNode: JSP!Element (
+			name <- 'html',
+			children <- Sequence{headNode}.append(UWE!PresentationElement.allInstances()
+					-> select(pe | not pe.oclIsTypeOf(UWE!PresentationPage)) ->
+					collect(pe | if pe.oclIsTypeOf(UWE!PresentationGroup) then
+							thisModule.PresentationGroup2JSP(pe)
+						else
+						if pe.oclIsTypeOf(UWE!PresentationAlternatives) then
+							thisModule.PresentationAlternative2JSP(pe)
+						else
+						if pe.oclIsTypeOf(UWE!Text) then
+							thisModule.Text2JSP(pe)
+						else
+						if pe.oclIsTypeOf(UWE!Image) then
+							thisModule.Image2JSP(pe)
+						else
+						if pe.oclIsTypeOf(UWE!Button) then
+							thisModule.Button2JSP(pe)
+						else
+						if pe.oclIsTypeOf(UWE!Anchor) then
+							thisModule.Anchor2JSP(pe)
+						else
+						if pe.oclIsTypeOf(UWE!TextInput) then
+							thisModule.TextInput2JSP(pe)
+						else
+							thisModule.FileUpload2JSP(pe)
+						endif
+						endif
+						endif
+						endif
+						endif
+						endif
+						endif))
+		),
+		headNode: JSP!Element (
+			name <- 'head',
+			children <- Sequence{titleNode}
+		),
+		titleNode: JSP!Element (
+			name <- 'title',
+			children <- Sequence{textNode}
+		),
+		textNode: JSP!TextNode (
+			value <- pp.name
+		)
+}
+
+lazy rule PresentationGroup2JSP {
+	from
+		pg: UWE!PresentationGroup
+	to
+		element: JSP!Element (
+			children <- Sequence{divEl}
+		),
+		divEl: JSP!Element (
+			name <- 'div',
+			children <- Sequence{ulEl}
+		),
+		ulEl: JSP!Element (
+			name <- 'ul',
+			children <- Sequence{foreachEl}
+		),
+		foreachEl: JSP!Element (
+			name <- 'c:forEach',
+			children <- Sequence{itemsAttr,
+						varAttr,
+						liEl}
+		),
+		itemsAttr: JSP!Attribute (
+			name <- 'items',
+			value <- '${list' + pg.name + '}'
+		),
+		varAttr: JSP!Attribute (
+			name <- 'var',
+			value <- pg.name
+		),
+		liEl: JSP!Element (
+			name <- 'li',
+			children <- Sequence{cifEl}
+		),
+		cifEl: JSP!Element (
+			name <- 'c:if',
+			children <- Sequence{testEl}
+		),
+		testEl: JSP!Attribute (
+			name <- 'test',
+			value <- '${not empty ' + pg.name + '}'
+		)
+}
+
+lazy rule PresentationAlternative2JSP {
+	from
+		pa: UWE!PresentationAlternatives
+	to
+		element: JSP!Element (
+			children <- Sequence{cchooseEl}
+		),
+		cchooseEl: JSP!Element (
+			name <- 'c:choose',
+			children <- Sequence{cwhenEl}
+		),
+		cwhenEl: JSP!Element (
+			name <- 'c:when',
+			children <- Sequence{testEl}
+		),
+		testEl: JSP!Attribute (
+			name <- 'test',
+			value <- '${' + pa.name + '}'
+		)
+}
+
+lazy rule Text2JSP {
+	from
+		t: UWE!Text
+	to
+		element: JSP!Element (
+			name <- 'p',
+			children <- Sequence{textNode}
+		),
+		textNode: JSP!TextNode (
+			value <- t.name
+		)
+}
+
+lazy rule Image2JSP {
+	from
+		i: UWE!Image
+	to
+		element: JSP!Element (
+			name <- 'img',
+			children <- Sequence{srcAttr,
+						altAttr}
+		),
+		srcAttr: JSP!Attribute (
+			name <- 'src',
+			value <- '#'
+		),
+		altAttr: JSP!Attribute (
+			name <- 'alt',
+			value <- '#'
+		)
+}
+
+lazy rule Button2JSP {
+	from
+		b: UWE!Button
+	to
+		element: JSP!Element (
+			name <- 'button',
+			children <- Sequence{textNode}
+		),
+		textNode: JSP!TextNode (
+			value <- b.name
+		)
+}
+
+lazy rule Anchor2JSP {
+	from
+		a: UWE!Anchor
+	to
+		element: JSP!Element (
+			name <- 'a',
+			children <- Sequence{hrefAttr,
+						textNode}
+		),
+		hrefAttr: JSP!Attribute (
+			name <- 'href',
+			value <- '#'
+		),
+		textNode: JSP!TextNode (
+			value <- a.name
+		)
+}
+
+lazy rule TextInput2JSP {
+	from
+		t: UWE!TextInput
+	to
+		element: JSP!Element (
+			name <- 'input',
+			children <- Sequence{typeAttr,
+						valueAttr}
+		),
+		typeAttr: JSP!Attribute (
+			name <- 'type',
+			value <- 'text'
+		),
+		valueAttr: JSP!Attribute (
+			name <- 'value',
+			value <- t.name
+		)
+}
+
+lazy rule FileUpload2JSP {
+	from
+		f: UWE!FileUpload
+	to
+		element: JSP!Element (
+			name <- 'input',
+			children <- Sequence{typeAttr,
+						valueAttr}
+		),
+		typeAttr: JSP!Attribute (
+			name <- 'type',
+			value <- 'file'
+		),
+		valueAttr: JSP!Attribute (
+			name <- 'value',
+			value <- f.name
+		)
+}

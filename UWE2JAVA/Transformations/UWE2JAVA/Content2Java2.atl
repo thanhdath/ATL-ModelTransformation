@@ -1,0 +1,150 @@
+module Content2Java;
+create OUT: JAVA from IN: Content;
+
+helper context String def: firstCharUpperCase(): String =
+	self.substring(1, 1).toUpper() + self.substring(2, self.size());
+
+helper def: getPackageName(): String =
+	Content!Package.allInstances().first().name;
+
+rule Package2Package {
+	from
+		p: Content!Package
+	to
+		jp: JAVA!Package (
+			name <- p.name.toLower() + '.model',
+			classes <- p.elements -> select(e | e.oclIsTypeOf(Content!Class)) ->
+					collect(e | thisModule.Class2Class(e))
+		)
+}
+
+lazy rule Class2Class {
+	from
+		c: Content!Class (
+			c.oclIsTypeOf(Content!Class)
+		)
+	to
+		jc: JAVA!JavaClass (
+			name <- c.name,
+			--isAbstract <- c.isAbstract,
+			isAbstract <- false,
+			isPublic <- true,
+			isInterface <- false,
+			members <- c.properties 
+				-> collect(m | thisModule.Property2Field(m))
+				.append(
+					c.properties -> collect(m | thisModule.Property2GetterMethod(m))
+				).append(
+					c.properties -> collect(m | thisModule.Property2SetterMethod(m))
+				)
+		)
+}
+
+lazy rule Property2Field {
+	from
+		p: Content!Property
+	to
+		field: JAVA!Field (
+			owner <- p.class,
+			name <- p.name,
+			--type <- p.type.name,
+			type <- p.type,
+			isPublic <- false,
+			isStatic <- false
+		)
+}
+
+lazy rule Property2GetterMethod {
+	from
+		p: Content!Property
+	to
+		getter: JAVA!Method (
+			owner <- p.class,
+			name <- 'get' + p.name.firstCharUpperCase(),
+			--type <- p.type.name,
+			type <- p.type,
+			isPublic <- true,
+			isStatic <- false,
+			body <- 'return ' + p.name + ';'
+		)
+}
+
+lazy rule Property2SetterMethod {
+	from
+		p: Content!Property
+	to
+		setter: JAVA!Method (
+			owner <- p.class,
+			name <- 'set' + p.name.firstCharUpperCase(),
+			isPublic <- true,
+			isStatic <- false,
+			parameters <- Sequence{parameter},
+			body <- 'this.' + p.name + ' = ' + p.name + ';'
+		),
+		parameter: JAVA!MethodParameter (
+			name <- p.name,
+			--type <- p.type.name
+			type <- p.type
+		)
+}
+
+lazy rule CollectionProperty2Field {
+	from
+		p: Content!Property
+	to
+		field: JAVA!Field (
+			owner <- p.class,
+			name <- p.name,
+			type <- if p.isOrdered.oclIsUndefined() then
+					'List<' + p.type.name + '>'
+				else
+					if p.isOrdered then
+						'List<' + p.type.name + '>'
+					else
+						'Set<' + p.type.name + '>'
+					endif
+				endif,
+			isPublic <- false,
+			isStatic <- false
+		)
+}
+
+lazy rule CollectionProperty2GetterMethod {
+	from
+		p: Content!Property
+	to
+		getter: JAVA!Method (
+			owner <- p.class,
+			name <- 'get' + p.name.firstCharUpperCase(),
+			type <- if p.isOrdered then
+					'java.util.List<' + p.type.name + '>'
+				else
+					'java.util.Set<' + p.type.name + '>'
+				endif,
+			isPublic <- true,
+			isStatic <- false,
+			body <- 'return ' + p.name + ';'
+		)
+}
+
+lazy rule CollectionProperty2SetterMethod {
+	from
+		p: Content!Property
+	to
+		setter: JAVA!Method (
+			owner <- p.class,
+			name <- 'set' + p.name.firstCharUpperCase(),
+			isPublic <- true,
+			isStatic <- false,
+			parameters <- Sequence{setterParameter},
+			body <- 'this.' + p.name + ' = ' + p.name + ';'
+		),
+		setterParameter: JAVA!MethodParameter (
+			name <- p.name,
+			type <- if p.isOrdered then
+					'java.util.List<' + p.type.name + '>'
+				else
+					'java.util.Set<' + p.type.name + '>'
+				endif
+		)
+}

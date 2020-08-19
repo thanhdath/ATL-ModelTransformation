@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<uml:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http:///uml.ecore" name="MusicPortal">
+  <packagedElement xsi:type="uml:Class" name="user">
+    <ownedOperation name="register"/>
+    <ownedOperation name="searchAlbum"/>
+    <ownedOperation name="viewAlbumDetails"/>
+    <ownedOperation name="login"/>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Class" name="RegisteredUser">
+    <ownedOperation name="downloadAlbum"/>
+    <ownedOperation name="viewAccount"/>
+    <ownedOperation name="logout"/>
+    <ownedOperation name="viewOwnedAlbumList"/>
+    <ownedOperation name="recharge"/>
+    <ownedOperation name="buyAlbum"/>
+  </packagedElement>
+</uml:Package>

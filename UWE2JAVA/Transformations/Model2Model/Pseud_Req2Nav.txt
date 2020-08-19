@@ -1,0 +1,32 @@
+createNavigationLink:
+    for each s in Req!DisplayAction:
+        t = Navigation!NavigationLink
+        t.navigationClass = browsing2NavigationClass(s)
+
+createProcessLink:
+    for each s in Req!UserAction:
+        t = Navigation!ProcessLink
+        t.processClass = processing2ProcessClass(s)
+
+createProcessLink2:
+    for each s in Req!SystemAction:
+        t = Navigation!ProcessLink
+        t.processClass = processing2ProcessClass(s)
+
+createHomeMenu:
+    for each s in Req!Activity:
+        t = Navigation!NavigationClass
+        t.name = 'Home'
+        t2 = Navigation!Menu:
+        t2.name = 'Menu'
+
+browsing2NavigationClass:
+    for each s in Req!DisplayAction:
+        t = Navigation!NavigationClass
+        t.name = s.name
+        t.isHome = true
+
+processing2ProcessClass:
+    for each s in Req!Action:
+        t = Navigation!ProcessClass
+        t.name = s.name

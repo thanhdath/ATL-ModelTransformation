@@ -1,0 +1,48 @@
+-- @path Req=/UWE2JAVA/Metamodels/UWE/uml.ecore
+-- @path UWE=/UWE2JAVA/Metamodels/UWE/uml.ecore
+
+module Requirement2Content;
+
+create OUT: UWE from IN: Requirement;
+
+helper def : firstToLower(name : String) : String =
+    name.substring(1,1).toLower() + name.substring(2, name.size());
+
+lazy rule Parameter {
+    from
+        outputPin : Requirement!OutputPin
+    to 
+        param : UWE!Param (
+            name <- outputPin.name,
+            type <- outputPin.type
+        )
+}
+
+lazy rule UserAction2Operation {
+    from s: Requirement!UserAction 
+    to t: UWE!Operation (
+        name <- thisModule.firstToLower(s.name)
+    )
+}
+
+lazy rule Activity2ContentClass {
+    from s: Requirement!Activity 
+    to t: UWE!Class (
+        name <- s.name,
+        ownedOperation <- s.nodes->select(node |node.oclIsTypeOf(Requirement!UserAction))->iterate(e; res : Set(Requirement!UserAction) = Set {} |
+            if (res->collect(f | f.name)->includes(e.name)) then
+                res
+            else
+                res->including(e)
+            endif
+            )->collect(e | thisModule.UserAction2Operation(e))
+    )
+}
+
+rule Requirement2Package {
+	from s: Requirement!requirementModel
+	to t: UWE!Package (
+		name <- s.name	,
+		packagedElement <- s.activities->collect(e | thisModule.Activity2ContentClass(e))
+	)
+}

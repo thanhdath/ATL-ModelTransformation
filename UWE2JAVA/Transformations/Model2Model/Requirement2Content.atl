@@ -1,0 +1,82 @@
+module Requirement2Content;
+
+create OUT: UWE from IN: Requirement;
+
+helper def : firstToLower(name : String) : String =
+    name.substring(1,1).toLower() + name.substring(2, name.size());
+
+lazy rule Parameter {
+    from
+        outputPin : Requirement!OutputPin
+    to 
+        param : UWE!Param (
+            name <- outputPin.name,
+            type <- outputPin.type
+        )
+}
+
+lazy rule InputPin2Attribute {
+    from
+        s : Requirement!InputPin
+    to 
+        t : UWE!Attribute (
+            name <- s.name,
+			visibility <- s.visibility,
+			type <- s.type
+        )
+}
+
+lazy rule UserAction2Operation {
+    from s: Requirement!UserAction 
+    to t: UWE!Operation (
+        name <- thisModule.firstToLower(s.name)
+    )
+}
+
+lazy rule Activity2ContentClass {
+    from s: Requirement!Activity 
+    to t: UWE!Class (
+        name <- s.name,
+        ownedOperation <- s.nodes->select(node |node.oclIsTypeOf(Requirement!UserAction))->iterate(e; res : Set(Requirement!UserAction) = Set {} |
+            if (res->collect(f | f.name)->includes(e.name)) then
+                res
+            else
+                res->including(e)
+            endif
+            )->collect(e | thisModule.UserAction2Operation(e)),
+		ownedAttribute <- s.attributes->select(node |node.oclIsTypeOf(Requirement!InputPin))->iterate(e; res : Set(Requirement!InputPin) = Set {} |
+            if (res->collect(f | f.name)->includes(e.name)) then
+                res
+            else
+                res->including(e)
+            endif
+            )->collect(e | thisModule.InputPin2Attribute(e))
+    )
+}
+
+lazy rule Type2PrimitiveType {
+	from s: Requirement!InputPin
+	to t: UWE!PrimitiveType (
+		name <- s.type
+	)
+}
+
+rule Requirement2Package {
+	from s: Requirement!Package
+	to 
+	t: UWE!Package (
+		name <- s.name,
+		packagedElement <- Sequence {
+			s.activities->collect(e | thisModule.Activity2ContentClass(e)),
+			s.activities->iterate(e; res : Set(Requirement!InputPin) = Set {} |
+			   res->union(e.attributes->select(node |node.oclIsTypeOf(Requirement!InputPin)))
+            )->iterate(e; res : Set(Requirement!InputPin) = Set {} |
+            if (res->collect(f | f.type)->includes(e.type)) then
+                res
+            else
+                res->including(e)
+            endif
+            )->collect(e | thisModule.Type2PrimitiveType(e))
+		}
+	)
+}

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<requirementModel 
+	xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="www.requirement.com"
+    xsi:schemaLocation="www.requirement.com ../../Metamodel/UWE/Requirement.ecore"
+	name="AddressBook">
+<activities xsi:type="Activity" name="user">
+  <nodes xsi:type="UserAction"
+      name="CreateContact"
+      validate="true">
+    <outputs
+        name="name"
+        type="String"
+        size="20"/>
+    <outputs
+        name="email"
+        type="String"/>
+    <outputs
+        name="phoneNumber"
+        type="String"
+        size="10"/>
+    <outputs
+        name="gender"
+        type="String"/>
+    <outputs
+        name="avatarImage"
+        type="String"/>
+  </nodes>
+  <nodes xsi:type="DisplayAction"
+      name="CreateContactForm">
+    <type name="inputForm"/>
+    <interactionPins
+        name="name"
+        type="textInput"/>
+    <interactionPins
+        name="email"
+        type="textInput"/>
+    <interactionPins
+        name="gender"
+        type="selection"/>
+    <interactionPins
+        name="avatarImage"
+        type="file"/>
+    <interactionPins
+        name="phoneNumber"
+        type="textInput"/>
+  </nodes>
+  <nodes xsi:type="SystemAction"
+      name="SaveContact"
+      confirm="true">
+    <inputs
+        name="name"
+        type="String"
+        size="20"/>
+    <inputs
+        name="email"
+        type="String"/>
+    <inputs
+        name="phoneNumber"
+        type="String"
+        size="10"/>
+    <inputs
+        name="gender"
+        type="String"/>
+    <inputs
+        name="avatarImage"
+        type="String"/>
+  </nodes>
+  <nodes xsi:type="UserAction"
+      name="UpdateContact"
+      validate="true">
+    <outputs
+        name="name"
+        type="String"
+        size="20"/>
+    <outputs
+        name="email"
+        type="String"/>
+    <outputs
+        name="phoneNumber"
+        type="String"
+        size="10"/>
+    <outputs
+        name="gender"
+        type="String"/>
+    <outputs
+        name="avatarImage"
+        type="String"/>
+  </nodes>
+  <nodes xsi:type="DisplayAction"
+      name="UpdateContactForm">
+    <type name="inputForm"/>
+    <interactionPins
+        name="name"
+        type="textInput"/>
+    <interactionPins
+        name="email"
+        type="textInput"/>
+    <interactionPins
+        name="phoneNumber"
+        type="textInput"/>
+    <interactionPins
+        name="gender"
+        type="selection"/>
+    <interactionPins
+        name="avatarImage"
+        type="file"/>
+  </nodes>
+  <nodes xsi:type="SystemAction"
+      name="UpdateContactConfirm"
+      confirm="true">
+    <inputs
+        name="name"
+        type="String"
+        size="10"/>
+    <inputs
+        name="email"
+        type="String"/>
+    <inputs
+        name="phoneNumber"
+        type="String"/>
+    <inputs
+        name="gender"
+        type="String"/>
+    <inputs
+        name="avatarImage"
+        type="String"/>
+  </nodes>
+</activities>
+</requirementModel>

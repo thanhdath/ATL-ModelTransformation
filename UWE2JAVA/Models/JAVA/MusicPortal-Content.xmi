@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<java:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:java="http:///java.ecore" name="MusicPortal.model">
+  <classes name="user" isPublic="true"/>
+  <classes name="RegisteredUser" isPublic="true"/>
+</java:Package>

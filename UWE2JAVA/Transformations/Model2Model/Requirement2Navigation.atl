@@ -1,0 +1,57 @@
+module Requirement2Navigation;
+
+--@path Req=Requirements.ecore
+--@path Navigation=navigationClasses.ecore
+
+create OUT: Navigation from IN: Req;
+
+helper def : firstToLower(name : String) : String =
+	name.substring(1,1).toLower() + name.substring(2, name.size());
+
+
+rule createNavigationLink { -- processclass connect to menu
+	from s: Req!DisplayAction
+	to t: Navigation!NavigationLink (
+		navigationClass <- thisModule.browsing2NavigationClass(s)
+	)
+}
+
+rule createProcessLink { -- processclass connect to menu
+	from s: Req!UserAction
+	to t: Navigation!ProcessLink (
+		processClass <- thisModule.processing2ProcessClass(s)
+	)
+}
+
+rule createProcessLink2 { -- processclass connect to menu
+	from s: Req!SystemAction
+	to t: Navigation!ProcessLink (
+		processClass <- thisModule.processing2ProcessClass(s)
+	)
+}
+
+rule createHomeMenu {
+	from s: Req!Activity
+	to t: Navigation!NavigationClass (
+		name <- 'Home'	
+	),
+	t2: Navigation!Menu ( 
+	)
+}
+
+lazy rule browsing2NavigationClass {
+	from s: Req!DisplayAction
+	to t: Navigation!NavigationClass (
+		name <- s.name,
+		isHome <- true
+	)
+}
+
+
+lazy rule  processing2ProcessClass {
+	from s: Req!Action
+	to t: Navigation!ProcessClass (
+		name <- s.name
+	)
+}
+
