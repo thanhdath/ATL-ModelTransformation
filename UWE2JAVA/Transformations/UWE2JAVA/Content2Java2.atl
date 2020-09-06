@@ -13,15 +13,15 @@ rule Package2Package {
 	to
 		jp: JAVA!Package (
 			name <- p.name.toLower() + '.model',
-			classes <- p.elements -> select(e | e.oclIsTypeOf(Content!Class)) ->
+			classes <- p.elements -> select(e | e.oclIsTypeOf(Content!ContentClass)) ->
 					collect(e | thisModule.Class2Class(e))
 		)
 }
 
 lazy rule Class2Class {
 	from
-		c: Content!Class (
-			c.oclIsTypeOf(Content!Class)
+		c: Content!ContentClass (
+			c.oclIsTypeOf(Content!ContentClass)
 		)
 	to
 		jc: JAVA!JavaClass (

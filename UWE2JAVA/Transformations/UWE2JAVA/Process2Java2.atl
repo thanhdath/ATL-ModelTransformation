@@ -1,0 +1,58 @@
+module Process2Java;
+create OUT: JAVA from IN: UWE;
+
+helper def: getModelName(): String =
+	UWE!Model.allInstances().first().name;
+
+rule Package2Package {
+	from
+		p: UWE!Package
+	to
+		jp: JAVA!Package ( -- need contentclass in process.xmi, 
+			name <- p.name + '.service',
+			classes <- UWE!ContentClass.allInstances() ->
+					select(e | UWE!ProcessClass.allInstances() -> select(pc | pc.contentClass = e).size() > 0) -> collect(e | thisModule.
+					Class2Class(e))
+		)
+}
+
+lazy rule Class2Class {
+	from
+		c: UWE!Class
+	to
+		jc: JAVA!JavaClass (
+			annotation <- '@Service',
+			name <- c.name + 'Service',
+			--isAbstract <- c.isAbstract,
+			isPublic <- true,
+			isInterface <- false,
+			members <- UWE!ProcessClass.allInstances() -> select(pc | pc.contentClass =
+					c) -> collect(bc | bc.operations ->
+					select(e | true)).flatten() -> collect(o | thisModule.
+					Operation2Method(o))
+		)
+}
+
+lazy rule Operation2Method {
+	from
+		o: UWE!Operation
+	to
+		m: JAVA!Method (
+			name <- o.name,
+			isPublic <- true,
+			isStatic <- false,
+			parameters <- o.params -> collect(p | thisModule.
+					Parameter2MethodParameter(p)),
+			body <- ''
+		)
+}
+
+lazy rule Parameter2MethodParameter {
+	from
+		p: UWE!Parameter
+	to
+		mp: JAVA!MethodParameter (
+			name <- p.name,
+			type <- p.type
+		)
+}

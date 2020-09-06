@@ -1,0 +1,52 @@
+module Navigation2Java;
+create OUT : JAVA from IN : UWE;
+
+helper def: getModelName(): String =
+	UWE!Model.allInstances().first().name;
+
+rule Package2Package {
+	from
+		p: UWE!Package 
+	to
+		jp: JAVA!Package ( -- need content class in navigation.xmi, navigation.xmi is auto-generated from requirement model
+			name <- p.name + '.controller',
+			classes <- UWE!ContentClass.allInstances() ->
+					select(e | UWE!NavigationClass.allInstances() -> select(nc | nc.
+					contentClass = e).size() > 0) -> collect(e | thisModule.
+					Class2Class(e))
+		)
+}
+
+lazy rule Class2Class {
+	from
+		c: UWE!Class
+	to
+		jc: JAVA!JavaClass (
+			annotation <- '@Controller',
+			name <- c.name + 'Controller',
+			--isAbstract <- c.isAbstract,
+			isPublic <- true,
+			isInterface <- false,
+			members <- UWE!NavigationClass.allInstances() -> select(nc | nc.contentClass =
+					c) -> collect(bc | thisModule.Class2Method(bc))
+		)
+}
+
+lazy rule Class2Method {
+	from
+		c: UWE!Class
+	to
+		m: JAVA!Method (
+			annotation <- '@GetMapping("/' + c.name.toLower() + '")',
+			type <- 'String',
+			name <- c.name.toLower(),
+			isPublic <- true,
+			isStatic <- false,
+			parameters <- Sequence{param},
+			body <- 'return "";'
+		),
+		param: JAVA!MethodParameter (
+			name <- 'model',
+			type <- 'Model'
+		)
+}

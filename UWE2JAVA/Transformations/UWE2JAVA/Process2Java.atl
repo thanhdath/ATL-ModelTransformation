@@ -1,8 +1,3 @@
--- @path JAVA=/UWE2JAVA/Metamodels/JAVA/java.ecore
--- @path UWE=/UWE2JAVA/Metamodels/UWE/uml.ecore
--- @path UWE=/UWE2JAVA/Metamodels/UWE/presentation.ecore
-
-
 module Process2Java;
 create OUT: JAVA from IN: UWE;
 
@@ -13,11 +8,10 @@ rule Package2Package {
 	from
 		p: UWE!Package
 	to
-		jp: JAVA!Package (
+		jp: JAVA!Package ( -- need contentclass in process.xmi, 
 			name <- p.name + '.service',
-			classes <- p.packagedElement -> select(e | e.oclIsTypeOf(UWE!Class)) ->
-					select(e | UWE!ProcessClass.allInstances() -> select(pc | pc.
-					contentClass = e).size() > 0) -> collect(e | thisModule.
+			classes <- p.elements -> select(e | e.oclIsTypeOf(UWE!Class)) ->
+					select(e | UWE!ProcessClass.allInstances() -> select(pc | pc.contentClass = e).size() > 0) -> collect(e | thisModule.
 					Class2Class(e))
 		)
 }

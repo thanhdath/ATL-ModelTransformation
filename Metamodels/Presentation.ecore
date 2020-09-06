@@ -38,5 +38,6 @@
     <eLiterals name="fileUpload" value="10"/>
     <eLiterals name="selection" value="11"/>
     <eLiterals name="button" value="12"/>
+    <eLiterals name="anchor" value="13"/>
   </eClassifiers>
 </ecore:EPackage>
