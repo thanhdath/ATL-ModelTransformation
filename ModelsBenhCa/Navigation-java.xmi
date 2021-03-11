@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<java:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http:///java.ecore" name="FishDisease.controller">
+  <classes name="UserController" annotation="@Controller" isPublic="true">
+    <members xsi:type="java:Method" name="viewprofile" annotation="@GetMapping(&quot;/viewprofile&quot;)" isPublic="true" type="String" body="return &quot;&quot;;">
+      <parameters name="model" type="Model"/>
+    </members>
+    <members xsi:type="java:Method" name="viewprofileinfo" annotation="@GetMapping(&quot;/viewprofileinfo&quot;)" isPublic="true" type="String" body="return &quot;&quot;;">
+      <parameters name="model" type="Model"/>
+    </members>
+  </classes>
+  <classes name="DiagnosisController" annotation="@Controller" isPublic="true">
+    <members xsi:type="java:Method" name="viewsaveddiagnosis" annotation="@GetMapping(&quot;/viewsaveddiagnosis&quot;)" isPublic="true" type="String" body="return &quot;&quot;;">
+      <parameters name="model" type="Model"/>
+    </members>
+  </classes>
+</java:Package>

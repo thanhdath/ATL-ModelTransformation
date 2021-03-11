@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Model name="MusicPortal"
+<Model name="FishDisease"
     xmlns="www.requirement.com" 
     xmlns:xmi="http://www.omg.org/XMI" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -19,7 +19,21 @@
     <packagedElement xsi:type="ProcessingUseCase" name="CreateEvaluation" xmi:id="CreateEvaluation" />
     <packagedElement xsi:type="ProcessingUseCase" name="EditEvaluation" xmi:id="EditEvaluation" />
     <packagedElement xsi:type="ProcessingUseCase" name="DeleteEvaluation" xmi:id="DeleteEvaluation" />
-    
+
+<!-- chi tiet xem trang ca nhan -->
+    <packagedElement xsi:type="BrowsingUseCase" name="ViewProfileInfo" xmi:id="ViewProfileInfo" />
+    <packagedElement xsi:type="BrowsingUseCase" name="ViewSavedDiagnosis" xmi:id="ViewSavedDiagnosis" />
+    <packagedElement xsi:type="Include" source="ViewProfile" target="Login" />
+    <packagedElement xsi:type="Extension" source="ViewProfileInfo" target="ViewProfile" />
+    <packagedElement xsi:type="Extension" source="ViewSavedDiagnosis" target="ViewProfile" />
+
+<!-- chi tiet chinh sua trang ca nhan -->
+    <packagedElement xsi:type="ProcessingUseCase" name="EditProfileInfo" xmi:id="EditProfileInfo" />
+    <packagedElement xsi:type="ProcessingUseCase" name="EditSavedDiagnosis" xmi:id="EditSavedDiagnosis" />
+    <packagedElement xsi:type="Include" source="EditProfileInfo" target="Login" />
+    <packagedElement xsi:type="Extension" source="EditProfileInfo" target="EditProfileInfo" />
+    <packagedElement xsi:type="Extension" source="EditSavedDiagnosis" target="EditProfileInfo" />
+
     <packagedElement xsi:type="Association" source="user" target="EvaluateDisease" />
     <packagedElement xsi:type="Association" source="user" target="SaveDiseaseInfo" />
     <packagedElement xsi:type="Association" source="user" target="ViewProfile" />
@@ -39,34 +53,32 @@
 
 	<packagedElement xsi:type="Activity" name="Diagnose" xmi:id="activity_1">
         <elements xsi:type="UserAction" name="DiagnosisInput" xmi:id="elm1" >
-            <outputPins name="name" xmi:id="pin1"></outputPins>
-			<outputPins name="sympton" xmi:id="pin2"></outputPins>
-		</element>
-        <elements xsi:type="CentralBufferNode" name="Diagnosis" xmi:id="elm2" >
-            <inputPins name="name" xmi:id="pin3"></inputPins>
-			<inputPins name="sympton" xmi:id="pin4"></inputPins>
-            <inputPins name="diseaseInfo" xmi:id="pin5"></inputPins>
+            <outputPins name="name" type="String" xmi:id="pin1"></outputPins>
+			<outputPins name="sympton" type="String" xmi:id="pin2"></outputPins>
+		</elements>
+        <elements xsi:type="CentralBufferNode" name="Diagnosis" xmi:id="elm2" owner="activity_1">
+            <inputPins name="name" type="String" xmi:id="pin3"></inputPins>
+			<inputPins name="sympton" type="String" xmi:id="pin4"></inputPins>
+            <inputPins name="diseaseInfo" type="String" xmi:id="pin5"></inputPins>
 		</elements>
         <elements xsi:type="DecisionNode" xmi:id="elm3" >
 		</elements>
-        <elements xsi:type="ShowErrorMessage" xmi:id="elm4" >
+        <elements xsi:type="DisplayAction" name="ShowErrorMessage" xmi:id="elm4" >
 		</elements>
         <elements xsi:type="SystemAction" name="DataValidation" xmi:id="elm5" >
-            <inputPins name="newDiagnosis" xmi:id="pin6"></inputPins>
+            <inputPins name="name" type="String" xmi:id="pin6"></inputPins>
+            <inputPins name="sympton" type="String" xmi:id="pin7"></inputPins>
 		</elements>
         <elements xsi:type="DecisionNode" xmi:id="elm6" >
 		</elements>
         <elements xsi:type="SystemAction" name="Diagnose" xmi:id="elm7" >
-            <outputPins name="diseaseInfo" xmi:id="pin7"></outputPins>
+            <outputPins name="diseaseInfo" type="String" xmi:id="pin8"></outputPins>
 		</elements>
         <elements xsi:type="DisplayAction" name="ResultModal" xmi:id="elm8" >
 		</elements>
         <elements xsi:type="DecisionNode" xmi:id="elm9" >
 		</elements>
         <elements xsi:type="SystemAction" name="SaveDiagnosis" xmi:id="elm10" >
-            <outputPins name="diseaseInfo" xmi:id="pin8"></outputPins>
-		</elements>
-        <elements xsi:type="ActivityParameterNode" name="albumParameter" xmi:id="elm_1" >
 		</elements>
 
         <elements xsi:type="Association" source="elm1" target="elm3" />
@@ -82,9 +94,9 @@
 
         <elements xsi:type="Association" source="pin1" target="pin3" />
         <elements xsi:type="Association" source="pin2" target="pin4" />
-        <elements xsi:type="Association" source="pin7" target="pin5" />
-        <elements xsi:type="Association" source="elm2" target="pin6" />
-        <elements xsi:type="Association" source="elm2" target="pin8" />
+        <elements xsi:type="Association" source="pin5" target="elm5" />
+        <elements xsi:type="Association" source="pin6" target="elm5" />
+        <elements xsi:type="Association" source="pin7" target="elm2" />
 	</packagedElement>
 
 </Model>

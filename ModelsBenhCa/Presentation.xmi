@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="www.presentation.com">
+  <Package name="FishDisease" elements="/3 /1"/>
+  <Class type="presentationPage" name="Home" properties="/6 /2"/>
+  <Property type="presentationAlternatives" name="Views" properties="/7"/>
+  <Class type="inputForm" name="Diagnose" properties="/4 /5"/>
+  <Property type="iteratedPresentationGroup" name="ResultModal"/>
+  <Property type="iteratedPresentationGroup" name="ShowErrorMessage"/>
+  <Property type="button" name="Diagnose"/>
+  <Property type="inputForm" name="Diagnose"/>
+</xmi:XMI>

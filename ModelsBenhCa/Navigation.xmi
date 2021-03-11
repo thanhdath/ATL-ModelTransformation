@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="www.navigation.com">
+  <Package name="FishDisease" elements="/1 /2 /4 /5 /6 /7 /8 /9 /10 /11 /12 /13 /14 /15 /16 /17 /18 /3 /19 /20 /21 /22 /23 /24 /25 /26 /27 /28 /29 /30 /31 /32 /33 /34 /35 /36 /37"/>
+  <Home name="Home"/>
+  <Menu name="HomeMenu"/>
+  <Association owner="/2" target="/1"/>
+  <NavigationClass name="ViewProfile" contentClass="/35"/>
+  <NavigationClass name="SearchDiseaseInfo"/>
+  <NavigationClass name="ViewDiseaseInfo"/>
+  <NavigationClass name="ViewProfileInfo" contentClass="/35"/>
+  <NavigationClass name="ViewSavedDiagnosis" contentClass="/37"/>
+  <ProcessClass name="EvaluateDisease"/>
+  <ProcessClass name="SaveDiseaseInfo"/>
+  <ProcessClass name="EditProfile"/>
+  <ProcessClass name="Diagnose"/>
+  <ProcessClass name="Login"/>
+  <ProcessClass name="CreateEvaluation"/>
+  <ProcessClass name="EditEvaluation"/>
+  <ProcessClass name="DeleteEvaluation"/>
+  <ProcessClass name="EditProfileInfo"/>
+  <ProcessClass name="EditSavedDiagnosis"/>
+  <Association owner="/4" target="/7"/>
+  <Association owner="/4" target="/8"/>
+  <Association owner="/17" target="/17"/>
+  <Association owner="/17" target="/18"/>
+  <Association owner="/9" target="/14"/>
+  <Association owner="/9" target="/15"/>
+  <Association owner="/9" target="/16"/>
+  <Association owner="/4" target="/13"/>
+  <Association owner="/17" target="/13"/>
+  <Association owner="/9" target="/13"/>
+  <Association owner="/13" target="/2"/>
+  <Association owner="/6" target="/2"/>
+  <Association owner="/11" target="/2"/>
+  <Association owner="/5" target="/2"/>
+  <Association owner="/10" target="/2"/>
+  <Association owner="/12" target="/2"/>
+  
+  <ContentClass name="User">
+    <operations name="evaluateDisease"/>
+    <operations name="saveDiseaseInfo"/>
+    <operations name="viewProfile"/>
+    <operations name="editProfile"/>
+    <operations name="diagnose"/>
+    <operations name="searchDiseaseInfo"/>
+    <operations name="viewDiseaseInfo"/>
+  </ContentClass>
+  <ContentClass name="Guess">
+    <operations name="diagnose"/>
+    <operations name="searchDiseaseInfo"/>
+    <operations name="viewDiseaseInfo"/>
+  </ContentClass>
+  <ContentClass name="Diagnosis">
+    <properties name="diseaseInfo" type="String"/>
+    <properties name="name" type="String"/>
+    <properties name="sympton" type="String"/>
+  </ContentClass>
+</xmi:XMI>

@@ -16,7 +16,7 @@
 		<constant value="3"/>
 		<constant value="J.toCode():J"/>
 		<constant value="J.+(J):J"/>
-		<constant value="/UWE2JAVA/Output/resources/jsp/"/>
+		<constant value="/ATL-UWE/UWE2JAVA/Output/resources/jsp/"/>
 		<constant value="documentName"/>
 		<constant value="J.writeTo(J):J"/>
 		<constant value="CJ.including(J):CJ"/>
@@ -30,12 +30,12 @@
 		<constant value="5:28-5:38"/>
 		<constant value="5:22-5:38"/>
 		<constant value="4:57-5:39"/>
-		<constant value="5:48-5:81"/>
-		<constant value="5:84-5:85"/>
-		<constant value="5:84-5:98"/>
-		<constant value="5:48-5:98"/>
-		<constant value="4:57-5:99"/>
-		<constant value="4:18-5:100"/>
+		<constant value="5:48-5:89"/>
+		<constant value="5:92-5:93"/>
+		<constant value="5:92-5:106"/>
+		<constant value="5:48-5:106"/>
+		<constant value="4:57-5:107"/>
+		<constant value="4:18-5:108"/>
 		<constant value="n"/>
 		<constant value="acc"/>
 		<constant value="self"/>

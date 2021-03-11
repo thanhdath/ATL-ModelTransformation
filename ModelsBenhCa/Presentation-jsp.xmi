@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<jsp:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jsp="http:///java.ecore" documentName="FishDisease.jsp">
+  <children xsi:type="jsp:Element" name="html">
+    <children xsi:type="jsp:Element" name="head">
+      <children xsi:type="jsp:Element" name="title">
+        <children xsi:type="jsp:TextNode" value="Home"/>
+      </children>
+    </children>
+    <children xsi:type="jsp:Element" name="button">
+      <children xsi:type="jsp:TextNode" value="Diagnose"/>
+    </children>
+    <children xsi:type="jsp:Element">
+      <children xsi:type="jsp:Element" name="c:choose">
+        <children xsi:type="jsp:Element" name="c:when">
+          <children xsi:type="jsp:Attribute" name="test" value="${Views}"/>
+        </children>
+      </children>
+    </children>
+  </children>
+</jsp:Root>

@@ -1,5 +1,3 @@
--- @path Req=/UWE2JAVA/Transformations/Model2Model/Requirement.ecore
--- @path UWE=/UWE2JAVA/Metamodels/UWE/uml.ecore
 
 module Requirement2Content;
 
@@ -21,7 +19,7 @@ lazy rule UseCase2Operation {
 
 lazy rule Actor2Class {
 	from s: Requirement!Actor
-	to t: Content!Class (
+	to t: Content!ContentClass (
 		name <- s.name,
 		operations <- Requirement!Model.allInstances().first().packagedElement
 			->select(x | x.oclIsKindOf(Requirement!Association))
@@ -44,7 +42,7 @@ lazy rule Pin2Property {
 
 lazy rule CentralBufferNode2Class {
 	from s: Requirement!CentralBufferNode
-	to t: Content!Class (
+	to t: Content!ContentClass (
 		name <- thisModule.firstToUpper(s.name),
 		-- pin 2 attribute,  
 		-- search for centralbuffernode name = this class name

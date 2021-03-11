@@ -2,7 +2,7 @@
 
 
 query JSP2Code = JSP!Root.allInstances() -> collect(n | n.getChildren() -> iterate(n;
-		acc: String = '' | acc + n.toCode()).writeTo('/UWE2JAVA/Output/resources/jsp/' + n.documentName));
+		acc: String = '' | acc + n.toCode()).writeTo('/ATL-UWE/UWE2JAVA/Output/resources/jsp/' + n.documentName));
 
 helper context JSP!Element def: getAttributes(): Sequence(JSP!Attribute) =
 	self.children -> select(cn | cn.oclIsKindOf(JSP!Attribute));

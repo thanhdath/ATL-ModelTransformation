@@ -12,7 +12,7 @@ rule Package2Package {
 		p: Content!Package
 	to
 		jp: JAVA!Package (
-			name <- p.name.toLower() + '.model',
+			name <- p.name + '.model',
 			classes <- p.elements -> select(e | e.oclIsTypeOf(Content!ContentClass)) ->
 					collect(e | thisModule.Class2Class(e))
 		)

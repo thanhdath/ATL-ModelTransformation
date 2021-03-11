@@ -3,7 +3,7 @@
 
 query Java2Code = JAVA!Type.allInstances() -> select(e | e.oclIsTypeOf(JAVA!JavaClass) or
 		e.oclIsTypeOf(JAVA!Enumeration)) -> collect(x | x.toString().
-		writeTo('/UWE2JAVA/Output/java/' + thisModule.getPackageName().replaceAll('.', '/') + '/' + x.name + '.java'));
+		writeTo('/ATL-UWE/UWE2JAVA/Output/java/' + thisModule.getPackageName().replaceAll('.', '/') + '/' + x.name + '.java'));
 
 helper def: getPackageName(): String =
 	JAVA!Package.allInstances().first().name;

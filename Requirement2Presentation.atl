@@ -111,8 +111,8 @@ lazy rule ProcessingUseCase2PresentationClass {
 	)
 }
 
-lazy rule  {
-	from DisplayAction2Property
+lazy rule DisplayAction2Property {
+	from 
 		s : Requirement!DisplayAction
 	to 
 		t : Presentation!Property (
