@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="www.process.com">
-  <Package name="FishDisease" elements="/1 /4 /7 /8"/>
-  <ProcessClass name="DiagnosisInput" properties="/2 /3" contentClass="/11"/>
+  <Package name="FishDisease" elements="/1 /4 /7 /9 /12 /13 /14"/>
+  <ProcessClass name="Review" properties="/2 /3" contentClass="/19"/>
+  <Property name="comment"/>
+  <Property name="rating"/>
+  <ProcessClass name="DiagnosisInput" properties="/5 /6" contentClass="/18"/>
   <Property name="name"/>
   <Property name="sympton"/>
-  <ProcessClass name="DataValidation" contentClass="/11">
-    <operations name="DataValidation" params="/5 /6"/>
+  <ProcessClass name="SelectDisease" properties="/8" contentClass="/17"/>
+  <Property name="name"/>
+  <ProcessClass name="DataValidation" contentClass="/18">
+    <operations name="DataValidation" params="/10 /11"/>
   </ProcessClass>
-  <Parameter name="sympton" type="String"/>
   <Parameter name="name" type="String"/>
-  <ProcessClass name="SaveDiagnosis" contentClass="/11">
+  <Parameter name="sympton" type="String"/>
+  <ProcessClass name="SaveDiagnosis" contentClass="/18">
     <operations name="SaveDiagnosis"/>
   </ProcessClass>
-  <ProcessClass name="Diagnose" contentClass="/11">
+  <ProcessClass name="SaveReview" contentClass="/19">
+    <operations name="SaveReview"/>
+  </ProcessClass>
+  <ProcessClass name="Diagnose">
     <operations name="Diagnose"/>
   </ProcessClass>
   
   <ContentClass name="User">
-    <operations name="evaluateDisease"/>
+    <operations name="reviewDisease"/>
     <operations name="saveDiseaseInfo"/>
     <operations name="viewProfile"/>
     <operations name="editProfile"/>
@@ -30,9 +38,16 @@
     <operations name="searchDiseaseInfo"/>
     <operations name="viewDiseaseInfo"/>
   </ContentClass>
-  <ContentClass name="Diagnosis">
-    <properties name="diseaseInfo" type="String"/>
+  <ContentClass name="Disease">
     <properties name="name" type="String"/>
+  </ContentClass>
+  <ContentClass name="Diagnosis">
     <properties name="sympton" type="String"/>
+    <properties name="name" type="String"/>
+    <properties name="diseaseInfo" type="String"/>
+  </ContentClass>
+  <ContentClass name="Review">
+    <properties name="rating" type="Float"/>
+    <properties name="comment" type="String"/>
   </ContentClass>
 </xmi:XMI>

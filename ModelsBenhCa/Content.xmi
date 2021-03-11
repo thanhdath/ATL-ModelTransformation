@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="www.content.com">
-  <Package name="FishDisease" elements="/1 /2 /3"/>
+  <Package name="FishDisease" elements="/1 /2 /3 /4 /5"/>
   <ContentClass name="User">
-    <operations name="evaluateDisease"/>
+    <operations name="reviewDisease"/>
     <operations name="saveDiseaseInfo"/>
     <operations name="viewProfile"/>
     <operations name="editProfile"/>
@@ -15,9 +15,16 @@
     <operations name="searchDiseaseInfo"/>
     <operations name="viewDiseaseInfo"/>
   </ContentClass>
-  <ContentClass name="Diagnosis">
-    <properties name="diseaseInfo" type="String"/>
+  <ContentClass name="Disease">
     <properties name="name" type="String"/>
+  </ContentClass>
+  <ContentClass name="Diagnosis">
     <properties name="sympton" type="String"/>
+    <properties name="name" type="String"/>
+    <properties name="diseaseInfo" type="String"/>
+  </ContentClass>
+  <ContentClass name="Review">
+    <properties name="rating" type="Float"/>
+    <properties name="comment" type="String"/>
   </ContentClass>
 </xmi:XMI>

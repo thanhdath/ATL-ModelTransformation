@@ -9,6 +9,9 @@
     <children xsi:type="jsp:Element" name="button">
       <children xsi:type="jsp:TextNode" value="Diagnose"/>
     </children>
+    <children xsi:type="jsp:Element" name="button">
+      <children xsi:type="jsp:TextNode" value="ReviewDisease"/>
+    </children>
     <children xsi:type="jsp:Element">
       <children xsi:type="jsp:Element" name="c:choose">
         <children xsi:type="jsp:Element" name="c:when">

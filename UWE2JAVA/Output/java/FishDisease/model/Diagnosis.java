@@ -2,31 +2,31 @@ package FishDisease.model;
 
 
 public class Diagnosis {
-	private String diseaseInfo;
-	private String name;
 	private String sympton;
+	private String name;
+	private String diseaseInfo;
 
-	public String getDiseaseInfo() {
-		return diseaseInfo;
+	public String getSympton() {
+		return sympton;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public String getSympton() {
-		return sympton;
+	public String getDiseaseInfo() {
+		return diseaseInfo;
 	}
 
-	public void setDiseaseInfo(String diseaseInfo) {
-		this.diseaseInfo = diseaseInfo;
+	public void setSympton(String sympton) {
+		this.sympton = sympton;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public void setSympton(String sympton) {
-		this.sympton = sympton;
+	public void setDiseaseInfo(String diseaseInfo) {
+		this.diseaseInfo = diseaseInfo;
 	}
 }

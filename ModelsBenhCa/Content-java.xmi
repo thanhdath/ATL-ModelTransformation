@@ -2,21 +2,40 @@
 <java:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http:///java.ecore" name="FishDisease.model">
   <classes name="User" isPublic="true"/>
   <classes name="Guess" isPublic="true"/>
-  <classes name="Diagnosis" isPublic="true">
-    <members xsi:type="java:Field" name="diseaseInfo" type="String"/>
+  <classes name="Disease" isPublic="true">
     <members xsi:type="java:Field" name="name" type="String"/>
-    <members xsi:type="java:Field" name="sympton" type="String"/>
-    <members xsi:type="java:Method" name="getDiseaseInfo" isPublic="true" type="String" body="return diseaseInfo;"/>
     <members xsi:type="java:Method" name="getName" isPublic="true" type="String" body="return name;"/>
+    <members xsi:type="java:Method" name="setName" isPublic="true" body="this.name = name;">
+      <parameters name="name" type="String"/>
+    </members>
+  </classes>
+  <classes name="Diagnosis" isPublic="true">
+    <members xsi:type="java:Field" name="sympton" type="String"/>
+    <members xsi:type="java:Field" name="name" type="String"/>
+    <members xsi:type="java:Field" name="diseaseInfo" type="String"/>
     <members xsi:type="java:Method" name="getSympton" isPublic="true" type="String" body="return sympton;"/>
-    <members xsi:type="java:Method" name="setDiseaseInfo" isPublic="true" body="this.diseaseInfo = diseaseInfo;">
-      <parameters name="diseaseInfo" type="String"/>
+    <members xsi:type="java:Method" name="getName" isPublic="true" type="String" body="return name;"/>
+    <members xsi:type="java:Method" name="getDiseaseInfo" isPublic="true" type="String" body="return diseaseInfo;"/>
+    <members xsi:type="java:Method" name="setSympton" isPublic="true" body="this.sympton = sympton;">
+      <parameters name="sympton" type="String"/>
     </members>
     <members xsi:type="java:Method" name="setName" isPublic="true" body="this.name = name;">
       <parameters name="name" type="String"/>
     </members>
-    <members xsi:type="java:Method" name="setSympton" isPublic="true" body="this.sympton = sympton;">
-      <parameters name="sympton" type="String"/>
+    <members xsi:type="java:Method" name="setDiseaseInfo" isPublic="true" body="this.diseaseInfo = diseaseInfo;">
+      <parameters name="diseaseInfo" type="String"/>
+    </members>
+  </classes>
+  <classes name="Review" isPublic="true">
+    <members xsi:type="java:Field" name="rating" type="Float"/>
+    <members xsi:type="java:Field" name="comment" type="String"/>
+    <members xsi:type="java:Method" name="getRating" isPublic="true" type="Float" body="return rating;"/>
+    <members xsi:type="java:Method" name="getComment" isPublic="true" type="String" body="return comment;"/>
+    <members xsi:type="java:Method" name="setRating" isPublic="true" body="this.rating = rating;">
+      <parameters name="rating" type="Float"/>
+    </members>
+    <members xsi:type="java:Method" name="setComment" isPublic="true" body="this.comment = comment;">
+      <parameters name="comment" type="String"/>
     </members>
   </classes>
 </java:Package>

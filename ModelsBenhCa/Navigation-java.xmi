@@ -8,6 +8,14 @@
       <parameters name="model" type="Model"/>
     </members>
   </classes>
+  <classes name="DiseaseController" annotation="@Controller" isPublic="true">
+    <members xsi:type="java:Method" name="searchdiseaseinfo" annotation="@GetMapping(&quot;/searchdiseaseinfo&quot;)" isPublic="true" type="String" body="return &quot;&quot;;">
+      <parameters name="model" type="Model"/>
+    </members>
+    <members xsi:type="java:Method" name="viewdiseaseinfo" annotation="@GetMapping(&quot;/viewdiseaseinfo&quot;)" isPublic="true" type="String" body="return &quot;&quot;;">
+      <parameters name="model" type="Model"/>
+    </members>
+  </classes>
   <classes name="DiagnosisController" annotation="@Controller" isPublic="true">
     <members xsi:type="java:Method" name="viewsaveddiagnosis" annotation="@GetMapping(&quot;/viewsaveddiagnosis&quot;)" isPublic="true" type="String" body="return &quot;&quot;;">
       <parameters name="model" type="Model"/>

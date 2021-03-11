@@ -7,7 +7,7 @@
 	<packagedElement xsi:type="Actor" name="User" xmi:id="user" />
 	<packagedElement xsi:type="Actor" name="Guess" xmi:id="guess" />
 
-    <packagedElement xsi:type="ProcessingUseCase" name="EvaluateDisease" xmi:id="EvaluateDisease" />
+    <packagedElement xsi:type="ProcessingUseCase" name="ReviewDisease" xmi:id="ReviewDisease" />
     <packagedElement xsi:type="ProcessingUseCase" name="SaveDiseaseInfo" xmi:id="SaveDiseaseInfo" />
     <packagedElement xsi:type="BrowsingUseCase" name="ViewProfile" xmi:id="ViewProfile" />
     <packagedElement xsi:type="ProcessingUseCase" name="EditProfile" xmi:id="EditProfile" />
@@ -16,9 +16,9 @@
     <packagedElement xsi:type="BrowsingUseCase" name="ViewDiseaseInfo" xmi:id="ViewDiseaseInfo" />
 
     <packagedElement xsi:type="ProcessingUseCase" name="Login" xmi:id="Login" />
-    <packagedElement xsi:type="ProcessingUseCase" name="CreateEvaluation" xmi:id="CreateEvaluation" />
-    <packagedElement xsi:type="ProcessingUseCase" name="EditEvaluation" xmi:id="EditEvaluation" />
-    <packagedElement xsi:type="ProcessingUseCase" name="DeleteEvaluation" xmi:id="DeleteEvaluation" />
+    <packagedElement xsi:type="ProcessingUseCase" name="CreateReview" xmi:id="CreateReview" />
+    <packagedElement xsi:type="ProcessingUseCase" name="EditReview" xmi:id="EditReview" />
+    <packagedElement xsi:type="ProcessingUseCase" name="DeleteReview" xmi:id="DeleteReview" />
 
 <!-- chi tiet xem trang ca nhan -->
     <packagedElement xsi:type="BrowsingUseCase" name="ViewProfileInfo" xmi:id="ViewProfileInfo" />
@@ -34,7 +34,7 @@
     <packagedElement xsi:type="Extension" source="EditProfileInfo" target="EditProfileInfo" />
     <packagedElement xsi:type="Extension" source="EditSavedDiagnosis" target="EditProfileInfo" />
 
-    <packagedElement xsi:type="Association" source="user" target="EvaluateDisease" />
+    <packagedElement xsi:type="Association" source="user" target="ReviewDisease" />
     <packagedElement xsi:type="Association" source="user" target="SaveDiseaseInfo" />
     <packagedElement xsi:type="Association" source="user" target="ViewProfile" />
     <packagedElement xsi:type="Association" source="user" target="EditProfile" />
@@ -46,10 +46,10 @@
     <packagedElement xsi:type="Association" source="guess" target="SearchDiseaseInfo" />
     <packagedElement xsi:type="Association" source="guess" target="ViewDiseaseInfo" />
 
-    <packagedElement xsi:type="Include" source="EvaluateDisease" target="Login" />
-    <packagedElement xsi:type="Extension" source="CreateEvaluation" target="EvaluateDisease" />
-    <packagedElement xsi:type="Extension" source="EditEvaluation" target="EvaluateDisease" />
-    <packagedElement xsi:type="Extension" source="DeleteEvaluation" target="EvaluateDisease" />
+    <packagedElement xsi:type="Include" source="ReviewDisease" target="Login" />
+    <packagedElement xsi:type="Extension" source="CreateReview" target="ReviewDisease" />
+    <packagedElement xsi:type="Extension" source="EditReview" target="ReviewDisease" />
+    <packagedElement xsi:type="Extension" source="DeleteReview" target="ReviewDisease" />
 
 	<packagedElement xsi:type="Activity" name="Diagnose" xmi:id="activity_1">
         <elements xsi:type="UserAction" name="DiagnosisInput" xmi:id="elm1" >
@@ -97,6 +97,41 @@
         <elements xsi:type="Association" source="pin5" target="elm5" />
         <elements xsi:type="Association" source="pin6" target="elm5" />
         <elements xsi:type="Association" source="pin7" target="elm2" />
+	</packagedElement>
+
+    <packagedElement xsi:type="Activity" name="ReviewDisease" xmi:id="activity_2">
+        <elements xsi:type="UserAction" name="SelectDisease" xmi:id="elm1">
+            <outputPins name="name" type="String" xmi:id="pin1"></outputPins>
+		</elements>
+        <elements xsi:type="CentralBufferNode" name="Disease" xmi:id="elm2" owner="activity_2">
+		</elements>
+        <elements xsi:type="DisplayAction" name="ShowDisease" xmi:id="elm3">
+            <displayPins name="name" type="String" xmi:id="pin2"></displayPins>
+			<displayPins name="reviews" type="List" xmi:id="pin3"></displayPins>
+            <displayPins name="description" type="String" xmi:id="pin4"></displayPins>
+		</elements>
+        <elements xsi:type="UserAction" name="Review" xmi:id="elm4">
+            <outputPins name="rating" type="Float" xmi:id="pin5"></outputPins>
+            <outputPins name="comment" type="String" xmi:id="pin6"></outputPins>
+		</elements>
+        <elements xsi:type="CentralBufferNode" name="Review" xmi:id="elm5" owner="activity_2">
+		</elements>
+        <elements xsi:type="SystemAction" name="SaveReview" xmi:id="elm6">
+		</elements>
+        <elements xsi:type="DisplayAction" name="Notification" xmi:id="elm7">
+		</elements>
+
+        <elements xsi:type="Association" source="elm1" target="elm3" />
+        <elements xsi:type="Association" source="elm3" target="elm4" />
+        <elements xsi:type="Association" source="elm4" target="elm6" />
+        <elements xsi:type="Association" source="elm6" target="elm7" />
+
+        <elements xsi:type="Association" source="pin1" target="elm2" />
+        <elements xsi:type="Association" source="elm2" target="pin2" />
+        <elements xsi:type="Association" source="elm2" target="pin3" />
+        <elements xsi:type="Association" source="elm2" target="pin4" />
+        <elements xsi:type="Association" source="pin5" target="elm5" />
+        <elements xsi:type="Association" source="pin6" target="elm5" />
 	</packagedElement>
 
 </Model>

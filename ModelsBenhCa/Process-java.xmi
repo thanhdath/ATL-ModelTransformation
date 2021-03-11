@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <java:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http:///java.ecore" name="FishDisease.service">
+  <classes name="DiseaseService" annotation="@Service" isPublic="true"/>
   <classes name="DiagnosisService" annotation="@Service" isPublic="true">
     <members xsi:type="java:Method" name="DataValidation" isPublic="true" body="">
-      <parameters name="sympton" type="String"/>
       <parameters name="name" type="String"/>
+      <parameters name="sympton" type="String"/>
     </members>
     <members xsi:type="java:Method" name="SaveDiagnosis" isPublic="true" body=""/>
-    <members xsi:type="java:Method" name="Diagnose" isPublic="true" body=""/>
+  </classes>
+  <classes name="ReviewService" annotation="@Service" isPublic="true">
+    <members xsi:type="java:Method" name="SaveReview" isPublic="true" body=""/>
   </classes>
 </java:Package>
