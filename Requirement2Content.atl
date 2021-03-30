@@ -1,3 +1,4 @@
+-- @atlcompiler emftvm
 
 module Requirement2Content;
 
